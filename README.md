@@ -1,4 +1,4 @@
-# Meu Portfólio Pessoal
+# Meu Portfólio Pessoal 
 
 Este é o repositório do meu portfólio pessoal hospedado em [https://p-droo.github.io/portfolio/ ](https://p-droo.github.io/portfolio/ ).
 
@@ -16,6 +16,7 @@ Profissional atuando na interseção entre educação, inovação e desenvolvime
 - GitHub Pages
 
 ## 🚀 Como rodar localmente
+#Atualizado
 
 1. Clone o repositório:
    ```bash
