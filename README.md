@@ -6,10 +6,8 @@ Este é o site pessoal e portfólio profissional de **Pedro Cardeal**, Analista 
 
 Você pode acessar o site publicado em:
 
-👉 [https://seu-usuario.github.io/seu-repositorio](https://p-droo.github.io/portfolio/)  
-*Substitua `seu-usuario` e `seu-repositorio` com o seu nome de usuário e o nome real do repositório.*
+👉 [https://https://p-droo.github.io/portfolio/](https://p-droo.github.io/portfolio/)  
 
----
 
 ## 🧭 Estrutura do site
 
