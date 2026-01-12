@@ -1,361 +1,328 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Cardeal | Portfólio</title>
+    <title>Pedro Cardeal | Associate Product Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .section-divider {
-            position: relative;
-            height: 80px;
-        }
-        .section-divider::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 0;
-            width: 100vw;
-            height: 100%;
-            background: #f8fafc;
-            transform: translateX(-50%);
-            z-index: -1;
-        }
-        .blob {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.2;
-            z-index: -1;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hover-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .hover-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-white">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-sm z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold gradient-text">Pedro Cardeal</span>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-violet-200 selection:text-violet-900">
+
+    <!-- Navbar Sticky -->
+    <header class="bg-white/90 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-bold text-xl text-slate-900 tracking-tight hover:text-violet-600 transition">
+                Pedro<span class="text-violet-600">Cardeal</span>
+            </a>
+            <div class="flex gap-5 items-center">
+                <!-- Botão de Idioma -->
+                <div class="flex items-center text-sm font-bold bg-slate-100 rounded-lg p-1">
+                    <span class="px-2 py-0.5 bg-white shadow-sm rounded text-violet-700 cursor-default">PT</span>
+                    <a href="index-en.html" class="px-2 py-0.5 text-slate-400 hover:text-slate-600 transition">EN</a>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-600 hover:text-blue-500 transition">Sobre</a>
-                    <a href="#projects" class="text-gray-600 hover:text-blue-500 transition">Projetos</a>
-                    <a href="#contact" class="text-gray-600 hover:text-blue-500 transition">Contato</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-600 hover:text-blue-500">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
+                
+                <div class="h-4 w-px bg-slate-200 hidden md:block"></div>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" title="LinkedIn" class="text-slate-500 hover:text-[#0077b5] transition text-xl"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/p-droo" target="_blank" title="GitHub" class="text-slate-500 hover:text-slate-900 transition text-xl"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:contato@pedrocardeal.com" title="Email" class="text-slate-500 hover:text-violet-600 transition text-xl"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Sobre</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Projetos</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Contato</a>
-            </div>
-        </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-purple-50 relative overflow-hidden">
-        <div class="blob bg-blue-400 top-0 right-0"></div>
-        <div class="blob bg-purple-400 bottom-0 left-0"></div>
-        
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
-                    <span class="gradient-text">Learning Experience Design</span> & <span class="gradient-text">Product Education</span>
-                </h1>
-                <div class="text-xl text-gray-600 mb-8">
-                    Analista de Produto Educacional com 20 anos de experiência na interseção de educação, tecnologia e estratégia de produto.
-                </div>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-medium hover:opacity-90 transition shadow-lg">
-                        Entrar em Contato
-                    </a>
-                    <a href="#projects" class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full font-medium hover:border-blue-500 transition">
-                        Ver Projetos
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center relative">
-                <div class="floating">
-                    <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Education Technology" class="rounded-2xl shadow-xl w-full max-w-md" style="aspect-ratio: 4/3;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">
-                    <span class="gradient-text">Sobre Mim</span>
-                </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            </div>
-            
-            <div class="flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/3 flex justify-center">
-                    <div class="rounded-full overflow-hidden border-4 border-blue-100 shadow-lg w-64 h-64">
-                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwoJEA0NCgoNDQ0OCA0JCAgICBsIDQoNIB0WIiAdHx8kKCgsJCYxJxMTLTEtJjU3MS46Fx8zPDMtNykuLisBCgoKDg0ODxAQDysaFRkrLSsrKy0rLSstKysrLTcrNy0rLSstKystLSs3NzcrKzcrNzc3NysrKzcrKystLTctK//AABEIAMgAyAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABQQGAQIDBwj/xAA9EAACAAUBBQYDBgUEAgMAAAABAgADBBEhEgUxQVFhBhMiMnGBQpGhFCOxwdHwBzNSYnIVJOHxU4JDksL/xAAaAQACAwEBAAAAAAAAAAAAAAADBAABAgUG/8QALBEAAwACAQQBAwMEAwEAAAAAAAECAxEhBBIxQVEiYXETQoEUI5GhMjNSBf/aAAwDAQACEQMRAD8A8NgggiECCCCIQzBBDXYmwKzajWp5dkBtMqJnglp7/kMxG9FqW3pIVmGuyuz20No2NPTto/8APM+6lj3P5R6JsPsZQUNmnL9pmixLz0+7U9F/X6RZr4sOQAAxpHpAKza8Idx9G3zT0UTZ38OUFjW1ZJwTKpFsP/sfyHvFjouyeyKby0SOR8VSxqDf52+kN7/8CN16fSBO6fsanBE+EZo5MqULSpaIv9EqUJQt6WENaYXP0iBJP4/OGMoac+0LZAvozWnH4xUtpbRVn0Br5NtI3HrE3tNtjQO5knxlTrZdwhd2e2QZx72f5bHQHN9TdeljDODGojvv+EJ5bdPsn+RpsLZoqrPUU8qchKqsurp1nqVHK4OPrmHm3v4Y9na6UZsnZ4kTO7J1UE404U+mR9IY7Mky5aqEWwAA5WhrQ7QWXNMhyNLCyAm+f2YXXUOslLwmDyYdSn5aPnPbPYRqdmWlqhMImMO6nJoKj/Ld9BFWr9nVNGdNRJZOTEXVvePo3t3sH7OxqpNirmzywoGg2igts+ZNJZ0DId6OtxbqI6WOtrl8oVc78HksEenbW7A09Uuuj/28238s+OS5/FfbHSKBtfZNXsx+7q5LS2yVYi6uOYPGIrT9lOWhfBBBGjIQQQRCBBBBEIEEEEQhmC0ZAJNgM7gBHpfYvsilMEqq6WGnYeRTOLrJ6kcT04eu7N2pW2FxYnkekLeyvYZp4WftEFJZs0qkvomTBzPIfU9I9BlyUkqsuUioirpSXLXQqiJBPH3JjBH6wnWR15OriwzC4X8nLj+GI6W5e8Yty9784yB+EZC6C3/IgDW/TnBgflaNS3p8sxCjuj2+fyjFfX90hK5PlXTnJiM07T8s4iPNp2n29cAi4Y5t9Px6RpQtpvwDyPjS8izZ9G9VNebMbwLbXcnf19vxh6NoSZFtTKqDCAkJqhLtWul7PllEIwbNm5d4pqVjTp6PWOxTXdpaguNPK0OzgeZNvhLwc+8yw6Wt0z0qp7X0ckWFadekaJNHI79ieF2NhHWVtie05HdWU93L7qY8shpi793vFS2Bspdo1WtZemSJnxDBA3Rdtur3Zky5a5tqZ7eRBuEK5ceKKUJbb8jGF3fL8F+Mv/U6VpUw2Z5dtVrWbnHl+15rUMxqd1s6PobTu9ot/ZraExAFZtQGP8Yg/wASNjGqWXWyTZlZZVQoHmHA/iDfpA8OROlNPlAMuN42/hiqjmqRct7R0qqCm2jLaVVSVmy23qw3HmDvB6jMK6KnZAupvUXiyUqqq45RWb6XwylyjxPtt2PfYz6pLGZTMbozj7yV0P6j6RU4957TyJk6ZTELqUTh3g03BG6Kb/EDsD9jU12zZZ7jTrrKNRc03Nh/bz5em5mMq1Hc+WBqOXpcI83gggg4MIIIIhDMEEPuyWxxtCdqmj7iUQ87+88F97fIGKb0amXTSXsf9g+zflrald/iopTDd/cR+Hz5R6El/pxhS+0ZMrwqRjw6RhV/6jhO7QSpYIDXxuB39STC1RdvwdSHGKdb/I/vaMF+ftbhFLqu2MtMS0LZN2vj2iMO2bW/lH3MbXSZPgy+sxr2XpXHPrmMd9/zFJTtVMfcmnqFMyJVPtZpvmJ9QLD8Yv8ApaXk0uqh+C1maOY941L8R+EK6ecGGWORjUSYkrOA3chYHMCcaDKtk2Wl/ni8a7VqhSS7gWZjoQgYEdqEaiNR4jhujn2pou/CKvlAKkrwuN8Yml3yn4KtPT0uTzuuqWr5hAuQrWRw1grcSfWJuzNkSwQzEsb7zgRN/wBPEo6ZagIDZbbyeZiXKkzB5SBiwJF7R0qy/TqXpCMdPuu6ltjzZ86TRKGdrKuVUDzHoOccnrZ1fM718L5ZUsfCvXrEGVRhiGmszkbtRwPQQykjTuxyhCkk2/Lfs6ER440kWDZDrLGTm4wfiiyy1WrlTJMzyzJZTxDdy/KKVTMTx+sWrZE7Av6Rzsv00q3yVnhOWI9m9lK6bhl0WcqZk02B9BFooeyqSwO/nM/NJY0CH0maCoPSxjjPrAgwRHS1DlVT3s47t7a8GJWy6SXa0hDbczprMSDKlWIKLYgqw0ixEJKras5b92y9AVvCKs7X1NNfvKdZqjzd2+hok5IfEzyZ5+Tyr+Mf8PxsSb9u2cn+wnzdMySgxQzuX+Jzblkcr+YR9IVfa7Y+15U2kqZhlCdLMqdTViWVh6875B4EAx4N2n2LM2RUPIch0/mU1Qpus6Udx/fEGDxTe1U6ZX8ieCCCNlHSWjOQqi5YhVUbyY9ApWTZkladGAIGqpmpvaYRw/D0AitdlKIzpjTiMSU1LcXBc7vz+kMZ9HPmMc2Ba5d7mNTKp8vwHjcraXLCfVTJ5IlruFlVScD9743k7IqajM0lRx0xM2dSy5Q3AnVkkWv9IaNVpJGSALZbAtG6ya4lG5xd3NMX03Z2UlizFjfGrl7RIegp5e+WpxkNmIO0O0ayxaUvp/d6RX6naVVUZMwjkinMXMZK8vSKvJhjhTtljZaWWcIoO4aWsY6LUovlXgIqsmXNmeUMWvkt5RDCmpZx/mTtI+IquY28a90ZjK34jRZqSq7w6b29sQ9pZItFc2dSqLMpmNw7xzbHpFipCwt6cRCObS8HRw71yT0Jl565iS0zvxpOeA5xFUk77brxhWKEW+d4TfP5G0cJ1FbGbar3BjU0zDcOG4wxDhyI3r3lylVdzMPC0aWR8IpykLFUg+m+Oit7548IgVU2dJzMF+IYco4StoKeW/deC9jZXcvZZKRrkHdnNs2i07LcWtf/AIMUOkrhcZ9OcWfZFaLDPrmE+oxvRVaaLUazu5bdGB3wkn7UebqCnABvY5ES5EzvdaXHiQrfeL5jz+btBqaa66iRrKM1uUTpYeRNb5Ryuojsr8jGf2jaTMKnIGGvGJ1RLqxrlGzW8UsnDGKrtxzMOtDwubG0Q9kbSe+kvY3uLmOpPTLSa4aFe469oKNHJIGlxfUpG+KbtdJkxArMWEokylY30jjb5Xi+1risFjh1GGB4xWK+mZDpmixvYPwMMxyu1maXspcEStoU5kOVtg+JP8YIC1osvnZaiMmll8GmXqHJGc7voBHatExb2XVnHEmJanQFUCwVQiADcNw+kZmqbcha+68AVNPZ1Vj+lL4K/MepQ3aWQLWNgBEBhU1zaUawG4MDiLFNpWmEAE9Rwtz6x2kbIKZBIvkqPzg6zJfkC8DrjfHsr1L2YZvFUTfUIbn5wzl7FpJFrLqNt7Nf6QyNLULuKgcgtyfnHF6Wex9eGcRTzOv3cBJ6aZ/aQ5iS0wi9AoEdqShaYQzC2bhSMRPp9mafFMycaQuLGJ4RUx9LboxWb4YacHya0skLi3pE+Ult3ziF3qyxcnna2bx3kzmYX3cQIXrbDpJcEwA33dTGXW/T8o50s7UdJ39YlEXv62yIEERGQ6T6cY6V9M1QoZDdpRN0Gdab/nGNGcjreHuyJK21vu3aeLRi67efZt8ISyaD7XLJ0k6QHIItjiIWTtgK1yt78LcYuFXWyZKOlMozfvWAwoMJ/tMxtOlVJ1MCVby7rbovHkvn0ha6T9FNr6eooSDclC2m5wVh32XqmmEANfOLnOfyhltimlVCMGGWOAQXK45dIqvZJ5kqpZNYZVmFUZVIBzDTayYq45QCaayJememUE3Q/i6EHrHn/bSd9lqp0tU0r3hYEZLXsfzj0ElddiowFIMed/xKRxVMdOHlI1xuuP8AqF//AJ//AHNfKBdavpT+BWk37RLYX9+MJw7U8wN/duiRsepEprNazCxJ4RtteStyU3HNxHbS09emctk2o2ihIcDTix0RPkT6KtXu6hhbcrkjUp6RWtnTZbHRM9FjnVySjeAn9fSKrGn70RUbdsez02kRZ6MJslWEsTlPlB3X9/xgiHPranupskzGMt5ZVkY3Bsce9wIzAnjovuXwW9GuFPNASb7jEjUtt9za4iBJ8ChV8u4AnItHSVN588ZhRo7CZMVhx9jEmWc5PDGd8Kw5H/cTqUZv9LwOkGgaS1FueY2MkW3cbbozTgcusd2ODw62gOw6IM5FUDHQYiDNmcfnmJtS34EE2hPWzNIN+XCCwtlU9Ij1FR3hC8FyQOcONlnvFUjOLHnCGhlNNJaxtfEN6MtT305F76TwPSC5FxpeQUPnfob/AGUeYHcMRt9uWXhrXtaxP4wlrNqVBsspQL/G/wCkJqiqqixJctZc6QBnhb5xicDryyZOomfC2W/7ajkWI5ACOu0ttfY5WhCBMdbIobMscW/Tr6RVdn1bobtY2JBYpe3pBUTVYltJd3Oovp7xiepi/wCnXct8pGaz908LljukWbPChWItpKo8wkOOsWbZ0jwkTGWwGtha4QDr03xWNiSphKtOmbgNCpjEHbntAJCLs2muJs5FmVbrjRJO5b9f3vgVy7pRIPXZO37FG1duNWTZpp2KyJeqXTvrs0zmSfnYco17L6jOBXScgtbBDRtSbK006sVsXmujBhwxaOuwZX2efp02BZVuBbPDPtDL7VFTPpA1NKpbPQJGpnc6uILDGDgRT+1NfInVc2nqLBSECTAtihtz4xakm92NRNm1ePT5bC+/2jyftPOafMaoRtSvMYlx8JEL9Bj7slP4B9ZWpX3Oe06Q0j6WN1OZcxchhG8oEjfcb7HePSOFHWipUSKlr8JMw50mCYHkHQ98cb4tHZ9afk5r/wBEOpvKcOuM2PSOzVOoA7zxzGs8BrjHiGMxA1lLq3oY0YGqyROUlcn4ltkQRAo9oPTNrXPAo25hBGHNejapfJcq6Tomal8j3On+hukRyc/Ldyh9t3Z02nDK0sldWqVNRCVeK+S1tNrWxuyOd45mOu5I69a3x4ZIWx3fSGNPi30HKFEhiMFviLC+8CJcufa3zxFWg2OkOROtxjMyq4dL9IVGpsDnPpvjg9WDgHhwMDWMN3jCqqRw5898ItpVN7Lfe1jncOMb1FTjO7haEjT3mTbAXsL2hnFj/wBC+bNpfks1CVAAvYWta+IlmdLAOo3UXDFd4PD5wnSdqUy1trK4K7l556fXEdKSU2tu+YMndhFYHLNfeYtx5Zn9XekkdEPe43b2ld4L6Vvz9OEaTJImaRJHmVvEgvpzmOziTKItOxYXk+cMf2I7Cc6r/t6dlF760lHJPtEda8IpQn5ZGlUExR4msLHzbwIlU6SpflOt7WwMD1jumwK+cVMxdAdwCzuCUHURcNkdmKWRbUxeZcaZj4CnoP1hbN1Eyua2/gPHZHhEXs/sR2ZHnAhG8S8NX7vFS7YCXW7Sd5ZusqRJoVsthrXVf5E2i09o+0JlgSaKZ9+k372ehukm1/nfd+MVnZVJMnTgWuWMzU7Mcsx33PWBYHe6yVxxwEnG71VLheC0TaIJSSfD8VzaFUyml+A5VtWLfEf3aLbtpFk04VdygLjhFcmSWZU0gjxHW0y9ip5G/pGMVt7ewdvh8HTalYtNJbV4rybNrPmYb/xigbYkrKu0oaqeYBrCm/dvDfttXmTLSXbzzNRF9w6e+YqtNXnxIblWFmQ8o6nR4+2O75OV1d91a+CFMlNLODxupHEQxp5/2pNE3zr5HO8iIbrY6NV8apDn4hygpNHi1NpYfMGHmJLg2nBh7Y6xGmr3guPMB4uohrLpTUgkea2OTQrmo9O1mW3MERE/8ltf4IwEEd5qA2Zdx3dDBF7MaPoTv78rbxFE7ZUXczVmov3cwh5hW1hMz+/aH+z9opUy5U1G8M2Sk1Rfdf8ATI9o32lJl1sp5TkeJbIw+FuEeexJ46+x1dlACZsTYsDbqP8AiOc12lnINrabgbo2tMluUmLodH0MHPl9PpHd0ubagbnK7xfh9Ieb0Gh7XBx1uVvi53DfGkuQRm+c8OMTHkWybgDlgRrdethgBb4jHd8BNEUyGcG2eAEJe8aXMZbEAEM2Mm0WaUwBtu6cYibU2YszxpZTa72+KC48mnp+GDy4+6eHyhEKhwDpDED4AfN6xwm19ZzKrfyIu8esSKNu5Yqy/Hdgw3RZ5MmXNXyqw3lSthf1g9Wp8rYvjxu/3aEuw9uJIIMxVJMzSQ6DC4vkx6EnaGmkr3bPqGi8tgL29oqr0VKvmprbiGC3Ed5IpUyq2/yXMK5pjJp6G8WFz5rY6ftVNdCqSRq8qT3wu7BtGh7QbQnqE7xU8FnmSU7tm978ekQDMkDIUcsC945d9fyqbf1NgCBfox/5HYnHPrZ1EpUwM5Njff6w32I3dtq8q6bNi+OkV2ZXypR/qbcBuF4a7Fn/AGhg2sgD4FuPnF5Ifa+OCPqJb7Vyy07ZmGbJGk4awW++0L5yNLlL3IB0oS6TXtdeMb107vNC/De+DgR22l4aZ2VyAJDMHyQMf9wlPHavuByrUs8728PtQZdRPdoVl6hnnv8A3uipjB/OLXIGq986t5MVmsUy5jr/AHGwjudPXmfg4/VRpTXtmjsfL/7SzxUwN94utcOuJi7rxpNNwCOHHjHNZpQhhxwwhkTJmz9ovIIsYZbRnCpQHBa+8CxhHNT4l3HOOEbSJ7Ju3XvYxlr37In6N0fRdW3Z1WO6CMV+koZgxjSV6xmMVeno2pLp/D7aizqbuXbxSHKZO+Wbkf8A6+UWyVPHA3HHMePdldpfYahSx+7mDuZ1zgDgfY2+sejrUAHDcbb459Y97Y3FcHDtXSGZ/uJQ8Vgk5B/8g4Qpoq4EgBbYvOVr2Ux6n2b2CtVImvWJYTJLS5IYW0jnHlG16KZLmTGkH7xHMual8TAL298ReKle5+DaprlDaVP13FsFAVDHJMcpku9wG8Q8TBWyR1hHR7XtYTF0vYq7D9IYy61WPh0tcgEHcw5Xi3ict6QzOaa1ybNLVSyhyradZc5IHSMGp7tdL3vcINJ3n92gqJqtZmFiFN1Q40xHE/UHJyoJCsRv54i0tlN6fkhVTq7MWve4DMm4HkPaGOzauX5S2ngtzviG4UgvvxdJerPKI7v3JVRJa5KldYu1ukFa7loGr7HstcqbxvdbfFx9I6lx/wCMHdbSIR0U9tQluuLBkIJsvH5w+omV7gW8LFSb7mha57R3Haoj1Ux1Hgk3bGOA9YhLIqZ2q91BBGIfqssi9s9eHtGJjgYHBC1wL2G6Mzka8SbeNPzXBXpOwiuZrlic2ByPeHlCO5GlBbwAFum4xqXS4IzgAFYz3/d5UDDWZdwiXVWuSoiI5Q+pZSOVUn4cEHF+sQ+09SsiQ8oMSzMJS2e1uOB6XjlQ163LFgqgEFjw47/3xhZtR5lU5u2qVKGmU4Nwznff2IgUY/rTfhGMtd3C9iyQnytFZ2+uicbcVBi2yltj8IrHahbTFPNPeHunr+4K9ZP9r8CvUQF/y3HjGhFiVPHIxA5wP8sQT/hb+21xzh45HoxLfgfkYxaxgmDcw47/AFjDNx6Rf3KOddMwqg/3Nn99YzESY+okxmErrbYZGke1fweoqfbitNqpgZ6RpcuZS38Uz+lz0x9PSPFYedju0lT2fqpdXTkkD7upkX8M+Sd4P0tyIECtNy9Pk3L0fVdYAiEKLDRYAYtHz72ieZR1c/HgaaWyN0eqze2InSJc+VLE6VNlh5c2W+i45EcwcEcCDHl3aja9LUzWZpTIThtSg2gHSxaqn28MOqn50xNXUcurHeSW0zLZAwGhX39RSHS623jy2BvEjvllm8l7i9yhNiPSJsuqlVIs6g8CGGQY6CbXraMuVT4rTF8quuDqYsdNgNW+O32i+kA2Njgm4BjWdshGzKfTm+k5iFNpamVvXUBudBeL+l+zLdz5WxjKqBfxOS5utyp8I/KNxVqpud9vAjG49oTpMufETf4riB204U3JNyb3sPSNdiK/VY+paxka91UO3iF9bLxx7cYZUNci3KnUC+GdgjM+/HtzimAOfECepYgG0brVsoAIwAdIU/F1jNYky46hyegLtMur30iyhlIa925CNTV2Q6HGohS66rkjcbGKQdpE6BkWFrE898dm2mnhtwllCtzYjhA/6fQwur+5bGr2U2tv8QXTkW/Zji9fcNq/qyCReKz/AKu/w6j4dKEiwBhrsbZFVtAhpxMuTfWWtZpnpFVjmFunpFznq3qU2xvRCZWWlyDbjPnD/wCMcfpuEPqilSRKWXLFlVQqg5PrEjZ9DLpkCSU0qOuWPU8YzWLg+m+OfeXurjwdDHi7Vt+SvAWJ9b4iqdpn1TQOS7otj4LfjFJ2tM7yc55NpEO9KvqbE+uesevlkOacKI6TV+7ud4IPtGmnW4X0vaGMyWCpX+2xFsw+chexdTsD4W3HA6GI1X4PDx4+kbO2i564HMxFmOXJZjck3JgWW9ce2XKNIIIIVCBBBBEIWfsn2jagvT1Dn7JMa7C2vuH5j8wPXhmVtwU006pFUkwbwBdIp8SKaaq4mA24MpypgmJqX+SmS3RhwvyKm8cdbKbgkH1zHS/9LX5EGNWe/mF/8hmGvILeiVI2m6YcX6jfDBNoSpnxWNsgmEl14j5QWTr7xl40w056X3HcwSZo8QB6/wDMRZlCh8rEY3E64garbieWGMbic43MfmDFdjXhmnmmvMnZ6KZuVlNj6RgUU3kvzxGq1EwfF7MCI6LVzBnSbcxkRH3EX6bN02bPc7kHUtkRNp+zsyZbvJyqOSISY4SNpqLcOd4aUu1JePFAbrJ6GcePC/L2NNm7BpJFm0a2/rmm9vaLDT2FgPQCEdNXyz8Xr4oY01WhtY36iOfl7352zpYVE/8AFJDyU0ca04J6c45y54tkxEr6oWI9zC0y+4YdLQk2jOElGboTa8Uhm1sWPFiTcw47Q1/fHu0OBhiITzBpAHxHAAjtdNHbP3Zw+ty99aXhHETNLXtxhnKqFILMbAC7EmFc4BN/KIk2az4vjgILdpL7iUrkzUTe8YkCwLEqvIRxjMYhVvYQIIIIogQQQRCBBBBEIbo5X9IkI+rdnmOMRYyrFTcEg8CDYwSMjn8GXOyVcf8ARjJF931wYwlUDYTUDcNQ8LR0CS38kzhfS4hibT9mHJpY/pf9YyQeOOh4xsZcxM6Tb+pciMrOxZwCL54GN7KNbkdI2SdbePcGxjIlg/y3/wDR41YW/mS7f3JgRCaJUuoXmD/bNQH6xLl/Z2/mU+D8dM+72hUJQfyOP8X8Bg++lZIZeTDd84y5TNzTRYaekp3P3NWUPBJ2DeHNLST5VtUy4/qSKbL2gfjAbG8jMTZG19FtLunMB7g+xgF4aa8jeLqVPlFyNesoZJPq0IdrbYaYCsr0ZwcDoIif6mkweIg4zdMxHqq2Qu5wM30qgdvxgUYFL20EydX3LU8EYqJfic3N93FjEd56S7s+W+GWp3esRairLklb7/M58URTBqy+kJa2dJ05ppu3sBuEcoIIC2WEEEEUQIIIIhAgggiECCCCIQIIIIhAjN7QQRCHaXVTE3N847islv8AzZX/ALSzpMEEbWSl7KaMMZYyky/9rLpYflG0qqK4uCOTQQQVW2V2o6fcTNzBGtxawJjn3zSvLNBGcKb/ADggi3bK0ZaokP50sbeaUNN/aIzzF+EHoWOYxBGKyUXo1Mxjx+UaQQQJts1oxBBBFECCCCIQIIIIhAgggiEP/9k=" alt="Pedro Cardeal" class="w-full h-full object-cover">
+    <section class="bg-white border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+                <div class="md:col-span-8">
+                    <div class="inline-flex items-center gap-2 bg-violet-50 border border-violet-100 text-violet-700 text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wide">
+                        <span class="w-2 h-2 bg-violet-600 rounded-full animate-pulse"></span>
+                        Disponível para novas oportunidades
                     </div>
-                </div>
-                <div class="md:w-2/3">
-                    <p class="text-lg text-gray-700 mb-6">
-                        Learning Designer e Analista de Produto Educacional com 20 anos de experiência na interseção de educação, tecnologia e estratégia de produto.
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
+                        Associate Product Manager
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-slate-500 font-normal mb-8 leading-relaxed">
+                        Foco em <span class="text-slate-900 font-medium">Product Discovery</span>, <span class="text-slate-900 font-medium">User Research</span> e <span class="text-slate-900 font-medium">Operações</span>.
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-10 leading-relaxed max-w-2xl border-l-4 border-violet-200 pl-4">
+                        Profissional com background híbrido em <strong>Pesquisa, Educação e Dados</strong>. 
+                        Combino visão analítica (MBA em BI) com empatia pelo usuário (HCD) para reduzir fricção e criar produtos que educam e engajam.
                     </p>
-                    <p class="text-gray-700 mb-6">
-                        Especialista em Product Education, mapeando dores de aprendizagem e entregando soluções digitais escaláveis que aumentaram engajamento em até 30% e taxa de conclusão em 95%.
-                    </p>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                        <div class="bg-blue-50 px-4 py-3 rounded-lg">
-                            <div class="font-medium text-blue-600 mb-1">Metodologias Ágeis</div>
-                            <div class="text-sm text-gray-600">Scrum, Kanban</div>
-                        </div>
-                        <div class="bg-purple-50 px-4 py-3 rounded-lg">
-                            <div class="font-medium text-purple-600 mb-1">Design Instrucional</div>
-                            <div class="text-sm text-gray-600">ADDIE, SAM</div>
-                        </div>
-                        <div class="bg-blue-50 px-4 py-3 rounded-lg">
-                            <div class="font-medium text-blue-600 mb-1">Análise de Dados</div>
-                            <div class="text-sm text-gray-600">Power BI, Python</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 relative">
-        <div class="blob bg-blue-300 top-20 left-20"></div>
-        <div class="blob bg-purple-300 bottom-10 right-20"></div>
-        
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">
-                    <span class="gradient-text">Projetos Recentes</span>
-                </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Comunicação Multicultural" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Otimização de Comunicação Multicultural</h3>
-                        <p class="text-gray-600 mb-4">Projeto freelance em ONG internacional com gestão de stakeholders e eventos em contextos multiculturais.</p>
-                        <a href="#" class="text-blue-500 font-medium inline-flex items-center hover:text-blue-700">
-                            Ver mais <i class="fas fa-arrow-right ml-2"></i>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#cases" class="bg-violet-600 text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-violet-700 transition shadow-lg shadow-violet-200">
+                            Ver Portfólio
+                        </a>
+                        <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" class="bg-white text-slate-700 border border-slate-300 px-8 py-3.5 rounded-lg font-semibold hover:bg-slate-50 hover:border-slate-400 transition">
+                            Conectar no LinkedIn
                         </a>
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" alt="Projetos Educacionais" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Reestruturação de Projetos Educacionais</h3>
-                        <p class="text-gray-600 mb-4">Gestão completa do ciclo de vida de projetos no Espaço Lumiá.</p>
-                        <a href="#" class="text-blue-500 font-medium inline-flex items-center hover:text-blue-700">
-                            Ver mais <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 card-hover">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="App Como Aprendo" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">App Como Aprendo</h3>
-                        <p class="text-gray-600 mb-4">Solução digital para mapeamento de estilos de aprendizagem e captação de leads.</p>
-                        <a href="#" class="text-blue-500 font-medium inline-flex items-center hover:text-blue-700">
-                            Ver mais <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
+                <!-- Card de Skills -->
+                <div class="md:col-span-4 w-full">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
+                        <h3 class="font-bold text-slate-900 mb-4 flex items-center text-sm uppercase tracking-wide">
+                            <i class="fa-solid fa-layer-group text-violet-600 mr-2"></i> Competências
+                        </h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-md text-sm text-slate-600 font-medium shadow-sm">Product Discovery</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-md text-sm text-slate-600 font-medium shadow-sm">User Research</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-md text-sm text-slate-600 font-medium shadow-sm">Onboarding</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-md text-sm text-slate-600 font-medium shadow-sm">BPM & Processos</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-md text-sm text-slate-600 font-medium shadow-sm">Análise de Dados</span>
+                        </div>
+                        
+                        <div class="h-px bg-slate-200 mb-6"></div>
+
+                        <h3 class="font-bold text-slate-900 mb-4 flex items-center text-sm uppercase tracking-wide">
+                            <i class="fa-solid fa-toolbox text-violet-600 mr-2"></i> Tech Stack
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center text-sm text-slate-600"><i class="fa-brands fa-figma text-slate-400 mr-2"></i> Figma</div>
+                            <div class="flex items-center text-sm text-slate-600"><i class="fa-solid fa-table text-slate-400 mr-2"></i> Excel/Sheets</div>
+                            <div class="flex items-center text-sm text-slate-600"><i class="fa-solid fa-database text-slate-400 mr-2"></i> SQL (Básico)</div>
+                            <div class="flex items-center text-sm text-slate-600"><i class="fa-solid fa-chart-simple text-slate-400 mr-2"></i> Power BI</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">
-                    <span class="gradient-text">Vamos Conversar</span>
-                </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-6">
-                    Estou sempre aberto a novas oportunidades e colaborações. Entre em contato e vamos criar algo incrível juntos!
-                </p>
+    <!-- Cases e Projetos -->
+    <section id="cases" class="py-24 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Cases & Projetos</h2>
+                    <p class="text-slate-600">Experiência prática aplicando metodologias de produto.</p>
+                </div>
             </div>
+
+            <div class="grid md:grid-cols-12 gap-8">
+                
+                <!-- Case Principal: Questopia (Destaque Full Width) -->
+                <div class="md:col-span-12 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover-card group">
+                    <div class="grid md:grid-cols-12 gap-0 h-full">
+                        <div class="md:col-span-5 bg-gradient-to-br from-violet-600 to-indigo-800 p-8 md:p-12 flex flex-col justify-center text-white relative overflow-hidden">
+                            <!-- Background Pattern -->
+                            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            
+                            <div class="relative z-10">
+                                <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-4 inline-block tracking-wider">CASE PRINCIPAL</span>
+                                <h3 class="text-3xl md:text-4xl font-bold mb-3 group-hover:translate-x-1 transition-transform">Questopia</h3>
+                                <p class="text-violet-100 mb-8 text-lg font-light">Plataforma gamificada de diagnóstico educacional baseada em neurociência.</p>
+                                
+                                <div class="grid grid-cols-2 gap-4 text-sm border-t border-white/10 pt-6">
+                                    <div>
+                                        <div class="text-violet-200 text-xs uppercase mb-1">Impacto</div>
+                                        <div class="font-bold text-white">+10h Economia/Semana</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-violet-200 text-xs uppercase mb-1">Status</div>
+                                        <div class="font-bold text-white">MVP Validado</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-7 p-8 md:p-10 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-4 flex items-center">
+                                    O Desafio
+                                    <span class="ml-auto text-xs font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded">EdTech</span>
+                                </h4>
+                                <p class="text-slate-600 mb-6 leading-relaxed">
+                                    O engajamento no Ensino Fundamental II é crítico. Professores gastam tempo demais corrigindo e pouco tempo personalizando. 
+                                    <br><br>
+                                    Utilizei <strong>Jobs to Be Done</strong> para pivotar o produto de uma ferramenta de "avaliação" para "autoconhecimento", reduzindo a resistência dos alunos e gerando dados acionáveis.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="px-2.5 py-1 bg-violet-50 text-violet-700 text-xs font-semibold rounded border border-violet-100">Product Discovery</span>
+                                    <span class="px-2.5 py-1 bg-violet-50 text-violet-700 text-xs font-semibold rounded border border-violet-100">Gamification</span>
+                                    <span class="px-2.5 py-1 bg-violet-50 text-violet-700 text-xs font-semibold rounded border border-violet-100">Learning Design</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6 pt-6 border-t border-slate-100">
+                                <a href="questopia-case.html" class="group/link flex items-center text-violet-600 font-bold hover:text-violet-800 transition">
+                                    Ler Case Completo 
+                                    <i class="fa-solid fa-arrow-right ml-2 group-hover/link:translate-x-1 transition-transform"></i>
+                                </a>
+                                <a href="questopia-slides.html" class="flex items-center text-slate-500 font-medium hover:text-slate-900 transition text-sm">
+                                    <i class="fa-solid fa-play-circle mr-2 text-lg"></i> Ver Apresentação
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Research Ops (Xtrategie) -->
+                <div class="md:col-span-6 bg-white rounded-xl p-8 border border-slate-200 shadow-sm hover-card flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-blue-50 text-blue-600 p-3 rounded-lg border border-blue-100">
+                            <i class="fa-solid fa-magnifying-glass-chart text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-400 bg-slate-100 px-2 py-1 rounded uppercase">Atual (Freelance)</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">Research Operations</h3>
+                    <p class="text-sm text-slate-500 mb-4 font-medium">Xtrategie</p>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        Otimização do recrutamento para pesquisas B2B/B2C. Redução do tempo de agendamento e garantia de qualidade da amostra.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-3 pt-6 border-t border-slate-100">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2.5 text-xs"></i> <span>Recrutamento ativo de participantes.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2.5 text-xs"></i> <span>Gestão de incentivos e agendamento.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Card: Data Analyst (Brunfarma) -->
+                <div class="md:col-span-6 bg-white rounded-xl p-8 border border-slate-200 shadow-sm hover-card flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-emerald-50 text-emerald-600 p-3 rounded-lg border border-emerald-100">
+                            <i class="fa-solid fa-chart-line text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-400 bg-slate-100 px-2 py-1 rounded uppercase">Atual (Freelance)</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">Data & Process Analyst</h3>
+                    <p class="text-sm text-slate-500 mb-4 font-medium">Brunfarma</p>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        Análise de KPIs operacionais e mapeamento de processos (BPM) para identificar gargalos logísticos e de vendas.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-3 pt-6 border-t border-slate-100">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2.5 text-xs"></i> <span>Análise de KPIs de Logística e Vendas.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2.5 text-xs"></i> <span>Mapeamento de processos operacionais.</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Trajetória & Formação -->
+    <section class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16">
             
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg">
-                    <h3 class="text-xl font-bold mb-6">Informações de Contato</h3>
+            <!-- Experiência (Timeline) -->
+            <div>
+                <h3 class="text-xl font-bold text-slate-900 mb-10 flex items-center">
+                    <span class="bg-slate-100 p-2 rounded-lg mr-3"><i class="fa-solid fa-briefcase text-slate-500 text-sm"></i></span>
+                    Histórico Profissional
+                </h3>
+                
+                <div class="relative border-l-2 border-slate-100 ml-3 space-y-10 pl-8 pb-4">
                     
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="bg-white p-3 rounded-full shadow-md mr-4">
-                                <i class="fas fa-envelope text-blue-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-700">Email</h4>
-                                <a href="mailto:p_droo@outlook.com" class="text-blue-500 hover:underline">p_droo@outlook.com</a>
-                            </div>
+                    <!-- Item 1 -->
+                    <div class="relative group">
+                        <span class="absolute -left-[2.35rem] top-1.5 h-4 w-4 rounded-full border-2 border-white bg-violet-500 shadow ring-4 ring-white group-hover:ring-violet-50 transition-all"></span>
+                        <h4 class="font-bold text-slate-900 text-lg">Learning Designer & Product Ed.</h4>
+                        <div class="flex items-center text-xs font-semibold text-violet-600 mb-2 uppercase tracking-wide">
+                            Freelancer • Mar 2025 – Presente
                         </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-white p-3 rounded-full shadow-md mr-4">
-                                <i class="fab fa-linkedin-in text-blue-700"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-700">LinkedIn</h4>
-                                <a href="https://linkedin.com/in/pedrocardeal" target="_blank" class="text-blue-500 hover:underline">linkedin.com/in/pedrocardeal</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-white p-3 rounded-full shadow-md mr-4">
-                                <i class="fas fa-map-marker-alt text-purple-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-gray-700">Localização</h4>
-                                <p class="text-gray-600">Santo André, São Paulo</p>
-                            </div>
-                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Estruturação de fluxos de onboarding e jornadas de aprendizagem para produtos digitais. Foco total em reduzir o <strong>Time-to-Value</strong> do usuário.
+                        </p>
                     </div>
-                </div>
-                
-                <div class="md:w-1/2">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Seu nome">
+
+                    <!-- Item 2 -->
+                    <div class="relative group">
+                        <span class="absolute -left-[2.35rem] top-1.5 h-4 w-4 rounded-full border-2 border-white bg-slate-400 shadow ring-4 ring-white group-hover:ring-slate-100 transition-all"></span>
+                        <h4 class="font-bold text-slate-900 text-lg">Financial Consultant</h4>
+                        <div class="flex items-center text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
+                            W1 Consultoria • 2023 – 2025
                         </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="seu@email.com">
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Gestão do ciclo de vida do cliente (CRM) e criação de Wiki interna para padronização de processos de atendimento.
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative group">
+                        <span class="absolute -left-[2.35rem] top-1.5 h-4 w-4 rounded-full border-2 border-white bg-slate-400 shadow ring-4 ring-white group-hover:ring-slate-100 transition-all"></span>
+                        <h4 class="font-bold text-slate-900 text-lg">PM & Consultor Educacional</h4>
+                        <div class="flex items-center text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
+                            Lumiá Clube de Estudos • 2017 – Presente
                         </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Sua mensagem..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition shadow-md">
-                            Enviar Mensagem
-                        </button>
-                    </form>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Gestão de produtos educacionais end-to-end. Liderança de roadmaps, definição de KPIs e consultoria internacional (Chile).
+                        </p>
+                    </div>
+
                 </div>
             </div>
+
+            <!-- Formação -->
+            <div>
+                <h3 class="text-xl font-bold text-slate-900 mb-10 flex items-center">
+                    <span class="bg-slate-100 p-2 rounded-lg mr-3"><i class="fa-solid fa-graduation-cap text-slate-500 text-sm"></i></span>
+                    Educação Contínua
+                </h3>
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm hover:border-violet-200 transition">
+                        <h4 class="font-bold text-slate-900">Pós-graduação em Product Management</h4>
+                        <div class="flex justify-between items-center mt-1">
+                            <p class="text-sm text-slate-500">Descomplica</p>
+                            <span class="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded font-medium">Concluído 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm hover:border-violet-200 transition">
+                        <h4 class="font-bold text-slate-900">MBA em Gestão Ágil de Projetos</h4>
+                        <div class="flex justify-between items-center mt-1">
+                            <p class="text-sm text-slate-500">Descomplica</p>
+                            <span class="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded font-medium">Concluído 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl border border-slate-100 shadow-sm hover:border-violet-200 transition">
+                        <h4 class="font-bold text-slate-900">MBA em Business Intelligence</h4>
+                        <div class="flex justify-between items-center mt-1">
+                            <p class="text-sm text-slate-500">Faculdade Iguaçu</p>
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">2023</span>
+                        </div>
+                    </div>
+                    
+                    <div class="px-5 py-3 opacity-75">
+                        <h4 class="font-bold text-slate-700 text-sm">Licenciatura em Letras</h4>
+                        <p class="text-xs text-slate-500">Universidade de Pernambuco (2011)</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-2xl font-bold gradient-text">Pedro Cardeal</span>
-                    <p class="text-gray-400 mt-2">Analista de Produto Educacional</p>
-                </div>
-                
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                </div>
+    <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col items-center text-center">
+            <h2 class="text-2xl font-bold text-white mb-2">Vamos construir algo juntos?</h2>
+            <p class="text-slate-400 mb-8 max-w-lg">Estou disponível para atuar como APM, Product Researcher ou em Product Ops.</p>
+            
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" class="bg-slate-800 p-4 rounded-full hover:bg-violet-600 hover:text-white transition-all transform hover:-translate-y-1">
+                    <i class="fa-brands fa-linkedin text-2xl"></i>
+                </a>
+                <a href="https://github.com/p-droo" target="_blank" class="bg-slate-800 p-4 rounded-full hover:bg-slate-700 hover:text-white transition-all transform hover:-translate-y-1">
+                    <i class="fa-brands fa-github text-2xl"></i>
+                </a>
+                <a href="mailto:contato@pedrocardeal.com" class="bg-slate-800 p-4 rounded-full hover:bg-violet-600 hover:text-white transition-all transform hover:-translate-y-1">
+                    <i class="fa-solid fa-envelope text-2xl"></i>
+                </a>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                &copy; <span id="year"></span> Pedro Cardeal. Todos os direitos reservados.
+            <div class="text-xs text-slate-600 border-t border-slate-800 pt-8 w-full max-w-xs">
+                &copy; 2026 Pedro Cardeal.<br>Desenvolvido com foco em Produto.
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-                
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Blob animation
-        const blobs = document.querySelectorAll('.blob');
-        blobs.forEach((blob, index) => {
-            // Random initial position and animation
-            const duration = 15 + Math.random() * 10; // 15-25 seconds
-            const delay = Math.random() * 5; // 0-5 seconds delay
-            
-            blob.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-        });
-    </script>
 </body>
 </html>
