@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questopia - Apresentação Interativa</title>
+    <!-- Adição: Botão de Voltar Flutuante -->
+    <style>
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 200;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            color: #6b7280;
+            font-family: system-ui, sans-serif;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .back-button:hover {
+            background: white;
+            color: #8b5cf6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+    </style>
+    <!-- Fim da Adição -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Slide específicos */
+        .slide-cover {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .slide-cover h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .slide-cover .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .slide-cover .tags {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1f2937;
+        }
+
+        .highlight {
+            color: #8b5cf6;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .problem-box, .solution-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .problem-box h3, .solution-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .problem-box ul, .solution-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .problem-box li, .solution-box li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .problem-box li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+
+        .solution-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+            font-weight: bold;
+        }
+
+        .screenshot {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .metric-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-card .label {
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        .insights-list {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .insights-list .insight {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .insights-list .insight:last-child {
+            margin-bottom: 0;
+        }
+
+        .insights-list .insight-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .insights-list .insight-text {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .competency {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .competency-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .competency-title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1rem;
+        }
+
+        /* Navegação */
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .framework-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .framework-title {
+            font-weight: 600;
+            color: #8b5cf6;
+            margin-bottom: 0.5rem;
+        }
+
+        .framework-text {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #8b5cf6;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #8b5cf6;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2rem;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Voltar ao Portfólio</a>
+
+    <div class="presentation">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">12</span>
+        </div>
+
+        <!-- Slide 1: Cover -->
+        <div class="slide active slide-cover">
+            <div class="slide-content">
+                <h1>🎮 Questopia</h1>
+                <p class="subtitle">Plataforma gamificada de diagnóstico educacional<br>baseada em neurociência</p>
+                <div class="tags">
+                    <span class="tag">EdTech</span>
+                    <span class="tag">Product Discovery</span>
+                    <span class="tag">MVP Validado</span>
+                    <span class="tag">Learning Experience Design</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: O Problema -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>O Problema em <span class="highlight">Duas Camadas</span></h2>
+                <div class="two-column">
+                    <div class="problem-box">
+                        <h3>😰 Estudantes (12-18 anos)</h3>
+                        <ul>
+                            <li>Baixo engajamento com métodos tradicionais</li>
+                            <li>Não sabem como aprendem melhor</li>
+                            <li>Ansiedade e frustração acadêmica crescentes</li>
+                            <li>Soluções genéricas sem personalização</li>
+                        </ul>
+                    </div>
+                    <div class="problem-box">
+                        <h3>📊 Educadores & Criadores</h3>
+                        <ul>
+                            <li>Decisões baseadas em achismos, não dados</li>
+                            <li>Sem diagnóstico estruturado dos alunos</li>
+                            <li>Dificuldade em personalizar experiências</li>
+                            <li>Falta de ferramentas práticas acessíveis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Insight Central -->
+        <div class="slide">
+            <div class="slide-content" style="text-align: center;">
+                <h2 style="margin-bottom: 3rem;">💡 O Insight que Mudou Tudo</h2>
+                <div style="background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;">
+                    <p style="font-size: 1.8rem; line-height: 1.6; color: #1f2937; margin-bottom: 2rem;">
+                        "Alunos se engajam quando o foco é <span style="color: #8b5cf6; font-weight: 700;">descobrir sobre si</span>, não <span style="text-decoration: line-through; opacity: 0.5;">ser avaliado</span>"
+                    </p>
+                    <p style="color: #6b7280; font-size: 1.1rem;">
+                        Baseado em Jobs to Be Done e testes qualitativos com estudantes do Fundamental II
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: A Solução -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>A Solução: <span class="highlight">Diagnóstico Gamificado</span></h2>
+                <div class="solution-box" style="max-width: 900px; margin: 0 auto;">
+                    <p style="font-size: 1.3rem; color: #1f2937; margin-bottom: 2rem; line-height: 1.6;">
+                        Questionário de estilos de aprendizagem disfarçado de experiência interativa, transformando autoconhecimento em dados acionáveis para educadores.
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+                        <div style="text-align: center; padding: 1.5rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎯</div>
+                            <div style="font-weight: 600; color: #1f2937;">Missões & Narrativa</div>
+                            <div style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Engajamento natural</div>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🧠</div>
+                            <div style="font-weight: 600; color: #1f2937;">Neuroeducação</div>
+                            <div style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Base científica sólida</div>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📈</div>
+                            <div style="font-weight: 600; color: #1f2937;">Dados Práticos</div>
+                            <div style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Personalização real</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Como Funciona -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Como <span class="highlight">Funciona</span></h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="process-step">
+                        <span class="step-number">1</span>
+                        <div style="display: inline-block; vertical-align: top; width: calc(100% - 4rem);">
+                            <div class="step-title">Estudante entra na plataforma</div>
+                            <div class="step-description">Interface gamificada com progresso visual e missões desbloqueáveis</div>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-number">2</span>
+                        <div style="display: inline-block; vertical-align: top; width: calc(100% - 4rem);">
+                            <div class="step-title">Responde perguntas interativas</div>
+                            <div class="step-description">Questões baseadas em teorias de aprendizagem, sem parecer "teste"</div>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-number">3</span>
+                        <div style="display: inline-block; vertical-align: top; width: calc(100% - 4rem);">
+                            <div class="step-title">Sistema gera perfil de aprendizagem</div>
+                            <div class="step-description">Algoritmo baseado em neurociência identifica padrões cognitivos</div>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-number">4</span>
+                        <div style="display: inline-block; vertical-align: top; width: calc(100% - 4rem);">
+                            <div class="step-title">Devolutiva personalizada</div>
+                            <div class="step-description">Estudante recebe insights sobre como aprende + educadores recebem dados estruturados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Produto em Ação -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>O Produto <span class="highlight">Funcionando</span></h2>
+                <div class="two-column">
+                    <div>
+                        <div class="screenshot">
+                            <div style="background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); padding: 1rem; color: white; font-weight: 600;">
+                                Interface do Estudante
+                            </div>
+                            <div style="padding: 1.5rem; background: #fafafa;">
+                                <div style="margin-bottom: 1rem; padding: 1rem; background: white; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                                    <div style="color: #6b7280; font-size: 0.9rem; margin-bottom: 0.5rem;">Questão 1 de 10</div>
+                                    <div style="height: 4px; background: #e5e7eb; border-radius: 2px; overflow: hidden;">
+                                        <div style="height: 100%; width: 10%; background: #8b5cf6;"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: 1.5rem; background: white; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                                    <div style="font-size: 1.1rem; color: #1f2937; margin-bottom: 1.5rem; font-weight: 500;">
+                                        Como você prefere estudar?
+                                    </div>
+                                    <div style="margin-bottom: 0.75rem; padding: 1rem; background: #f9fafb; border-radius: 0.5rem; border: 2px solid transparent; cursor: pointer;">
+                                        📚 Lendo e fazendo resumos
+                                    </div>
+                                    <div style="margin-bottom: 0.75rem; padding: 1rem; background: #f9fafb; border-radius: 0.5rem; border: 2px solid transparent; cursor: pointer;">
+                                        🎬 Assistindo vídeos
+                                    </div>
+                                    <div style="margin-bottom: 0.75rem; padding: 1rem; background: #f9fafb; border-radius: 0.5rem; border: 2px solid #8b5cf6; cursor: pointer;">
+                                        🎮 Fazendo exercícios práticos
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="screenshot">
+                            <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 1rem; color: white; font-weight: 600;">
+                                Dashboard do Educador
+                            </div>
+                            <div style="padding: 1.5rem; background: #fafafa;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                    <div style="background: white; padding: 1rem; border-radius: 0.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                                        <div style="font-size: 2rem; color: #8b5cf6; font-weight: 700;">156</div>
+                                        <div style="font-size: 0.85rem; color: #6b7280;">Alunos diagnosticados</div>
+                                    </div>
+                                    <div style="background: white; padding: 1rem; border-radius: 0.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                                        <div style="font-size: 2rem; color: #10b981; font-weight: 700;">2.316</div>
+                                        <div style="font-size: 0.85rem; color: #6b7280;">Questões no banco</div>
+                                    </div>
+                                </div>
+                                <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                                    <div style="font-weight: 600; color: #1f2937; margin-bottom: 1rem;">Perfis de Aprendizagem</div>
+                                    <div style="margin-bottom: 0.75rem;">
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem; font-size: 0.9rem;">
+                                            <span style="color: #6b7280;">Visual</span>
+                                            <span style="color: #1f2937; font-weight: 600;">42%</span>
+                                        </div>
+                                        <div style="height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden;">
+                                            <div style="height: 100%; width: 42%; background: #8b5cf6;"></div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 0.75rem;">
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem; font-size: 0.9rem;">
+                                            <span style="color: #6b7280;">Cinestésico</span>
+                                            <span style="color: #1f2937; font-weight: 600;">35%</span>
+                                        </div>
+                                        <div style="height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden;">
+                                            <div style="height: 100%; width: 35%; background: #6366f1;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem; font-size: 0.9rem;">
+                                            <span style="color: #6b7280;">Auditivo</span>
+                                            <span style="color: #1f2937; font-weight: 600;">23%</span>
+                                        </div>
+                                        <div style="height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden;">
+                                            <div style="height: 100%; width: 23%; background: #ec4899;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Decisões de Produto -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Decisões <span class="highlight">Estratégicas</span></h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="framework-box">
+                        <div class="framework-title">🎯 Por que gamificação?</div>
+                        <div class="framework-text">
+                            Testes A/B mostraram que formato gamificado teve <strong>3x mais taxa de conclusão</strong> que questionários tradicionais. Estudantes não percebem como "avaliação", reduzindo ansiedade.
+                        </div>
+                    </div>
+                    <div class="framework-box">
+                        <div class="framework-title">🧠 Por que neuroeducação?</div>
+                        <div class="framework-text">
+                            Base em Repetição Espaçada (SRS) e teorias de aprendizagem validadas cientificamente gera credibilidade com educadores e diferenciação no mercado EdTech.
+                        </div>
+                    </div>
+                    <div class="framework-box">
+                        <div class="framework-title">📊 Por que foco em dados?</div>
+                        <div class="framework-text">
+                            Jobs to Be Done revelou que educadores precisam de <strong>diagnóstico estruturado</strong>, não apenas ferramentas de ensino. Professores economizam em média <strong>10h/semana</strong> com insights da plataforma.
+                        </div>
+                    </div>
+                    <div class="framework-box">
+                        <div class="framework-title">🚀 Por que MVP funcional?</div>
+                        <div class="framework-text">
+                            Arquitetura pensada para evolução: de ferramenta de diagnóstico → plataforma educacional completa → produto B2B para escolas e edtechs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Impacto e Métricas -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Impacto & <span class="highlight">Validação</span></h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="number">100%</div>
+                        <div class="label">Taxa de Conclusão<br>do Diagnóstico</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="number">10h</div>
+                        <div class="label">Economizadas por<br>Professor/Semana</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="number">2.316</div>
+                        <div class="label">Questões no<br>Banco de Dados</div>
+                    </div>
+                </div>
+                <div class="insights-list" style="margin-top: 2rem;">
+                    <div class="insight">
+                        <div class="insight-title">✅ Questionário 100% funcional</div>
+                        <div class="insight-text">Sistema de perguntas, lógica de perfis e devolutiva operando sem falhas</div>
+                    </div>
+                    <div class="insight">
+                        <div class="insight-title">✅ Arquitetura escalável</div>
+                        <div class="insight-text">Estrutura de dados preparada para dashboard avançado, ML e comunidade</div>
+                    </div>
+                    <div class="insight">
+                        <div class="insight-title">✅ Produto deployado</div>
+                        <div class="insight-text">MVP rodando em produção em questopia.com.br</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Aprendizados Principais -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Principais <span class="highlight">Aprendizados</span></h2>
+                <div class="insights-list">
+                    <div class="insight">
+                        <div class="insight-title">💡 "Descobrir" > "Avaliar"</div>
+                        <div class="insight-text">
+                            Reframing do diagnóstico como ferramenta de <strong>autoconhecimento</strong> (não avaliação) eliminou resistência dos estudantes e aumentou engajamento orgânico.
+                        </div>
+                    </div>
+                    <div class="insight">
+                        <div class="insight-title">🎯 Duplo valor capturado</div>
+                        <div class="insight-text">
+                            Produto atende simultaneamente estudantes (experiência) e educadores (dados), criando loop de valor e múltiplos modelos de negócio possíveis.
+                        </div>
+                    </div>
+                    <div class="insight">
+                        <div class="insight-title">📊 Dados como diferencial</div>
+                        <div class="insight-text">
+                            Em mercado saturado de "apps educacionais", posicionamento como <strong>plataforma de diagnóstico</strong> abre portas para B2B e parcerias estratégicas.
+                        </div>
+                    </div>
+                    <div class="insight">
+                        <div class="insight-title">🧪 MVP como ferramenta de discovery</div>
+                        <div class="insight-text">
+                            Construir produto funcional (não protótipo) permitiu validações reais e gerou aprendizados impossíveis de obter apenas com testes de conceito.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Frameworks Utilizados -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Frameworks & <span class="highlight">Metodologias</span></h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                        <div style="font-weight: 600; color: #1f2937; margin-bottom: 0.75rem; font-size: 1.2rem;">Jobs to Be Done</div>
+                        <div style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">
+                            Mapeamento profundo de estudantes, pais e educadores para identificar jobs funcionais, emocionais e sociais reais.
+                        </div>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🧠</div>
+                        <div style="font-weight: 600; color: #1f2937; margin-bottom: 0.75rem; font-size: 1.2rem;">Learning Experience Design</div>
+                        <div style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">
+                            Aplicação de princípios de neuroeducação e design instrucional para criar experiências que realmente facilitam aprendizado.
+                        </div>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🔬</div>
+                        <div style="font-weight: 600; color: #1f2937; margin-bottom: 0.75rem; font-size: 1.2rem;">Product Discovery</div>
+                        <div style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">
+                            Ciclos rápidos de hipótese → teste → aprendizado para validar problema, solução e fit produto-mercado.
+                        </div>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🚀</div>
+                        <div style="font-weight: 600; color: #1f2937; margin-bottom: 0.75rem; font-size: 1.2rem;">MVP Thinking</div>
+                        <div style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">
+                            Foco no mínimo viável para aprendizado: funcionalidade core + validação estruturada, deixando features avançadas para próximas fases.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Próximos Passos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Visão de <span class="highlight">Evolução</span></h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: white; padding: 2.5rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                        <div style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; text-align: center;">
+                            Arquitetura pensada para transformação em plataforma completa
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                            <div style="text-align: center;">
+                                <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📊</div>
+                                    <div style="font-weight: 600; color: #1f2937; margin-bottom: 0.5rem;">Fase 1</div>
+                                    <div style="color: #8b5cf6; font-size: 0.9rem; font-weight: 600;">ATUAL</div>
+                                </div>
+                                <div style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">
+                                    Diagnóstico de estilos de aprendizagem
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎓</div>
+                                    <div style="font-weight: 600; color: #1f2937; margin-bottom: 0.5rem;">Fase 2</div>
+                                    <div style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">6 MESES</div>
+                                </div>
+                                <div style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">
+                                    Trilhas personalizadas + dashboard avançado
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏢</div>
+                                    <div style="font-weight: 600; color: #1f2937; margin-bottom: 0.5rem;">Fase 3</div>
+                                    <div style="color: #6b7280; font-size: 0.9rem; font-weight: 600;">12 MESES</div>
+                                </div>
+                                <div style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">
+                                    Produto B2B para escolas e edtechs
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 2rem; border-radius: 1rem; border-left: 4px solid #8b5cf6;">
+                        <div style="font-weight: 600; color: #1f2937; margin-bottom: 1rem; font-size: 1.1rem;">Próximas Validações</div>
+                        <ul style="list-style: none; padding: 0; color: #4b5563; line-height: 1.8;">
+                            <li style="padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem;">
+                                <span style="position: absolute; left: 0;">→</span> Testes com usuários reais (estudantes + educadores)
+                            </li>
+                            <li style="padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem;">
+                                <span style="position: absolute; left: 0;">→</span> Validação de willingness to pay (modelo de precificação)
+                            </li>
+                            <li style="padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem;">
+                                <span style="position: absolute; left: 0;">→</span> Criação de motor de recomendação baseado em perfis
+                            </li>
+                            <li style="padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0;">→</span> Desenvolvimento de dashboards para coordenadores pedagógicos
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Competências -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Competências <span class="highlight">Demonstradas</span></h2>
+                <div class="competencies">
+                    <div class="competency">
+                        <div class="competency-icon">🔍</div>
+                        <div class="competency-title">Product Discovery</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">🎯</div>
+                        <div class="competency-title">Jobs to Be Done</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">🎨</div>
+                        <div class="competency-title">UX/UI Design</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">🧠</div>
+                        <div class="competency-title">Learning Design</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">📊</div>
+                        <div class="competency-title">Data-Driven Decisions</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">🚀</div>
+                        <div class="competency-title">MVP Development</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">🏗️</div>
+                        <div class="competency-title">Arquitetura de Produto</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">💼</div>
+                        <div class="competency-title">Visão de Negócio</div>
+                    </div>
+                    <div class="competency">
+                        <div class="competency-icon">🔄</div>
+                        <div class="competency-title">Product Strategy</div>
+                    </div>
+                </div>
+                <div class="cta-section">
+                    <a href="https://questopia.com.br" target="_blank" class="cta-button">
+                        🚀 Ver Produto Funcionando
+                    </a>
+                    <div style="margin-top: 2rem; color: #6b7280; font-size: 0.95rem;">
+                        questopia.com.br
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="navigation">
+            <button class="nav-btn" id="prev-btn" onclick="previousSlide()">← Anterior</button>
+            <button class="nav-btn" id="next-btn" onclick="nextSlide()">Próximo →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            
+            // Atualizar botões
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+        
+        function previousSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        // Navegação por teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+        
+        // Inicializar
+        showSlide(0);
+    </script>
+</body>
+</html>
