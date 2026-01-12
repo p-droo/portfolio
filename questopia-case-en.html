@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questopia - Product Case Study</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .prose h3 { color: #4c1d95; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #374151; font-size: 1.05rem; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #374151; }
+        .prose li { margin-bottom: 0.75rem; line-height: 1.6; }
+        .prose strong { color: #1e293b; font-weight: 600; }
+        .nav-link.active { color: #7c3aed; border-left-color: #7c3aed; font-weight: 600; background: linear-gradient(to right, #f5f3ff, transparent); }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-violet-200 selection:text-violet-900">
+
+    <!-- Navbar -->
+    <nav class="border-b border-slate-100 py-4 sticky top-0 bg-white/95 backdrop-blur-md z-50 transition-all shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <a href="index-en.html" class="group flex items-center text-slate-500 hover:text-slate-900 font-medium transition text-sm">
+                <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center mr-3 group-hover:bg-slate-200 transition">
+                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                </span>
+                Back to Portfolio
+            </a>
+            <div class="flex items-center gap-4">
+                 <!-- Language Toggle -->
+                 <div class="flex items-center text-xs font-bold bg-slate-100 rounded-lg p-1">
+                    <a href="questopia-case.html" class="px-2 py-0.5 text-slate-400 hover:text-slate-600 transition">PT</a>
+                    <span class="px-2 py-0.5 bg-white shadow-sm rounded text-violet-700 cursor-default">EN</span>
+                </div>
+                <div class="h-4 w-px bg-slate-200 mx-1"></div>
+                <a href="questopia-slides.html" class="text-xs bg-slate-900 text-white px-4 py-2 rounded-full font-bold hover:bg-violet-600 transition shadow-lg shadow-violet-200/50 flex items-center">
+                    <i class="fa-solid fa-play mr-2 text-[10px]"></i> View Presentation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Header -->
+    <header class="bg-slate-50 border-b border-slate-200 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-4xl mx-auto px-6 py-20 md:py-28 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-600 text-[11px] font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider shadow-sm">
+                <span class="w-2 h-2 bg-green-500 rounded-full"></span> MVP Validated
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">Questopia</h1>
+            <p class="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
+                Gamified platform transforming educational diagnostics and reducing teacher workload.
+            </p>
+            
+            <!-- Role and Status Summary -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 border-t border-slate-200/60 pt-8 text-left max-w-3xl mx-auto">
+                <div class="col-span-1">
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Role</span>
+                    <span class="font-semibold text-slate-900 text-sm">Product Lead</span>
+                </div>
+                <div class="col-span-1">
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Sector</span>
+                    <span class="font-semibold text-slate-900 text-sm">EdTech (K-12)</span>
+                </div>
+                <div class="col-span-1">
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Skills</span>
+                    <span class="font-semibold text-slate-900 text-sm">Discovery, JTBD</span>
+                </div>
+                <div class="col-span-1">
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Impact</span>
+                    <span class="font-semibold text-violet-600 text-sm">-10h Work/Week</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-12 gap-16">
+        
+        <!-- Navigation Sidebar (Desktop) -->
+        <aside class="hidden md:block md:col-span-3">
+            <div class="sticky top-28 space-y-1 text-sm border-l border-slate-200 pl-0">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 pl-4">In this Study</p>
+                <a href="#summary" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Executive Summary</a>
+                <a href="#problem" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">The Problem</a>
+                <a href="#discovery" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Discovery & Research</a>
+                <a href="#jtbd" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Jobs-to-be-Done</a>
+                <a href="#solution" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">The Solution (MVP)</a>
+                <a href="#results" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Results</a>
+            </div>
+        </aside>
+
+        <!-- Case Text -->
+        <article class="md:col-span-8 prose max-w-none pb-20">
+            
+            <section id="summary" class="mb-16 scroll-mt-28">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Executive Summary</h2>
+                <p class="lead text-lg text-slate-600 font-normal">
+                    Questopia is a gamified assessment web platform for 10–14 year old students (Middle School). The project was created to solve a dual bottleneck: <strong>teacher workload</strong> in grading assessments and <strong>low student engagement</strong> with traditional methods.
+                </p>
+                <p>
+                    I led the product from hypothesis-driven discovery to the construction and iteration of an MVP. The current goal is to validate an estimated saving of 10 hours per week per teacher and increase student retention through short, dynamic sessions.
+                </p>
+            </section>
+
+            <div class="h-px bg-slate-200 w-full mb-16"></div>
+
+            <section id="problem" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">The Problem & Opportunity</h2>
+                <div class="bg-red-50 p-8 rounded-2xl border border-red-100 mb-8">
+                    <h3 class="!mt-0 !text-red-900 text-lg flex items-center">
+                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> The Middle School Gap
+                    </h3>
+                    <p class="mb-0 !text-red-800/80 text-base">
+                        The EdTech market tends to focus on literacy or college prep. The "middle ground" (ages 12-14) suffers from a lack of innovation. We identified that students in this age group have low persistence in structured activities, and teachers are drowning in manual grading.
+                    </p>
+                </div>
+                <p><strong>The Opportunity:</strong> Create a product that simultaneously delivers continuous engagement for teenagers (via gamification and spaced repetition) and data intelligence for educators/parents.</p>
+            </section>
+
+            <section id="discovery" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Discovery & Research</h2>
+                <p>
+                    To reduce uncertainty before writing a single line of code, I executed a discovery process based on 4 axes of hypotheses:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 not-prose mb-8">
+                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
+                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">1. Behavior</div>
+                        <p class="text-sm text-slate-600 m-0">Mobile devices and social networks compete aggressively for student attention.</p>
+                    </div>
+                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
+                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">2. Teacher Training</div>
+                        <p class="text-sm text-slate-600 m-0">Teachers feel unprepared to handle social-emotional demands.</p>
+                    </div>
+                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
+                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">3. Autonomy</div>
+                        <p class="text-sm text-slate-600 m-0">External pressures (parents/school) limit pedagogical innovation in the classroom.</p>
+                    </div>
+                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
+                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">4. School Climate</div>
+                        <p class="text-sm text-slate-600 m-0">Operational overload prevents individualized monitoring.</p>
+                    </div>
+                </div>
+                <p>
+                    <strong>Methodology:</strong> I applied structured questionnaires segmented by years of experience. The result validated the latent pain: experienced teachers (>5 years) feel the administrative burden more than the pedagogical one.
+                </p>
+            </section>
+
+            <section id="jtbd" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Jobs-to-be-Done (JTBD)</h2>
+                <p>We mapped the "jobs" that each stakeholder is trying to accomplish:</p>
+                
+                <div class="space-y-6 not-prose mt-8">
+                    <div class="flex items-start bg-slate-50 p-6 rounded-xl border border-slate-100">
+                        <div class="bg-white text-violet-600 p-3 rounded-lg mr-5 shadow-sm border border-slate-100 mt-1"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
+                        <div>
+                            <strong class="block text-lg text-slate-900 mb-1">Teacher</strong>
+                            <span class="text-slate-600 italic">"I want to automate assessment (functional) so I can focus on teaching better classes and feel effective (emotional)."</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-slate-50 p-6 rounded-xl border border-slate-100">
+                        <div class="bg-white text-indigo-600 p-3 rounded-lg mr-5 shadow-sm border border-slate-100 mt-1"><i class="fa-solid fa-gamepad text-xl"></i></div>
+                        <div>
+                            <strong class="block text-lg text-slate-900 mb-1">Student</strong>
+                            <span class="text-slate-600 italic">"I want to improve my grades (functional) without looking like I'm studying all the time and losing my free time (social)."</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-slate-50 p-6 rounded-xl border border-slate-100">
+                        <div class="bg-white text-emerald-600 p-3 rounded-lg mr-5 shadow-sm border border-slate-100 mt-1"><i class="fa-solid fa-users text-xl"></i></div>
+                        <div>
+                            <strong class="block text-lg text-slate-900 mb-1">Parents</strong>
+                            <span class="text-slate-600 italic">"I want visibility into my child's progress (functional) to reduce my anxiety about their future (emotional)."</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">The Solution (MVP)</h2>
+                <p>
+                    We built a Web-First MVP (for accessibility on any device) focused on <strong>Gamified Diagnostics</strong>.
+                </p>
+                
+                <div class="my-10 border border-slate-200 rounded-2xl overflow-hidden shadow-lg group">
+                    <!-- Visual Placeholder -->
+                    <div class="bg-gradient-to-r from-violet-600 to-indigo-700 h-80 flex items-center justify-center text-white text-center p-8 relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                        <div class="relative z-10 transform group-hover:scale-105 transition duration-700">
+                            <i class="fa-solid fa-laptop-code text-6xl mb-6 opacity-90 drop-shadow-lg"></i>
+                            <h3 class="!text-white !m-0 !mt-0 text-2xl font-bold drop-shadow-md">Gamified Interface</h3>
+                            <p class="text-violet-100 text-sm mt-3 opacity-90">MVP Conceptual Visualization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Core Features:</h3>
+                <ul class="list-none space-y-3 !pl-0">
+                    <li class="flex items-start p-3 rounded-lg hover:bg-slate-50 transition"><i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i> <span><strong>Narrative Missions:</strong> Tests disguised as challenges to reduce test anxiety.</span></li>
+                    <li class="flex items-start p-3 rounded-lg hover:bg-slate-50 transition"><i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i> <span><strong>Immediate Feedback:</strong> Based on Neuroscience (positive reinforcement).</span></li>
+                    <li class="flex items-start p-3 rounded-lg hover:bg-slate-50 transition"><i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i> <span><strong>Data Dashboard:</strong> Converts student errors into review suggestions for the teacher.</span></li>
+                </ul>
+            </section>
+
+            <section id="results" class="mb-12 bg-slate-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden scroll-mt-28">
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-violet-600 rounded-full blur-3xl opacity-20"></div>
+                
+                <h2 class="relative z-10 text-2xl font-bold text-white mb-8 flex items-center">
+                    <span class="bg-green-500 w-2 h-8 rounded mr-4"></span>
+                    Impact & Learnings (Beta)
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-10 relative z-10">
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl">
+                        <div class="text-4xl font-bold text-violet-400 mb-2">100%</div>
+                        <div class="text-xs text-slate-300 uppercase tracking-wide">Completion Rate</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl">
+                        <div class="text-4xl font-bold text-emerald-400 mb-2">~10h</div>
+                        <div class="text-xs text-slate-300 uppercase tracking-wide">Weekly Savings</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl">
+                        <div class="text-4xl font-bold text-blue-400 mb-2">2.3k</div>
+                        <div class="text-xs text-slate-300 uppercase tracking-wide">Questions in Bank</div>
+                    </div>
+                </div>
+                
+                <div class="relative z-10 bg-white/10 p-6 rounded-xl border border-white/5">
+                    <h3 class="!text-white !mt-0 text-lg flex items-center mb-3">
+                        <i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i> The Main Pivot (Learning)
+                    </h3>
+                    <p class="text-slate-200 mb-0 text-sm leading-relaxed">
+                        Initially, we focused on "Assessment". We discovered that this generates resistance. We pivoted the communication to <strong>"Self-Knowledge" and "Learning Style"</strong>. Result: Students began to see value for <em>themselves</em>, not just for the school, which drastically increased organic engagement.
+                    </p>
+                </div>
+            </section>
+
+            <div class="border-t border-slate-200 pt-10 mt-16 flex justify-between items-center">
+                <a href="index-en.html" class="text-slate-500 font-medium hover:text-slate-900 transition flex items-center">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Home
+                </a>
+                <a href="questopia-slides.html" class="bg-violet-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-violet-700 transition shadow-lg shadow-violet-200 flex items-center">
+                    View Visual Presentation <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12 mt-12">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; 2026 Pedro Cardeal. Case Study: Questopia.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
