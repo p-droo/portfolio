@@ -1,62 +1,75 @@
 # Portfólio de Pedro Cardeal
 
-Este é o site pessoal e portfólio profissional de **Pedro Cardeal**, Analista de Produto Educacional e Learning Designer. Com uma trajetória de 20 anos na interseção entre educação, tecnologia e estratégia, este site apresenta seu posicionamento profissional, projetos e formas de contato.
+Este é o site pessoal e portfólio profissional de **Pedro Cardeal**, Associate Product Manager. Com foco em Product Discovery, User Research e Operações, este site apresenta seu posicionamento profissional, cases e formas de contato.
 
 ## 🌐 Acesse o site
 
 Você pode acessar o site publicado em:
 
-👉 [https://https://p-droo.github.io/portfolio/](https://p-droo.github.io/portfolio/)  
+👉 [https://p-droo.github.io/portfolio/](https://p-droo.github.io/portfolio/)
 
 
 ## 🧭 Estrutura do site
 
-O site é composto por uma única página HTML responsiva, com navegação interna simples e visual leve e sofisticado inspirado nos arquétipos do **Sábio** e do **Criador**.
+O site é composto por páginas HTML estáticas responsivas com design moderno e clean:
 
-### Seções disponíveis:
+### Páginas disponíveis:
 
-- **Sobre Mim**: resumo do posicionamento profissional e áreas de especialidade.
-- **Projetos**: cards descritivos de projetos com links para páginas futuras.
-- **Contato**: canais de comunicação direta (e-mail e LinkedIn).
+- **index.html** (PT) / **index-en.html** (EN): Página principal com apresentação, competências e projetos
+- **questopia-case.html** (PT) / **questopia-case-en.html** (EN): Case study detalhado do projeto Questopia
+- **questopia-slides.html** (PT): Apresentação visual do case Questopia
+- **sobre.html**: Página de redirecionamento
 
 ---
 
 ## 🎨 Identidade Visual
 
-Inspirado nos arquétipos do Sábio (sabedoria, confiança, autoridade) e do Criador (criatividade, sensibilidade, inovação), o site utiliza:
+O site utiliza um design moderno e profissional com:
 
 - **Cores**:
-  - Petroleum (#2C3E50)
-  - Cobalt (#004E89)
-  - Offwhite (#F7F5F2)
-  - Ochre (#C9A66B)
-  - Sepia (#756C5C)
+  - Violeta Principal: #7c3aed (violet-600)
+  - Slate para textos: #0f172a, #475569, #64748b
+  - Fundo: #f8fafc (slate-50)
+  - Acentos: Indigo, Verde, Azul
 - **Fontes**:
-  - Títulos: *Playfair Display* (serifada, elegante)
-  - Corpo de texto: *Inter* (limpa, moderna)
+  - Todas as seções: *Inter* (limpa, moderna, legível)
 
 ---
 
 ## 🔧 Tecnologias utilizadas
 
 - HTML5
-- CSS3 com variáveis customizadas
-- Google Fonts (Inter + Playfair Display)
+- Tailwind CSS (via CDN)
+- Font Awesome 6 (ícones)
+- Google Fonts (Inter)
+- Design responsivo mobile-first
+
+---
+
+## ✨ Funcionalidades
+
+- **Bilíngue**: Versões completas em Português e Inglês
+- **Navegação fluida**: Scroll suave e sticky navigation
+- **Case study detalhado**: Documentação completa do projeto Questopia
+- **Design responsivo**: Otimizado para todos os dispositivos
+- **SEO otimizado**: Meta tags e estrutura semântica
 
 ---
 
 ## 💡 Próximos passos
 
-- Criar páginas individuais para cada projeto com descrição detalhada, imagens e resultados;
-- Adicionar animações leves com JavaScript;
-- Melhorar responsividade em dispositivos móveis.
+- Migrar do Tailwind CDN para build otimizado
+- Adicionar mais cases de produto
+- Implementar analytics
+- Adicionar blog técnico
 
 ---
 
 ## 📬 Contato
 
-- E-mail: [p_droo@outlook.com](mailto:p_droo@outlook.com)
+- E-mail: [contato@pedrocardeal.com](mailto:contato@pedrocardeal.com)
 - LinkedIn: [linkedin.com/in/pedrocardeal](https://linkedin.com/in/pedrocardeal)
+- GitHub: [github.com/p-droo](https://github.com/p-droo)
 
 ---
 
