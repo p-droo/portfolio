@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questopia - Estudo de Caso de Produto</title>
+    <title>Questopia — Case Completo | Pedro Cardeal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
@@ -34,45 +34,36 @@
                     <span class="px-2 py-0.5 bg-white shadow-sm rounded text-violet-700 cursor-default">PT</span>
                     <a href="questopia-case-en.html" class="px-2 py-0.5 text-slate-400 hover:text-slate-600 transition">EN</a>
                 </div>
-                <div class="h-4 w-px bg-slate-200 mx-1"></div>
-                <a href="questopia-slides.html" class="text-xs bg-slate-900 text-white px-4 py-2 rounded-full font-bold hover:bg-violet-600 transition shadow-lg shadow-violet-200/50 flex items-center">
-                    <i class="fa-solid fa-play mr-2 text-[10px]"></i> Ver Apresentação
-                </a>
             </div>
         </div>
     </nav>
 
     <!-- Header do Case -->
     <header class="bg-slate-50 border-b border-slate-200 relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
 
         <div class="max-w-4xl mx-auto px-6 py-20 md:py-28 relative z-10 text-center">
             <div class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-600 text-[11px] font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider shadow-sm">
-                <span class="w-2 h-2 bg-green-500 rounded-full"></span> MVP Validado
+                <span class="w-2 h-2 bg-amber-500 rounded-full"></span> MVP em iteração
             </div>
             <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">Questopia</h1>
             <p class="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-                Plataforma gamificada que transforma o diagnóstico educacional e reduz a sobrecarga docente.
+                Produto de revisão espaçada para Ensino Fundamental II
             </p>
-            
-            <!-- Resumo de Papel e Status -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 border-t border-slate-200/60 pt-8 text-left max-w-3xl mx-auto">
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 border-t border-slate-200/60 pt-8 text-left max-w-2xl mx-auto">
                 <div class="col-span-1">
                     <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Papel</span>
-                    <span class="font-semibold text-slate-900 text-sm">Product Lead</span>
+                    <span class="font-semibold text-slate-900 text-sm">Fundador & PM (solo)</span>
                 </div>
                 <div class="col-span-1">
                     <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Setor</span>
-                    <span class="font-semibold text-slate-900 text-sm">EdTech (K-12)</span>
+                    <span class="font-semibold text-slate-900 text-sm">EdTech (Fund. II)</span>
                 </div>
                 <div class="col-span-1">
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Skills</span>
-                    <span class="font-semibold text-slate-900 text-sm">Discovery, JTBD</span>
-                </div>
-                <div class="col-span-1">
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Impacto</span>
-                    <span class="font-semibold text-violet-600 text-sm">-10h Trabalho/Sem</span>
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Status</span>
+                    <span class="font-semibold text-violet-600 text-sm">Testando canal WhatsApp</span>
                 </div>
             </div>
         </div>
@@ -80,169 +71,261 @@
 
     <!-- Conteúdo Principal -->
     <main class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-12 gap-16">
-        
+
         <!-- Sidebar de Navegação (Desktop) -->
         <aside class="hidden md:block md:col-span-3">
             <div class="sticky top-28 space-y-1 text-sm border-l border-slate-200 pl-0">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 pl-4">Neste Estudo</p>
-                <a href="#resumo" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Resumo Executivo</a>
-                <a href="#problema" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">O Problema</a>
-                <a href="#discovery" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Discovery & Pesquisa</a>
-                <a href="#jtbd" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Jobs-to-be-Done</a>
-                <a href="#solucao" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">A Solução (MVP)</a>
-                <a href="#resultados" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Resultados</a>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 pl-4">Neste Case</p>
+                <a href="#contexto" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Contexto</a>
+                <a href="#tese" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Minha Tese</a>
+                <a href="#discovery" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Discovery</a>
+                <a href="#decisoes" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Decisões de Produto</a>
+                <a href="#iteracao1" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Iteração 1: MVP Web</a>
+                <a href="#iteracao2" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Iteração 2: WhatsApp</a>
+                <a href="#aprendizados" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Aprendizados</a>
+                <a href="#proximos" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Próximos Passos</a>
             </div>
         </aside>
 
         <!-- Texto do Case -->
         <article class="md:col-span-8 prose max-w-none pb-20">
-            
-            <section id="resumo" class="mb-16 scroll-mt-28">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Resumo Executivo</h2>
-                <p class="lead text-lg text-slate-600 font-normal">
-                    Questopia é uma plataforma web de avaliação gamificada para estudantes de 10–14 anos (Fundamental II). O projeto nasceu para resolver um gargalo duplo: a <strong>sobrecarga docente</strong> na correção de avaliações e o <strong>baixo engajamento</strong> estudantil com métodos tradicionais.
+
+            <!-- Contexto -->
+            <section id="contexto" class="mb-16 scroll-mt-28">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Contexto</h2>
+                <p>
+                    O mercado de EdTech brasileiro tende a focar em dois extremos: alfabetização (crianças pequenas) e preparação para vestibular/ENEM (ensino médio). O Ensino Fundamental II — alunos de 10 a 14 anos — fica no "meio do caminho" e sofre com falta de inovação em produto.
                 </p>
                 <p>
-                    Liderei o produto desde o discovery estruturado por hipóteses até a construção e iteração de um MVP. O objetivo atual é validar uma economia estimada de 10 horas semanais por professor e aumentar a retenção de alunos através de sessões curtas e dinâmicas.
+                    Nessa faixa etária, a <strong>retenção de conteúdo</strong> é um problema real. Alunos aprendem um assunto, são avaliados uma vez e seguem adiante — sem revisão estruturada. Pesquisas em ciência cognitiva mostram que a revisão espaçada é um dos métodos mais eficazes para fixação de longo prazo, mas os produtos existentes (como Anki) exigem disciplina e autonomia que adolescentes de 10-14 anos simplesmente não têm.
+                </p>
+                <p>
+                    Do lado dos professores, a situação é igualmente problemática: horas semanais gastas com correção de atividades recorrentes, pouco tempo para personalizar o ensino, e quase nenhum dado sobre padrões de erro dos alunos.
                 </p>
             </section>
 
             <div class="h-px bg-slate-200 w-full mb-16"></div>
 
-            <section id="problema" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">O Problema & Oportunidade</h2>
-                <div class="bg-red-50 p-8 rounded-2xl border border-red-100 mb-8">
-                    <h3 class="!mt-0 !text-red-900 text-lg flex items-center">
-                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> O Gap do Fundamental II
-                    </h3>
-                    <p class="mb-0 !text-red-800/80 text-base">
-                        O mercado de EdTech tende a focar na alfabetização ou no pré-vestibular. O "meio do caminho" (12-14 anos) sofre com falta de inovação. Identificamos que estudantes nessa faixa etária têm baixa persistência em atividades estruturadas e professores estão afogados em correções manuais.
+            <!-- Minha Tese -->
+            <section id="tese" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Minha Tese</h2>
+                <div class="bg-violet-50 p-8 rounded-2xl border border-violet-100 mb-6">
+                    <p class="mb-0 text-violet-900 text-lg leading-relaxed">
+                        Pessoas aprendem e retêm melhor quando a jornada é desenhada com intencionalidade. Revisão espaçada é um dos métodos mais comprovados pela ciência cognitiva — mas os produtos existentes exigem disciplina que alunos de 10-14 anos não têm.
                     </p>
                 </div>
-                <p><strong>A Oportunidade:</strong> Criar um produto que entregue simultaneamente engajamento contínuo para adolescentes (via gamificação e revisão espaçada) e inteligência de dados para educadores/pais.</p>
+                <p>
+                    Minha aposta: é possível entregar revisão espaçada eficaz se o produto for desenhado para caber na rotina do aluno (não o contrário), se for adotado pelo professor (e não imposto), e se gerar visibilidade para os pais.
+                </p>
             </section>
 
+            <div class="h-px bg-slate-200 w-full mb-16"></div>
+
+            <!-- Discovery -->
             <section id="discovery" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Discovery & Pesquisa</h2>
-                <p>
-                    Para reduzir a incerteza antes de escrever qualquer linha de código, executei um processo de discovery baseado em 4 eixos de hipóteses:
-                </p>
-                <div class="grid md:grid-cols-2 gap-4 not-prose mb-8">
-                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
-                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">1. Comportamento</div>
-                        <p class="text-sm text-slate-600 m-0">Dispositivos móveis e redes sociais competem agressivamente pela atenção do aluno.</p>
-                    </div>
-                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
-                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">2. Formação Docente</div>
-                        <p class="text-sm text-slate-600 m-0">Professores sentem falta de preparo para lidar com demandas socioemocionais.</p>
-                    </div>
-                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
-                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">3. Autonomia</div>
-                        <p class="text-sm text-slate-600 m-0">Pressões externas (pais/escola) limitam a inovação pedagógica em sala.</p>
-                    </div>
-                    <div class="bg-white p-5 shadow-sm border border-slate-200 rounded-xl">
-                        <div class="text-violet-600 font-bold text-sm uppercase mb-2">4. Clima Escolar</div>
-                        <p class="text-sm text-slate-600 m-0">Sobrecarga operacional impede o acompanhamento individualizado.</p>
-                    </div>
-                </div>
-                <p>
-                    <strong>Metodologia:</strong> Apliquei questionários estruturados segmentados por tempo de experiência. O resultado validou a dor latente: professores experientes (>5 anos) sentem mais a sobrecarga administrativa do que pedagógica.
-                </p>
-            </section>
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Discovery</h2>
 
-            <section id="jtbd" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Jobs-to-be-Done (JTBD)</h2>
-                <p>Mapeamos os "trabalhos" que cada stakeholder tenta realizar:</p>
-                
-                <div class="space-y-6 not-prose mt-8">
-                    <div class="flex items-start bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <div class="bg-white text-violet-600 p-3 rounded-lg mr-5 shadow-sm border border-slate-100 mt-1"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
-                        <div>
-                            <strong class="block text-lg text-slate-900 mb-1">Professor</strong>
-                            <span class="text-slate-600 italic">"Quero automatizar a avaliação (funcional) para que eu possa focar em dar aulas melhores e me sentir eficaz (emocional)."</span>
-                        </div>
-                    </div>
-                    <div class="flex items-start bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <div class="bg-white text-indigo-600 p-3 rounded-lg mr-5 shadow-sm border border-slate-100 mt-1"><i class="fa-solid fa-gamepad text-xl"></i></div>
-                        <div>
-                            <strong class="block text-lg text-slate-900 mb-1">Estudante</strong>
-                            <span class="text-slate-600 italic">"Quero melhorar minhas notas (funcional) sem parecer que estou estudando o tempo todo e perder meu tempo livre (social)."</span>
-                        </div>
-                    </div>
-                    <div class="flex items-start bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <div class="bg-white text-emerald-600 p-3 rounded-lg mr-5 shadow-sm border border-slate-100 mt-1"><i class="fa-solid fa-users text-xl"></i></div>
-                        <div>
-                            <strong class="block text-lg text-slate-900 mb-1">Responsáveis</strong>
-                            <span class="text-slate-600 italic">"Quero ter visibilidade do progresso do meu filho (funcional) para reduzir minha ansiedade sobre o futuro dele (emocional)."</span>
-                        </div>
-                    </div>
+                <h3>Pesquisa com Alunos</h3>
+                <p>
+                    Conduzi pesquisa qualitativa com alunos do Fundamental II para entender como organizam seu tempo, quais atividades competem pela atenção deles e qual seria a disposição para usar uma ferramenta de revisão.
+                </p>
+                <p><strong>Principais achados:</strong></p>
+                <ul>
+                    <li>Múltiplas atividades competem pelo tempo do aluno: escola, esporte, telas, descanso</li>
+                    <li>Qualquer solução com mais de ~15 minutos de sessão seria abandonada</li>
+                    <li>Resistência forte a qualquer coisa que pareça "mais tarefa de casa"</li>
+                    <li>O produto precisa caber nos espaços entre as atividades existentes, não criar um espaço novo</li>
+                </ul>
+
+                <h3>Pesquisa com Professores</h3>
+                <p>
+                    Pesquisei professores para mapear o fluxo de trabalho, entender as dores operacionais e identificar onde um produto poderia gerar valor real.
+                </p>
+                <p><strong>Principais achados:</strong></p>
+                <ul>
+                    <li>Tempo significativo gasto com correção de atividades recorrentes</li>
+                    <li>Falta de dados sobre padrões de erro dos alunos — correção é feita, mas o dado se perde</li>
+                    <li>Receio de ser substituído por tecnologia — qualquer produto que pareça ameaçar o papel do professor será rejeitado</li>
+                </ul>
+                <p>
+                    <strong>Hipótese em validação:</strong> redução significativa do tempo semanal com correção. Validação em andamento via pesquisa quantitativa com 8-10 professores.
+                </p>
+
+                <h3>Insight de Cruzamento</h3>
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 not-prose">
+                    <p class="text-slate-700 leading-relaxed m-0">
+                        O produto precisa ser desenhado para o <strong>aluno usar</strong>, para o <strong>professor adotar</strong>, e para os <strong>pais monitorarem</strong>. Três interfaces, três propostas de valor, um produto.
+                    </p>
                 </div>
             </section>
 
-            <section id="solucao" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">A Solução (MVP)</h2>
+            <div class="h-px bg-slate-200 w-full mb-16"></div>
+
+            <!-- Decisões de Produto -->
+            <section id="decisoes" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Decisões de Produto</h2>
+
+                <h3>Sessões de 7-15 minutos</h3>
                 <p>
-                    Construímos um MVP Web-First (para acessibilidade em qualquer dispositivo) focado em <strong>Diagnóstico Gamificado</strong>.
+                    <strong>Fundamentação:</strong> princípios de microlearning + mapeamento da jornada do aluno. A pesquisa mostrou que sessões acima de 15 minutos são abandonadas.
                 </p>
-                
-                <div class="my-10 border border-slate-200 rounded-2xl overflow-hidden shadow-lg group">
-                    <div class="bg-gradient-to-r from-violet-600 to-indigo-700 h-80 flex items-center justify-center text-white text-center p-8 relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                        <div class="relative z-10 transform group-hover:scale-105 transition duration-700">
-                            <i class="fa-solid fa-laptop-code text-6xl mb-6 opacity-90 drop-shadow-lg"></i>
-                            <h3 class="!text-white !m-0 !mt-0 text-2xl font-bold drop-shadow-md">Interface Gamificada</h3>
-                            <p class="text-violet-100 text-sm mt-3 opacity-90">Visualização conceitual do MVP</p>
+                <p>
+                    <strong>Trade-off:</strong> sessões mais longas poderiam gerar mais aprendizado por sessão, mas a taxa de abandono seria muito alta. Preferi frequência a profundidade — revisão espaçada funciona melhor com repetição curta e constante.
+                </p>
+
+                <h3>Auxiliar, não substituir o professor</h3>
+                <p>
+                    <strong>Fundamentação:</strong> pesquisa com professores revelou que o receio de substituição é uma barreira real de adoção.
+                </p>
+                <p>
+                    <strong>Trade-off:</strong> limita a autonomia do produto (não pode funcionar 100% sem o professor), mas garante adoção pelo canal mais importante. O professor é quem indica o produto aos alunos — se ele não adotar, o produto não chega ao usuário final.
+                </p>
+
+                <h3>Três propostas de valor distintas</h3>
+                <div class="space-y-4 not-prose mb-8">
+                    <div class="flex items-start bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <div class="bg-white text-indigo-600 p-3 rounded-lg mr-4 shadow-sm border border-slate-100"><i class="fa-solid fa-gamepad text-lg"></i></div>
+                        <div>
+                            <strong class="block text-slate-900 mb-1">Aluno</strong>
+                            <span class="text-slate-600 text-sm">Retenção de conteúdo sem fricção — sessões curtas que cabem na rotina.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <div class="bg-white text-violet-600 p-3 rounded-lg mr-4 shadow-sm border border-slate-100"><i class="fa-solid fa-chalkboard-user text-lg"></i></div>
+                        <div>
+                            <strong class="block text-slate-900 mb-1">Professor</strong>
+                            <span class="text-slate-600 text-sm">Economia de tempo com correção + dados sobre onde os alunos erram.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <div class="bg-white text-emerald-600 p-3 rounded-lg mr-4 shadow-sm border border-slate-100"><i class="fa-solid fa-users text-lg"></i></div>
+                        <div>
+                            <strong class="block text-slate-900 mb-1">Pais</strong>
+                            <span class="text-slate-600 text-sm">Controle e visibilidade sobre o estudo dos filhos fora da escola.</span>
                         </div>
                     </div>
                 </div>
 
-                <h3>Funcionalidades Core:</h3>
-                <ul class="list-none space-y-3 !pl-0">
-                    <li class="flex items-start p-3 rounded-lg hover:bg-slate-50 transition"><i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i> <span><strong>Missões Narrativas:</strong> Testes disfarçados de desafios para reduzir ansiedade de prova.</span></li>
-                    <li class="flex items-start p-3 rounded-lg hover:bg-slate-50 transition"><i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i> <span><strong>Feedback Imediato:</strong> Baseado em Neuroeducação (reforço positivo).</span></li>
-                    <li class="flex items-start p-3 rounded-lg hover:bg-slate-50 transition"><i class="fa-solid fa-check-circle text-green-500 mt-1 mr-3"></i> <span><strong>Data Dashboard:</strong> Converte erros dos alunos em sugestões de revisão para o professor.</span></li>
+                <h3>Gamificação para engajamento</h3>
+                <p>
+                    Mecânicas de progressão e feedback imediato desenhadas para manter o aluno engajado em sessões curtas. O objetivo não é "viciar" — é reduzir a barreira de entrada e manter a consistência ao longo do tempo.
+                </p>
+            </section>
+
+            <div class="h-px bg-slate-200 w-full mb-16"></div>
+
+            <!-- Iteração 1 -->
+            <section id="iteracao1" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Iteração 1: MVP Web</h2>
+                <p>
+                    <strong>Ferramenta:</strong> Lovable (no-code builder)<br>
+                    <strong>O que foi construído:</strong> Plataforma web com cadastro, sessões de revisão espaçada, sistema de feedback interno e painel básico de progresso.<br>
+                    <strong>Disponível em:</strong> <a href="https://questopia.com.br" target="_blank">questopia.com.br</a>
+                </p>
+
+                <h3>Resultados</h3>
+                <ul>
+                    <li>Primeiros usuários testaram a plataforma</li>
+                    <li>Engajamento abaixo do esperado</li>
+                    <li>Sistema de feedback interno não recebeu mensagens</li>
+                    <li>Sazonalidade escolar (fim/início de ano letivo) impactou a janela de teste</li>
+                </ul>
+
+                <h3>Diagnóstico</h3>
+                <div class="bg-amber-50 p-6 rounded-xl border border-amber-100 not-prose mb-4">
+                    <p class="text-amber-900 leading-relaxed m-0">
+                        <strong>A barreira principal de adoção não era o conteúdo — era o canal.</strong> Acessar um site, criar conta, fazer login e navegar até uma sessão de revisão é fricção demais para alunos de Ensino Fundamental II. O produto pode ser bom, mas se o canal de entrega gera atrito, o usuário não chega a experimentar.
+                    </p>
+                </div>
+            </section>
+
+            <div class="h-px bg-slate-200 w-full mb-16"></div>
+
+            <!-- Iteração 2 -->
+            <section id="iteracao2" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Iteração 2: Pivô para WhatsApp</h2>
+
+                <h3>Hipótese</h3>
+                <p>
+                    WhatsApp elimina as principais barreiras de adoção: não precisa de download, não precisa de login, não precisa de cadastro. O aluno já está no canal — a questão de revisão chega até ele, e não o contrário.
+                </p>
+
+                <h3>Abordagem</h3>
+                <p>
+                    Teste manual antes de automação. Envio manual de questões via WhatsApp para validar a demanda antes de investir tempo construindo um bot. Se a hipótese se confirmar, automatizo com n8n auto-hospedado.
+                </p>
+
+                <h3>Design do teste</h3>
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 not-prose mb-6">
+                    <ul class="text-sm text-slate-700 space-y-2 m-0 list-none p-0">
+                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Recrutar 10-15 alunos via professores parceiros</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Enviar 1 questão de revisão por dia via WhatsApp</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Registrar: quem respondeu, quando respondeu, acerto ou erro</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Duração planejada: 2-3 semanas</li>
+                    </ul>
+                </div>
+
+                <h3>Métricas definidas</h3>
+                <ul>
+                    <li><strong>Taxa de resposta:</strong> >50% nos primeiros 7 dias</li>
+                    <li><strong>Retenção D7:</strong> >30% dos alunos ainda respondendo após 7 dias</li>
+                    <li><strong>Erros por tópico:</strong> mapear os assuntos com maior taxa de erro</li>
+                </ul>
+
+                <h3>Contexto regulatório</h3>
+                <p>
+                    O CADE emitiu medida preventiva (janeiro/2026) suspendendo restrições da Meta contra IAs de terceiros no WhatsApp. Um bot educacional especializado tem risco regulatório baixo — mas a abordagem manual inicial elimina completamente essa dependência.
+                </p>
+
+                <p><strong>Status:</strong> em preparação para execução do teste.</p>
+            </section>
+
+            <div class="h-px bg-slate-200 w-full mb-16"></div>
+
+            <!-- Aprendizados -->
+            <section id="aprendizados" class="mb-16 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Aprendizados</h2>
+                <div class="space-y-6 not-prose">
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                        <strong class="block text-slate-900 mb-2">1. Canal importa mais que conteúdo na fase de adoção</strong>
+                        <p class="text-sm text-slate-600 m-0 leading-relaxed">O MVP web tinha conteúdo adequado, mas o canal de entrega gerava fricção demais. Antes de iterar no produto, precisei iterar no canal.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                        <strong class="block text-slate-900 mb-2">2. Validar com poucos usuários não é validar</strong>
+                        <p class="text-sm text-slate-600 m-0 leading-relaxed">Testes com 4 usuários sem feedback recebido não geram dados acionáveis. Para a próxima iteração, defini métricas claras de sucesso antes de começar o teste.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                        <strong class="block text-slate-900 mb-2">3. O professor é o canal de adoção, não o aluno</strong>
+                        <p class="text-sm text-slate-600 m-0 leading-relaxed">Para atingir alunos de Fundamental II, preciso convencer o professor primeiro. O produto precisa gerar valor para ele antes de chegar ao aluno.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                        <strong class="block text-slate-900 mb-2">4. Teste manual antes de automação</strong>
+                        <p class="text-sm text-slate-600 m-0 leading-relaxed">Construir um bot antes de saber se a demanda existe é desperdício. Enviar mensagens manualmente custa tempo, mas gera dados reais sobre comportamento.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="h-px bg-slate-200 w-full mb-16"></div>
+
+            <!-- Próximos Passos -->
+            <section id="proximos" class="mb-12 scroll-mt-28">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Próximos Passos</h2>
+                <ul>
+                    <li>Executar o teste via WhatsApp com 10-15 alunos</li>
+                    <li>Analisar taxa de resposta, retenção D1/D7 e padrões de erro</li>
+                    <li>Se validado: automatizar com n8n auto-hospedado</li>
+                    <li>Conduzir pesquisa quantitativa com 8-10 professores para validar hipótese de economia de tempo</li>
+                    <li>Iterar no formato da questão (texto, imagem, áudio) com base nos dados coletados</li>
                 </ul>
             </section>
 
-            <section id="resultados" class="mb-12 bg-slate-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden scroll-mt-28">
-                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-violet-600 rounded-full blur-3xl opacity-20"></div>
-                
-                <h2 class="relative z-10 text-2xl font-bold text-white mb-8 flex items-center">
-                    <span class="bg-green-500 w-2 h-8 rounded mr-4"></span>
-                    Impacto & Aprendizados (Beta)
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-10 relative z-10">
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl">
-                        <div class="text-4xl font-bold text-violet-400 mb-2">100%</div>
-                        <div class="text-xs text-slate-300 uppercase tracking-wide">Taxa de Conclusão</div>
-                    </div>
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl">
-                        <div class="text-4xl font-bold text-emerald-400 mb-2">~10h</div>
-                        <div class="text-xs text-slate-300 uppercase tracking-wide">Economia Semanal</div>
-                    </div>
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-2xl">
-                        <div class="text-4xl font-bold text-blue-400 mb-2">2.3k</div>
-                        <div class="text-xs text-slate-300 uppercase tracking-wide">Questões no Banco</div>
-                    </div>
-                </div>
-                
-                <div class="relative z-10 bg-white/10 p-6 rounded-xl border border-white/5">
-                    <h3 class="!text-white !mt-0 text-lg flex items-center mb-3">
-                        <i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i> O Principal Pivot (Aprendizado)
-                    </h3>
-                    <p class="text-slate-200 mb-0 text-sm leading-relaxed">
-                        Inicialmente, focamos em "Avaliação". Descobrimos que isso gera resistência. Pivotamos a comunicação para <strong>"Autoconhecimento" e "Estilo de Aprendizagem"</strong>. Resultado: Os alunos passaram a ver valor para <em>si mesmos</em>, não apenas para a escola, o que aumentou drasticamente o engajamento orgânico.
-                    </p>
-                </div>
-            </section>
-
+            <!-- Navegação -->
             <div class="border-t border-slate-200 pt-10 mt-16 flex justify-between items-center">
                 <a href="index.html" class="text-slate-500 font-medium hover:text-slate-900 transition flex items-center">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Home
                 </a>
-                <a href="questopia-slides.html" class="bg-violet-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-violet-700 transition shadow-lg shadow-violet-200 flex items-center">
-                    Ver Apresentação Visual <i class="fa-solid fa-arrow-right ml-2"></i>
+                <a href="https://questopia.com.br" target="_blank" class="text-violet-600 font-bold hover:text-violet-800 transition flex items-center">
+                    questopia.com.br <i class="fa-solid fa-external-link ml-2 text-xs"></i>
                 </a>
             </div>
 
@@ -251,7 +334,7 @@
 
     <footer class="bg-white border-t border-slate-200 py-12 mt-12">
         <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm">
-            <p>&copy; 2026 Pedro Cardeal. Case Study: Questopia.</p>
+            <p>&copy; 2026 Pedro Cardeal.</p>
         </div>
     </footer>
 
