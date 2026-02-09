@@ -6,7 +6,7 @@ Este é o site pessoal e portfólio profissional de **Pedro Cardeal**, Analista 
 
 Você pode acessar o site publicado em:
 
-👉 [https://https://p-droo.github.io/portfolio/](https://p-droo.github.io/portfolio/)  
+👉 [https://p-droo.github.io/portfolio/](https://p-droo.github.io/portfolio/)  
 
 
 ## 🧭 Estrutura do site
