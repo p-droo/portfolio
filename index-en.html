@@ -1,414 +1,275 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Cardeal | Product Manager</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Pedro Cardeal | Educational Consultant</title>
+    <meta name="description" content="Educational Consultant with 15+ years of experience in needs diagnosis, digital learning solution design and consultative corporate client management.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .hover-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
-        .hover-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        :root {
+            --color-bg: #FAFAF8;
+            --color-surface: #FFFFFF;
+            --color-text: #1A1A1A;
+            --color-text-secondary: #5A5A5A;
+            --color-text-muted: #8A8A8A;
+            --color-accent: #1A5276;
+            --color-accent-light: #D6EAF8;
+            --color-accent-hover: #154360;
+            --color-border: #E8E8E4;
+            --color-tag-bg: #F0F0EC;
+            --font-display: 'Source Serif 4', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --max-width: 780px;
+            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 3rem; --space-xl: 5rem;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--color-text); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s; letter-spacing: 0.02em; }
+        .nav-links a:hover { color: var(--color-accent); }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+        .hero { padding-top: calc(var(--space-xl) + 3rem); padding-bottom: var(--space-lg); }
+        .hero-label { display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-sm); padding: 0.35rem 0.75rem; background: var(--color-accent-light); border-radius: 4px; }
+        .hero h1 { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; line-height: 1.15; color: var(--color-text); margin-bottom: var(--space-xs); }
+        .hero-subtitle { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-accent); font-weight: 600; margin-bottom: var(--space-md); line-height: 1.4; }
+        .hero-intro { font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.8; max-width: 640px; }
+        .hero-intro strong { color: var(--color-text); font-weight: 600; }
+        .hero-links { margin-top: var(--space-md); display: flex; gap: 1rem; flex-wrap: wrap; }
+        .hero-links a { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 600; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; transition: all 0.2s; }
+        .btn-primary { background: var(--color-accent); color: #fff; }
+        .btn-primary:hover { background: var(--color-accent-hover); }
+        .btn-outline { border: 1.5px solid var(--color-border); color: var(--color-text-secondary); }
+        .btn-outline:hover { border-color: var(--color-accent); color: var(--color-accent); }
+        .section { padding: var(--space-lg) 0; border-top: 1px solid var(--color-border); }
+        .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+        .section h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: var(--space-md); color: var(--color-text); }
+        .method-text { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; }
+        .method-text strong { color: var(--color-text); }
+        .case-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: var(--space-md); margin-bottom: var(--space-md); }
+        .case-card h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .case-card .case-subtitle { font-size: 0.95rem; color: var(--color-text-secondary); margin-bottom: var(--space-sm); font-style: italic; }
+        .case-meta { display: flex; gap: 1.5rem; margin-bottom: var(--space-sm); font-size: 0.85rem; color: var(--color-text-muted); flex-wrap: wrap; }
+        .case-meta strong { color: var(--color-text-secondary); font-weight: 600; }
+        .case-section { margin-bottom: var(--space-md); }
+        .case-section h4 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-accent); }
+        .case-section p, .case-section li { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.75; }
+        .case-section ul { padding-left: 1.2rem; margin-top: 0.4rem; }
+        .case-section li { margin-bottom: 0.3rem; }
+        .case-section li strong { color: var(--color-text); }
+        .stakeholder-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.75rem; }
+        .stakeholder-item { background: var(--color-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--color-border); }
+        .stakeholder-item h5 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--color-accent); }
+        .stakeholder-item p { font-size: 0.82rem; line-height: 1.5; }
+        .decision-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.75rem; }
+        .decision-item { padding: 1rem; background: var(--color-bg); border-radius: 8px; border: 1px solid var(--color-border); }
+        .decision-item h5 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .decision-item p { font-size: 0.85rem; line-height: 1.6; }
+        .iteration-block { border-left: 3px solid var(--color-accent-light); padding-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 1rem; }
+        .iteration-block h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .iteration-block p { font-size: 0.9rem; line-height: 1.7; color: var(--color-text-secondary); }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--space-sm); }
+        .tag { font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.7rem; background: var(--color-tag-bg); color: var(--color-text-secondary); border-radius: 4px; letter-spacing: 0.02em; }
+        .exp-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: var(--space-md); margin-bottom: var(--space-sm); }
+        .exp-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.15rem; }
+        .exp-card .exp-context { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+        .exp-card p { font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.7; }
+        .exp-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent); margin-bottom: 0.4rem; }
+        .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .mini-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; }
+        .mini-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.15rem; }
+        .mini-card .mini-context { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 0.5rem; }
+        .mini-card p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .footer { padding: var(--space-lg) 0 var(--space-md); border-top: 1px solid var(--color-border); text-align: center; }
+        .footer-cta { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: var(--space-sm); line-height: 1.6; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: var(--space-md); }
+        .footer-links a { font-size: 0.85rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
+        .footer-links a:hover { text-decoration: underline; }
+        .footer-copy { font-size: 0.8rem; color: var(--color-text-muted); }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-subtitle { font-size: 1.05rem; }
+            .stakeholder-grid, .decision-grid, .mini-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 1.25rem; }
+            .nav { padding: 0.75rem 1.25rem; }
+            .nav-links { gap: 0.8rem; }
+            .nav-links a { font-size: 0.78rem; }
+        }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { opacity: 0; animation: fadeUp 0.6s ease-out forwards; }
+        .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-violet-200 selection:text-violet-900">
+<body>
+    <nav class="nav">
+        <a class="nav-brand" href="#">Pedro Cardeal</a>
+        <div class="nav-links">
+            <a href="#method">Approach</a>
+            <a href="#questopia">EdTech Platform</a>
+            <a href="#cases">Projects</a>
+            <a href="#contact">Contact</a>
+            <span style="color: var(--color-border); margin: 0 0.2rem;">|</span>
+            <a href="index.html">PT</a>
+            <a href="index-en.html" style="color: var(--color-accent); font-weight: 700;">EN</a>
+        </div>
+    </nav>
 
-    <!-- Navbar Sticky -->
-    <header class="bg-white/90 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-bold text-xl text-slate-900 tracking-tight hover:text-violet-600 transition">
-                Pedro<span class="text-violet-600">Cardeal</span>
-            </a>
-            <div class="flex gap-5 items-center">
-                <!-- Language Toggle -->
-                <div class="flex items-center text-sm font-bold bg-slate-100 rounded-lg p-1">
-                    <a href="index.html" class="px-2 py-0.5 text-slate-400 hover:text-slate-600 transition">PT</a>
-                    <span class="px-2 py-0.5 bg-white shadow-sm rounded text-violet-700 cursor-default">EN</span>
-                </div>
-
-                <div class="h-4 w-px bg-slate-200 hidden md:block"></div>
-
-                <div class="flex gap-4">
-                    <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" title="LinkedIn" class="text-slate-500 hover:text-[#0077b5] transition text-xl"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/p-droo" target="_blank" title="GitHub" class="text-slate-500 hover:text-slate-900 transition text-xl"><i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:contato@pedrocardeal.com" title="Email" class="text-slate-500 hover:text-violet-600 transition text-xl"><i class="fa-solid fa-envelope"></i></a>
-                </div>
-            </div>
+    <header class="hero container">
+        <div class="fade-in"><span class="hero-label">Educational Consultant</span></div>
+        <h1 class="fade-in delay-1">Pedro Cardeal</h1>
+        <p class="hero-subtitle fade-in delay-2">Corporate Digital Education · eLearning Operations · Learning Experience Design</p>
+        <p class="hero-intro fade-in delay-3">15+ years turning business needs into <strong>high-impact digital learning solutions</strong> — from diagnosis to large-scale operations. I combine technical expertise in L&D, instructional design (ADDIE, SAM) and consultative client management to create learning experiences that deliver results.</p>
+        <p class="hero-intro fade-in delay-3" style="margin-top: 0.75rem;">Currently building <strong>Questopia</strong> — an EdTech platform for teaching English as a foreign language, based on spaced repetition, gamification and AI. Project linked to my Master's research in Design at UFPE.</p>
+        <div class="hero-links fade-in delay-3">
+            <a href="#questopia" class="btn-primary">View EdTech Platform →</a>
+            <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" class="btn-outline">LinkedIn</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-white border-b border-slate-200">
-        <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
-            <div class="max-w-3xl">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
-                    Pedro Cardeal
-                </h1>
-                <h2 class="text-xl md:text-2xl text-slate-500 font-normal mb-8 leading-relaxed">
-                    Product Education & Enablement | <span class="text-slate-900 font-medium">Onboarding, Activation & Adoption</span>
-                </h2>
-                <p class="text-lg text-slate-600 mb-6 leading-relaxed border-l-4 border-violet-200 pl-4">
-                    15 years designing learning experiences. Now applying learning psychology and instructional design to solve product adoption problems: onboarding, time-to-value, and long-term engagement.
-                </p>
-                <p class="text-lg text-slate-600 mb-10 leading-relaxed border-l-4 border-violet-200 pl-4">
-                    Currently building <strong>Questopia</strong> — reducing adoption friction in an educational product for K-8 students, iterating from web MVP to WhatsApp delivery based on behavioral data.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#questopia" class="bg-violet-600 text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-violet-700 transition shadow-lg shadow-violet-200">
-                        View Main Case
-                    </a>
-                    <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" class="bg-white text-slate-700 border border-slate-300 px-8 py-3.5 rounded-lg font-semibold hover:bg-slate-50 hover:border-slate-400 transition">
-                        LinkedIn
-                    </a>
+    <section class="section container" id="method">
+        <span class="section-label">Approach</span>
+        <h2>How I Work</h2>
+        <p class="method-text">My work always starts with <strong>diagnosis</strong>: understanding the client's context, mapping learner needs and identifying the gaps between where they are and where they need to be. From there, I develop <strong>conceptual proposals</strong> and design educational solutions — learning paths, online courses, L&D programs — aligned with success metrics.</p>
+        <p class="method-text" style="margin-top: 0.75rem;">In 15 years designing learning experiences, I learned that impact lies at the intersection of <strong>pedagogical rigor</strong> and <strong>product thinking</strong>. The same techniques that work for teaching — reducing cognitive load, creating feedback loops, designing progressive journeys — work for engaging and retaining learners in large-scale educational operations.</p>
+        <p class="method-text" style="margin-top: 0.75rem;">I work with domestic and international clients in <strong>Portuguese, English, Spanish and German</strong>, adapting educational solutions to different cultural and organizational contexts.</p>
+    </section>
+
+    <section class="section container" id="questopia">
+        <span class="section-label">Own EdTech Platform</span>
+        <div class="case-card">
+            <h3>Questopia</h3>
+            <p class="case-subtitle">English teaching (EFL) platform based on spaced repetition, gamification and AI</p>
+            <div class="case-meta">
+                <span><strong>Status:</strong> MVP in iteration</span>
+                <span><strong>Role:</strong> Founder & Learning Designer</span>
+                <span><strong>Research:</strong> Master's project in Design — UFPE</span>
+            </div>
+            <div class="case-section">
+                <h4>The Educational Challenge</h4>
+                <p>Teaching English as a foreign language in Brazil faces a structural retention problem. Students study vocabulary and grammar, are assessed at a single point in time and move on — with no structured review. Cognitive science shows that spaced repetition is one of the most effective methods for long-term retention, but existing tools (such as Anki) require discipline and autonomy that most learners cannot sustain on their own.</p>
+                <div class="stakeholder-grid">
+                    <div class="stakeholder-item">
+                        <h5>EFL Student</h5>
+                        <p>Low retention of vocabulary and structures. Multiple activities competing for study time. Abandons solutions that require significant setup effort or autonomous discipline.</p>
+                    </div>
+                    <div class="stakeholder-item">
+                        <h5>Teacher / Language School</h5>
+                        <p>Time spent on recurring review activities. No data on students' error patterns. Needs tools that complement (not replace) their pedagogical practice.</p>
+                    </div>
                 </div>
+            </div>
+            <div class="case-section">
+                <h4>Diagnosis and Research</h4>
+                <ul>
+                    <li>Qualitative research with English students to map study routines, barriers and openness to review tools</li>
+                    <li><strong>Key insight:</strong> solutions that compete with free time get abandoned — review must fit into the gaps between existing activities, preferably through channels the student already uses</li>
+                    <li>Interviews with English teachers about workflow and operational pain points</li>
+                    <li><strong>Key insight:</strong> the tool must generate value for the teacher (error data, time savings) so they adopt it and recommend it to students</li>
+                </ul>
+            </div>
+            <div class="case-section">
+                <h4>Educational Design Decisions</h4>
+                <div class="decision-grid">
+                    <div class="decision-item">
+                        <h5>Short review sessions</h5>
+                        <p>Based on microlearning principles and spaced repetition. 5–10 minute sessions that fit into daily routines without competing with other activities.</p>
+                    </div>
+                    <div class="decision-item">
+                        <h5>Assist the teacher, not replace them</h5>
+                        <p>A decision driven by research. The teacher is the adoption channel — if they perceive a threat to their role, they won't recommend the tool.</p>
+                    </div>
+                    <div class="decision-item">
+                        <h5>Focus on EFL for Portuguese speakers</h5>
+                        <p>Strategic pivot: an audience with real urgency (job market, travel, certifications), without compliance barriers or parental mediation.</p>
+                    </div>
+                    <div class="decision-item">
+                        <h5>Gamification + AI for personalization</h5>
+                        <p>Progression mechanics and immediate feedback for engagement. AI to adapt level and content to each learner's individual performance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-section">
+                <h4>Iterations</h4>
+                <div class="iteration-block">
+                    <h5>Iteration 1 — Web MVP (Middle School)</h5>
+                    <p>First functional prototype at <a href="https://questopia.com.br" target="_blank" style="color: var(--color-accent);">questopia.com.br</a>, aimed at students aged 10–14. Initial tests revealed low adoption: the audience lacked sufficient urgency to sustain engagement — spaced review competed with more attractive activities without a clear motivator. Additionally, the audience presented compliance and parental consent barriers for academic research.</p>
+                </div>
+                <div class="iteration-block">
+                    <h5>Iteration 2 — Pivot to EFL (current phase)</h5>
+                    <p>Strategic redirection toward teaching English as a foreign language for Brazilian Portuguese speakers. The new audience is more accessible (young adults and adults), has real urgency (job market, certifications, exams) and doesn't face parental consent issues — making it viable as a research project for the Master's in Design at UFPE. The platform is live at <a href="https://english.questopia.com.br" target="_blank" style="color: var(--color-accent);">english.questopia.com.br</a>, currently testing engagement and seeking active users to validate or invalidate the retention and adoption theses.</p>
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">EdTech</span>
+                <span class="tag">EFL / English Teaching</span>
+                <span class="tag">Spaced Repetition</span>
+                <span class="tag">Gamification</span>
+                <span class="tag">AI in Education</span>
+                <span class="tag">Instructional Design</span>
+                <span class="tag">Academic Research</span>
             </div>
         </div>
     </section>
 
-    <!-- How I Work -->
-    <section id="how-i-work" class="py-16 bg-slate-50 border-b border-slate-200">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="max-w-3xl">
-                <h2 class="text-sm font-bold text-violet-600 uppercase tracking-wider mb-4">How I Work</h2>
-                <p class="text-lg text-slate-700 leading-relaxed mb-4">
-                    I apply learning psychology and instructional design principles to solve adoption problems: onboarding, time-to-value, and long-term engagement.
-                </p>
-                <p class="text-base text-slate-600 leading-relaxed">
-                    In 15 years designing learning experiences, I learned that adoption is an education problem — users need to understand the value, know how to get there, and feel progress along the way. The same techniques that work for teaching (reducing cognitive load, creating feedback loops, designing progressive journeys) work for activating and retaining product users.
-                </p>
+    <section class="section container" id="cases">
+        <span class="section-label">Reference Projects</span>
+        <h2>Experience in Corporate and Digital Education</h2>
+        <div class="exp-card">
+            <div class="exp-label">Large-Scale eLearning Operation</div>
+            <h3>Teacher Training — Chile Ministry of Education</h3>
+            <p class="exp-context">International project · Partnership with Kyclos · 2017</p>
+            <p><strong>Challenge:</strong> Teachers in Chile needed to adopt a new teaching methodology, but traditional training didn't scale and generated low retention.</p>
+            <p style="margin-top: 0.5rem;"><strong>Solution:</strong> I designed a training program applying instructional design and active learning principles — structured sessions, support materials and post-training follow-up. Methodology adaptation to local cultural context, multi-stakeholder management and performance indicator tracking.</p>
+            <p style="margin-top: 0.5rem;"><strong>Result:</strong> Teachers trained at scale with effective application of the new methodology in the classroom. The program demonstrated that educational solutions work when experience design reduces the distance between learning and applying.</p>
+            <div class="tags">
+                <span class="tag">Large-Scale Training</span>
+                <span class="tag">Instructional Design</span>
+                <span class="tag">Stakeholder Management</span>
+                <span class="tag">International Project</span>
+            </div>
+        </div>
+        <div class="exp-card">
+            <div class="exp-label">Social Impact Educational Program</div>
+            <h3>Pro Criança — Educational Program Design</h3>
+            <p class="exp-context">Social impact · 100+ students · 2019</p>
+            <p><strong>Challenge:</strong> An existing educational program with low engagement and learning outcomes below expectations. It lacked a structured journey to guide participants from first contact to practical application.</p>
+            <p style="margin-top: 0.5rem;"><strong>Solution:</strong> I redesigned the learning journey focused on key value moments — clear initial onboarding, gradual progression and continuous feedback. Applied learning psychology to reduce cognitive load and increase retention, with a curriculum focused on learner autonomy.</p>
+            <p style="margin-top: 0.5rem;"><strong>Result:</strong> Significant increase in engagement and completion, impacting 100+ students. The same principles of good educational design — reducing friction, creating early value, supporting the journey — apply to formal, corporate and digital education alike.</p>
+            <div class="tags">
+                <span class="tag">Educational Design</span>
+                <span class="tag">Learning Psychology</span>
+                <span class="tag">Learner Journey</span>
+            </div>
+        </div>
+        <h2 style="font-size: 1.3rem; margin-top: var(--space-lg); margin-bottom: var(--space-sm);">Other Deliverables</h2>
+        <div class="mini-grid">
+            <div class="mini-card">
+                <h4>Research and Diagnosis</h4>
+                <p class="mini-context">Xtrategie · 2025 – Present</p>
+                <p>Participant recruitment (B2B/B2C) and qualitative interview facilitation to gather data on needs, pain points and behavior — a competency directly applicable to educational diagnosis.</p>
+                <div class="tags" style="margin-top: 0.5rem;"><span class="tag">Qualitative Research</span><span class="tag">Diagnosis</span></div>
+            </div>
+            <div class="mini-card">
+                <h4>Data and Process Analysis</h4>
+                <p class="mini-context">Rede Brunfarma · 2024 – Present</p>
+                <p>Performance KPI analysis, process mapping (BPM) and report preparation to support strategic decision-making.</p>
+                <div class="tags" style="margin-top: 0.5rem;"><span class="tag">KPIs</span><span class="tag">BPM</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Main Case: Questopia -->
-    <section id="questopia" class="py-20 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-6">
-
-            <!-- Case Header -->
-            <div class="mb-12">
-                <span class="text-xs font-bold text-violet-600 bg-violet-50 border border-violet-100 px-3 py-1 rounded-full uppercase tracking-wider">Featured Case</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-4 mb-2">Questopia</h2>
-                <p class="text-lg text-slate-600">Reducing adoption friction through channel strategy</p>
-                <div class="flex flex-wrap gap-6 mt-4 text-sm text-slate-500">
-                    <span><strong class="text-slate-700">Status:</strong> MVP in iteration — testing WhatsApp delivery channel</span>
-                    <span><strong class="text-slate-700">Role:</strong> Founder & PM (solo)</span>
-                </div>
-            </div>
-
-            <!-- The Problem -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-8 md:p-10 mb-8">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                    <span class="bg-red-50 text-red-600 p-2 rounded-lg mr-3"><i class="fa-solid fa-triangle-exclamation text-sm"></i></span>
-                    The Problem
-                </h3>
-                <p class="text-slate-600 mb-6">Three stakeholders, three pain points:</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <div class="flex items-center mb-3">
-                            <i class="fa-solid fa-gamepad text-indigo-600 mr-2"></i>
-                            <strong class="text-slate-900">Student</strong>
-                        </div>
-                        <p class="text-sm text-slate-600 leading-relaxed">Low content retention. Multiple activities competing for their time — any solution requiring significant effort will be abandoned.</p>
-                    </div>
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <div class="flex items-center mb-3">
-                            <i class="fa-solid fa-chalkboard-user text-violet-600 mr-2"></i>
-                            <strong class="text-slate-900">Teacher</strong>
-                        </div>
-                        <p class="text-sm text-slate-600 leading-relaxed">Hours spent weekly grading recurring assignments. Little time for personalized teaching. No data on where students struggle.</p>
-                    </div>
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <div class="flex items-center mb-3">
-                            <i class="fa-solid fa-users text-emerald-600 mr-2"></i>
-                            <strong class="text-slate-900">Parents</strong>
-                        </div>
-                        <p class="text-sm text-slate-600 leading-relaxed">No visibility into whether their children are studying outside of school.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Discovery -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-8 md:p-10 mb-8">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                    <span class="bg-violet-50 text-violet-600 p-2 rounded-lg mr-3"><i class="fa-solid fa-magnifying-glass text-sm"></i></span>
-                    Discovery
-                </h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-3">Research with students</h4>
-                        <ul class="text-sm text-slate-600 space-y-2">
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-violet-400 mt-1.5 mr-2 text-[6px]"></i>Mapped daily routines and jobs to be done</li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-violet-400 mt-1.5 mr-2 text-[6px]"></i><strong>Key insight:</strong> solutions that compete with free time get abandoned. The product must fit into gaps between existing activities.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-3">Research with teachers</h4>
-                        <ul class="text-sm text-slate-600 space-y-2">
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-violet-400 mt-1.5 mr-2 text-[6px]"></i>Mapped workflow and operational pain points</li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-violet-400 mt-1.5 mr-2 text-[6px]"></i><strong>Key insight:</strong> the product must assist the teacher, not replace them. Time saved on grading is a tangible value proposition.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-violet-400 mt-1.5 mr-2 text-[6px]"></i><strong>Hypothesis:</strong> significant reduction in weekly grading time (validation in progress via quantitative survey with 8-10 teachers).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Design Decisions -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-8 md:p-10 mb-8">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                    <span class="bg-blue-50 text-blue-600 p-2 rounded-lg mr-3"><i class="fa-solid fa-compass-drafting text-sm"></i></span>
-                    Design Decisions
-                </h3>
-                <div class="space-y-6">
-                    <div class="border-l-4 border-violet-200 pl-5">
-                        <h4 class="font-bold text-slate-900 mb-1">7-15 minute sessions</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">Based on microlearning principles and student journey mapping. Long enough to generate learning, short enough not to compete with other activities.</p>
-                    </div>
-                    <div class="border-l-4 border-violet-200 pl-5">
-                        <h4 class="font-bold text-slate-900 mb-1">Assist, not replace the teacher</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">A decision driven by research. The teacher is the adoption channel — if they perceive the product as a threat, they won't adopt it.</p>
-                    </div>
-                    <div class="border-l-4 border-violet-200 pl-5">
-                        <h4 class="font-bold text-slate-900 mb-1">Three distinct value propositions</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">Student: frictionless retention. Teacher: time savings + error data. Parents: oversight and visibility.</p>
-                    </div>
-                    <div class="border-l-4 border-violet-200 pl-5">
-                        <h4 class="font-bold text-slate-900 mb-1">Gamification for engagement</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">Progression mechanics and immediate feedback to keep students engaged across short spaced repetition sessions.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Iteration 1 -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-8 md:p-10 mb-8">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                    <span class="bg-amber-50 text-amber-600 p-2 rounded-lg mr-3"><i class="fa-solid fa-flask text-sm"></i></span>
-                    Iteration 1 — Web MVP
-                </h3>
-                <p class="text-slate-600 mb-4 leading-relaxed">
-                    Built a functional prototype using Lovable (<a href="https://questopia.com.br" target="_blank" class="text-violet-600 hover:text-violet-800 underline">questopia.com.br</a>). Features: sign-up, review sessions, internal feedback system.
-                </p>
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 mb-4">
-                    <h4 class="font-bold text-slate-900 mb-3">Results</h4>
-                    <ul class="text-sm text-slate-600 space-y-2">
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-slate-400 mt-1.5 mr-2 text-[6px]"></i>First users tested the platform</li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-slate-400 mt-1.5 mr-2 text-[6px]"></i>Engagement below expectations</li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-slate-400 mt-1.5 mr-2 text-[6px]"></i>Internal feedback system received no messages</li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-slate-400 mt-1.5 mr-2 text-[6px]"></i>School seasonality (end/start of year) impacted testing</li>
-                    </ul>
-                </div>
-                <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
-                    <h4 class="font-bold text-amber-900 mb-2 flex items-center">
-                        <i class="fa-solid fa-lightbulb text-amber-500 mr-2"></i>Diagnosis
-                    </h4>
-                    <p class="text-sm text-amber-800 leading-relaxed">
-                        The main adoption barrier wasn't content — it was the channel. Accessing a website, creating an account, and logging in is too much friction for K-8 students.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Iteration 2 -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-8 md:p-10 mb-8">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                    <span class="bg-green-50 text-green-600 p-2 rounded-lg mr-3"><i class="fa-solid fa-rotate text-sm"></i></span>
-                    Iteration 2 — WhatsApp Pivot <span class="ml-2 text-xs font-bold text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded-full">Current phase</span>
-                </h3>
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-2">Hypothesis</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">WhatsApp removes the main adoption barriers (login, download, sign-up). Students are already on the channel.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-2">Approach</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">Manual testing before automation. Validate demand first, build backend later.</p>
-                    </div>
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <h4 class="font-bold text-slate-900 mb-3">Test plan</h4>
-                        <ul class="text-sm text-slate-600 space-y-2">
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Recruit 10-15 students through teachers</li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Send 1 review question/day via WhatsApp</li>
-                            <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Track: who responded, when, correct/incorrect</li>
-                        </ul>
-                        <div class="mt-4 pt-4 border-t border-slate-200">
-                            <h5 class="font-semibold text-slate-700 text-sm mb-2">Success metrics:</h5>
-                            <ul class="text-sm text-slate-600 space-y-1">
-                                <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2 text-xs"></i>Response rate >50% in the first 7 days</li>
-                                <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2 text-xs"></i>D7 retention >30%</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                        <h4 class="font-bold text-blue-900 mb-2">Regulatory context</h4>
-                        <p class="text-sm text-blue-800 leading-relaxed">
-                            Brazil's CADE issued a preventive measure (Jan/2026) suspending Meta's restrictions against third-party AIs on WhatsApp. A specialized educational bot carries low regulatory risk — but the manual-first approach eliminates this dependency entirely.
-                        </p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-2">Next steps</h4>
-                        <ul class="text-sm text-slate-600 space-y-2">
-                            <li class="flex items-start"><i class="fa-solid fa-arrow-right text-violet-400 mt-1 mr-2 text-xs"></i>If validated: automate with self-hosted n8n</li>
-                            <li class="flex items-start"><i class="fa-solid fa-arrow-right text-violet-400 mt-1 mr-2 text-xs"></i>Define and track: response rate, D1/D7 retention, errors by topic</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tags and Links -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-4">
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-2.5 py-1 bg-white text-slate-600 text-xs font-medium rounded border border-slate-200">Friction Reduction</span>
-                    <span class="px-2.5 py-1 bg-white text-slate-600 text-xs font-medium rounded border border-slate-200">Channel Strategy</span>
-                    <span class="px-2.5 py-1 bg-white text-slate-600 text-xs font-medium rounded border border-slate-200">Adoption</span>
-                    <span class="px-2.5 py-1 bg-white text-slate-600 text-xs font-medium rounded border border-slate-200">User Research</span>
-                    <span class="px-2.5 py-1 bg-white text-slate-600 text-xs font-medium rounded border border-slate-200">Data-driven iteration</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="questopia-case-en.html" class="group flex items-center text-violet-600 font-bold hover:text-violet-800 transition text-sm">
-                        View Full Case <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="https://questopia.com.br" target="_blank" class="text-slate-500 font-medium hover:text-slate-900 transition text-sm">
-                        questopia.com.br <i class="fa-solid fa-external-link text-xs ml-1"></i>
-                    </a>
-                </div>
-            </div>
+    <footer class="footer container" id="contact">
+        <p class="footer-cta">Open to remote opportunities in Educational Consulting,<br>Corporate Digital Education and Learning Design.</p>
+        <div class="footer-links">
+            <a href="mailto:pedro@pedrocardeal.com">pedro@pedrocardeal.com</a>
+            <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank">LinkedIn</a>
         </div>
-    </section>
-
-    <!-- Mini-Cases: Product Education -->
-    <section id="product-education" class="py-20 bg-white border-t border-slate-200">
-        <div class="max-w-5xl mx-auto px-6">
-            <span class="text-xs font-bold text-violet-600 bg-violet-50 border border-violet-100 px-3 py-1 rounded-full uppercase tracking-wider">Product Education & Enablement</span>
-            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-4 mb-10">Previous experiences in education applied to adoption</h2>
-
-            <div class="grid md:grid-cols-2 gap-8">
-
-                <!-- Mini-case: Chile — Teacher Enablement at Scale -->
-                <div class="bg-slate-50 rounded-2xl border border-slate-200 p-8">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="bg-violet-50 text-violet-600 p-2 rounded-lg border border-violet-100">
-                            <i class="fa-solid fa-globe-americas text-lg"></i>
-                        </span>
-                        <div>
-                            <h3 class="font-bold text-slate-900">Enablement at Scale</h3>
-                            <p class="text-xs text-slate-400">Chile Project · Teacher Training</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
-                        <p><strong class="text-slate-800">Problem:</strong> Teachers in Chile needed to adopt a new teaching methodology, but traditional training (in-person, one-off) didn't scale and generated low content retention.</p>
-                        <p><strong class="text-slate-800">Approach:</strong> Designed a training program applying instructional design and active learning principles — structured sessions, support materials, and post-training follow-up to ensure practical application.</p>
-                        <p><strong class="text-slate-800">Result:</strong> Teachers trained at scale with effective adoption of the new methodology in the classroom. The program demonstrated that enablement works when experience design reduces the friction between learning and applying.</p>
-                    </div>
-
-                    <div class="flex flex-wrap gap-1.5 mt-5">
-                        <span class="px-2 py-0.5 bg-white text-slate-500 text-[10px] font-medium rounded border border-slate-200">Enablement</span>
-                        <span class="px-2 py-0.5 bg-white text-slate-500 text-[10px] font-medium rounded border border-slate-200">Training at Scale</span>
-                        <span class="px-2 py-0.5 bg-white text-slate-500 text-[10px] font-medium rounded border border-slate-200">Instructional Design</span>
-                    </div>
-                </div>
-
-                <!-- Mini-case: Pro Criança — Educational Program Design -->
-                <div class="bg-slate-50 rounded-2xl border border-slate-200 p-8">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="bg-emerald-50 text-emerald-600 p-2 rounded-lg border border-emerald-100">
-                            <i class="fa-solid fa-graduation-cap text-lg"></i>
-                        </span>
-                        <div>
-                            <h3 class="font-bold text-slate-900">Customer Education</h3>
-                            <p class="text-xs text-slate-400">Pro Criança · Educational Program Design</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3 text-sm text-slate-600 leading-relaxed">
-                        <p><strong class="text-slate-800">Problem:</strong> The existing educational program had low engagement and wasn't generating expected learning outcomes. It lacked a structured journey guiding participants from first contact to practical application.</p>
-                        <p><strong class="text-slate-800">Approach:</strong> Redesigned the learning journey focused on key value moments — clear onboarding, gradual progression, and continuous feedback. Applied learning psychology to reduce cognitive load and increase retention.</p>
-                        <p><strong class="text-slate-800">Result:</strong> Redesigned program with significant increase in engagement and completion. The experience reinforced that the same customer education principles — reducing friction, creating early value moments, supporting the journey — apply to both formal education and product adoption.</p>
-                    </div>
-
-                    <div class="flex flex-wrap gap-1.5 mt-5">
-                        <span class="px-2 py-0.5 bg-white text-slate-500 text-[10px] font-medium rounded border border-slate-200">Customer Education</span>
-                        <span class="px-2 py-0.5 bg-white text-slate-500 text-[10px] font-medium rounded border border-slate-200">Onboarding</span>
-                        <span class="px-2 py-0.5 bg-white text-slate-500 text-[10px] font-medium rounded border border-slate-200">Learning Psychology</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- B2B Projects -->
-    <section id="b2b-projects" class="py-16 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-8">Other Work</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-
-                <!-- Xtrategie -->
-                <div class="bg-white rounded-xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-blue-50 text-blue-600 p-2 rounded-lg border border-blue-100">
-                            <i class="fa-solid fa-magnifying-glass-chart text-sm"></i>
-                        </span>
-                        <div>
-                            <h3 class="font-bold text-slate-900 text-sm">Research Operations</h3>
-                            <p class="text-xs text-slate-400">Xtrategie · 2025 – Present</p>
-                        </div>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-3">
-                        Participant recruitment and management for User Research projects (B2B and B2C). Conducting qualitative interviews and managing the recruitment funnel in 1-1.5 month cycles.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] font-medium rounded border border-slate-200">User Research</span>
-                        <span class="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] font-medium rounded border border-slate-200">Recruitment</span>
-                        <span class="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] font-medium rounded border border-slate-200">Qualitative Interviews</span>
-                    </div>
-                </div>
-
-                <!-- Rede Brunfarma -->
-                <div class="bg-white rounded-xl p-6 border border-slate-100">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="bg-emerald-50 text-emerald-600 p-2 rounded-lg border border-emerald-100">
-                            <i class="fa-solid fa-chart-line text-sm"></i>
-                        </span>
-                        <div>
-                            <h3 class="font-bold text-slate-900 text-sm">Data & Business Analysis</h3>
-                            <p class="text-xs text-slate-400">Rede Brunfarma · 2024 – Present</p>
-                        </div>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-3">
-                        Sales, logistics, and campaign KPI analysis. Identifying operational bottlenecks, process mapping, and building reports for strategic decision-making.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] font-medium rounded border border-slate-200">Data Analysis</span>
-                        <span class="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] font-medium rounded border border-slate-200">KPIs</span>
-                        <span class="px-2 py-0.5 bg-slate-50 text-slate-500 text-[10px] font-medium rounded border border-slate-200">Excel/Power BI</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col items-center text-center">
-            <p class="text-slate-300 mb-8 max-w-lg leading-relaxed">
-                Open to remote opportunities in Product Education, Customer Enablement, Customer Education, and adjacent roles focused on adoption.
-            </p>
-
-            <div class="flex flex-wrap justify-center items-center gap-4 mb-12 text-sm">
-                <a href="mailto:contato@pedrocardeal.com" class="text-slate-400 hover:text-white transition">contato@pedrocardeal.com</a>
-                <span class="text-slate-700">|</span>
-                <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" class="text-slate-400 hover:text-white transition">LinkedIn</a>
-                <span class="text-slate-700">|</span>
-                <a href="https://github.com/p-droo" target="_blank" class="text-slate-400 hover:text-white transition">GitHub</a>
-            </div>
-
-            <div class="text-xs text-slate-600 border-t border-slate-800 pt-8 w-full max-w-xs">
-                &copy; 2026 Pedro Cardeal.
-            </div>
-        </div>
+        <p class="footer-copy">© 2026 Pedro Cardeal</p>
     </footer>
-
 </body>
 </html>
