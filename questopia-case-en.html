@@ -1,134 +1,151 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questopia — Full Case Study | Pedro Cardeal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .prose h3 { color: #4c1d95; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.02em; }
-        .prose p { margin-bottom: 1.5rem; line-height: 1.8; color: #374151; font-size: 1.05rem; }
-        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #374151; }
-        .prose li { margin-bottom: 0.75rem; line-height: 1.6; }
-        .prose strong { color: #1e293b; font-weight: 600; }
-        .nav-link.active { color: #7c3aed; border-left-color: #7c3aed; font-weight: 600; background: linear-gradient(to right, #f5f3ff, transparent); }
+        :root {
+            --color-bg: #FAFAF8;
+            --color-surface: #FFFFFF;
+            --color-text: #1A1A1A;
+            --color-text-secondary: #5A5A5A;
+            --color-text-muted: #8A8A8A;
+            --color-accent: #1A5276;
+            --color-accent-light: #D6EAF8;
+            --color-accent-hover: #154360;
+            --color-border: #E8E8E4;
+            --color-tag-bg: #F0F0EC;
+            --color-highlight-bg: #F7F3E8;
+            --color-highlight-border: #E8DFC8;
+            --color-highlight-text: #5A4A2A;
+            --font-display: 'Source Serif 4', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --max-width: 780px;
+            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 3rem; --space-xl: 5rem;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav a { font-size: 0.85rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s; }
+        .nav a:hover { color: var(--color-accent); }
+        .nav-lang { display: flex; gap: 0.75rem; align-items: center; }
+        .nav-lang span { color: var(--color-border); }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+        .case-header { padding-top: calc(var(--space-xl) + 3rem); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
+        .case-header .status { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-sm); padding: 0.3rem 0.7rem; background: var(--color-accent-light); border-radius: 4px; }
+        .case-header h1 { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; line-height: 1.15; margin-bottom: var(--space-xs); }
+        .case-header .subtitle { font-family: var(--font-display); font-size: 1.2rem; color: var(--color-text-secondary); margin-bottom: var(--space-md); line-height: 1.5; }
+        .case-meta { display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-muted); flex-wrap: wrap; }
+        .case-meta strong { color: var(--color-text-secondary); font-weight: 600; }
+        .case-body { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; padding: var(--space-lg) 0; }
+        .sidebar { position: sticky; top: 5rem; align-self: start; }
+        .sidebar p { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+        .sidebar a { display: block; font-size: 0.82rem; color: var(--color-text-secondary); text-decoration: none; padding: 0.35rem 0; border-left: 2px solid transparent; padding-left: 0.75rem; transition: all 0.2s; }
+        .sidebar a:hover { color: var(--color-accent); border-left-color: var(--color-accent); }
+        .content section { margin-bottom: var(--space-lg); }
+        .content h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: var(--space-sm); color: var(--color-text); }
+        .content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-top: var(--space-md); margin-bottom: 0.5rem; color: var(--color-accent); }
+        .content p { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: var(--space-sm); }
+        .content p strong { color: var(--color-text); }
+        .content ul { padding-left: 1.2rem; margin-bottom: var(--space-sm); }
+        .content li { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.75; margin-bottom: 0.4rem; }
+        .content li strong { color: var(--color-text); }
+        .content a { color: var(--color-accent); }
+        .callout { background: var(--color-accent-light); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; margin-bottom: var(--space-sm); }
+        .callout p { color: var(--color-accent); font-size: 1rem; line-height: 1.7; margin-bottom: 0; }
+        .callout-warning { background: var(--color-highlight-bg); border-color: var(--color-highlight-border); }
+        .callout-warning p { color: var(--color-highlight-text); }
+        .insight-box { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; margin-bottom: var(--space-sm); }
+        .insight-box p { margin-bottom: 0; }
+        .value-props { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: var(--space-sm); }
+        .value-prop { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; }
+        .value-prop strong { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; color: var(--color-accent); }
+        .value-prop span { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .learning-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+        .learning-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; }
+        .learning-card strong { display: block; font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--color-text); }
+        .learning-card p { font-size: 0.85rem; margin-bottom: 0; }
+        .metrics-list { list-style: none; padding-left: 0; }
+        .metrics-list li { padding-left: 0; }
+        .divider { height: 1px; background: var(--color-border); margin: var(--space-lg) 0; }
+        .case-nav { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-lg); }
+        .case-nav a { font-size: 0.85rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
+        .case-nav a:hover { text-decoration: underline; }
+        .footer { padding: var(--space-lg) 0 var(--space-md); border-top: 1px solid var(--color-border); text-align: center; }
+        .footer-copy { font-size: 0.8rem; color: var(--color-text-muted); }
+        @media (max-width: 640px) {
+            .case-header h1 { font-size: 2rem; }
+            .case-body { grid-template-columns: 1fr; gap: 0; }
+            .sidebar { position: static; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-border); }
+            .container { padding: 0 1.25rem; }
+            .nav { padding: 0.75rem 1.25rem; }
+        }
     </style>
 </head>
-<body class="bg-white text-slate-800 antialiased selection:bg-violet-200 selection:text-violet-900">
-
-    <!-- Navbar -->
-    <nav class="border-b border-slate-100 py-4 sticky top-0 bg-white/95 backdrop-blur-md z-50 transition-all shadow-sm">
-        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-            <a href="index-en.html" class="group flex items-center text-slate-500 hover:text-slate-900 font-medium transition text-sm">
-                <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center mr-3 group-hover:bg-slate-200 transition">
-                    <i class="fa-solid fa-arrow-left text-xs"></i>
-                </span>
-                Back to Portfolio
-            </a>
-            <div class="flex items-center gap-4">
-                 <!-- Language Toggle -->
-                 <div class="flex items-center text-xs font-bold bg-slate-100 rounded-lg p-1">
-                    <a href="questopia-case.html" class="px-2 py-0.5 text-slate-400 hover:text-slate-600 transition">PT</a>
-                    <span class="px-2 py-0.5 bg-white shadow-sm rounded text-violet-700 cursor-default">EN</span>
-                </div>
-            </div>
+<body>
+    <nav class="nav">
+        <a href="index-en.html">← Back to Portfolio</a>
+        <div class="nav-lang">
+            <a href="questopia-case.html">PT</a>
+            <span>|</span>
+            <a href="questopia-case-en.html" style="color: var(--color-accent); font-weight: 700;">EN</a>
         </div>
     </nav>
 
-    <!-- Case Header -->
-    <header class="bg-slate-50 border-b border-slate-200 relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-
-        <div class="max-w-4xl mx-auto px-6 py-20 md:py-28 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-600 text-[11px] font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider shadow-sm">
-                <span class="w-2 h-2 bg-amber-500 rounded-full"></span> MVP in iteration
-            </div>
-            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">Questopia</h1>
-            <p class="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-                Spaced repetition product for K-8 education
-            </p>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 border-t border-slate-200/60 pt-8 text-left max-w-2xl mx-auto">
-                <div class="col-span-1">
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Role</span>
-                    <span class="font-semibold text-slate-900 text-sm">Founder & PM (solo)</span>
-                </div>
-                <div class="col-span-1">
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Sector</span>
-                    <span class="font-semibold text-slate-900 text-sm">EdTech (K-8)</span>
-                </div>
-                <div class="col-span-1">
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Status</span>
-                    <span class="font-semibold text-violet-600 text-sm">Testing WhatsApp channel</span>
-                </div>
-            </div>
+    <header class="case-header container">
+        <span class="status">MVP in iteration</span>
+        <h1>Questopia</h1>
+        <p class="subtitle">Spaced repetition product for K-8 education</p>
+        <div class="case-meta">
+            <span><strong>Role:</strong> Founder & PM (solo)</span>
+            <span><strong>Sector:</strong> EdTech (K-8)</span>
+            <span><strong>Status:</strong> Testing WhatsApp channel</span>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-12 gap-16">
-
-        <!-- Navigation Sidebar (Desktop) -->
-        <aside class="hidden md:block md:col-span-3">
-            <div class="sticky top-28 space-y-1 text-sm border-l border-slate-200 pl-0">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 pl-4">In This Case</p>
-                <a href="#context" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Context</a>
-                <a href="#thesis" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">My Thesis</a>
-                <a href="#discovery" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Discovery</a>
-                <a href="#decisions" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Product Decisions</a>
-                <a href="#iteration1" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Iteration 1: Web MVP</a>
-                <a href="#iteration2" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Iteration 2: WhatsApp</a>
-                <a href="#learnings" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Learnings</a>
-                <a href="#next" class="nav-link block text-slate-600 hover:text-slate-900 py-2 pl-4 border-l-2 border-transparent hover:border-slate-300 transition">Next Steps</a>
-            </div>
+    <div class="container case-body">
+        <aside class="sidebar">
+            <p>In This Case</p>
+            <a href="#context">Context</a>
+            <a href="#thesis">My Thesis</a>
+            <a href="#discovery">Discovery</a>
+            <a href="#decisions">Product Decisions</a>
+            <a href="#iteration1">Iteration 1: Web MVP</a>
+            <a href="#iteration2">Iteration 2: WhatsApp</a>
+            <a href="#learnings">Learnings</a>
+            <a href="#next">Next Steps</a>
         </aside>
 
-        <!-- Case Text -->
-        <article class="md:col-span-8 prose max-w-none pb-20">
-
-            <!-- Context -->
-            <section id="context" class="mb-16 scroll-mt-28">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Context</h2>
-                <p>
-                    Brazil's EdTech market tends to focus on two extremes: early literacy (young children) and college entrance exam prep (high school). Middle school — students aged 10 to 14 — sits in the "no man's land" and suffers from a lack of product innovation.
-                </p>
-                <p>
-                    At this age, <strong>content retention</strong> is a real problem. Students learn a topic, are tested once, and move on — with no structured review. Cognitive science research shows that spaced repetition is one of the most effective methods for long-term retention, but existing products (like Anki) demand discipline and autonomy that 10-14 year olds simply don't have.
-                </p>
-                <p>
-                    On the teacher side, the situation is equally problematic: hours spent weekly grading recurring assignments, little time for personalized teaching, and almost no data on student error patterns.
-                </p>
+        <article class="content">
+            <section id="context">
+                <h2>Context</h2>
+                <p>Brazil's EdTech market tends to focus on two extremes: early literacy (young children) and college entrance exam prep (high school). Middle school — students aged 10 to 14 — sits in the "no man's land" and suffers from a lack of product innovation.</p>
+                <p>At this age, <strong>content retention</strong> is a real problem. Students learn a topic, are tested once, and move on — with no structured review. Cognitive science research shows that spaced repetition is one of the most effective methods for long-term retention, but existing products (like Anki) demand discipline and autonomy that 10-14 year olds simply don't have.</p>
+                <p>On the teacher side, the situation is equally problematic: hours spent weekly grading recurring assignments, little time for personalized teaching, and almost no data on student error patterns.</p>
             </section>
 
-            <div class="h-px bg-slate-200 w-full mb-16"></div>
+            <div class="divider"></div>
 
-            <!-- My Thesis -->
-            <section id="thesis" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">My Thesis</h2>
-                <div class="bg-violet-50 p-8 rounded-2xl border border-violet-100 mb-6">
-                    <p class="mb-0 text-violet-900 text-lg leading-relaxed">
-                        People learn and retain better when the journey is designed with intentionality. Spaced repetition is one of the most proven methods in cognitive science — but existing products demand discipline that 10-14 year olds don't have.
-                    </p>
+            <section id="thesis">
+                <h2>My Thesis</h2>
+                <div class="callout">
+                    <p>People learn and retain better when the journey is designed with intentionality. Spaced repetition is one of the most proven methods in cognitive science — but existing products demand discipline that 10-14 year olds don't have.</p>
                 </div>
-                <p>
-                    My bet: it's possible to deliver effective spaced repetition if the product is designed to fit into the student's routine (not the other way around), if it's adopted by the teacher (not imposed), and if it provides visibility for parents.
-                </p>
+                <p>My bet: it's possible to deliver effective spaced repetition if the product is designed to fit into the student's routine (not the other way around), if it's adopted by the teacher (not imposed), and if it provides visibility for parents.</p>
             </section>
 
-            <div class="h-px bg-slate-200 w-full mb-16"></div>
+            <div class="divider"></div>
 
-            <!-- Discovery -->
-            <section id="discovery" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Discovery</h2>
+            <section id="discovery">
+                <h2>Discovery</h2>
 
                 <h3>Research with Students</h3>
-                <p>
-                    I conducted qualitative research with middle school students to understand how they organize their time, which activities compete for their attention, and how willing they'd be to use a review tool.
-                </p>
+                <p>I conducted qualitative research with middle school students to understand how they organize their time, which activities compete for their attention, and how willing they'd be to use a review tool.</p>
                 <p><strong>Key findings:</strong></p>
                 <ul>
                     <li>Multiple activities compete for the student's time: school, sports, screens, rest</li>
@@ -138,90 +155,61 @@
                 </ul>
 
                 <h3>Research with Teachers</h3>
-                <p>
-                    I researched teachers to map their workflow, understand operational pain points, and identify where a product could deliver real value.
-                </p>
+                <p>I researched teachers to map their workflow, understand operational pain points, and identify where a product could deliver real value.</p>
                 <p><strong>Key findings:</strong></p>
                 <ul>
                     <li>Significant time spent grading recurring assignments</li>
                     <li>No data on student error patterns — grading happens, but the data is lost</li>
                     <li>Fear of being replaced by technology — any product that appears to threaten the teacher's role will be rejected</li>
                 </ul>
-                <p>
-                    <strong>Hypothesis being validated:</strong> significant reduction in weekly grading time. Validation in progress via quantitative survey with 8-10 teachers.
-                </p>
+                <p><strong>Hypothesis being validated:</strong> significant reduction in weekly grading time. Validation in progress via quantitative survey with 8-10 teachers.</p>
 
                 <h3>Cross-cutting Insight</h3>
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 not-prose">
-                    <p class="text-slate-700 leading-relaxed m-0">
-                        The product needs to be designed for the <strong>student to use</strong>, for the <strong>teacher to adopt</strong>, and for <strong>parents to monitor</strong>. Three interfaces, three value propositions, one product.
-                    </p>
+                <div class="insight-box">
+                    <p>The product needs to be designed for the <strong>student to use</strong>, for the <strong>teacher to adopt</strong>, and for <strong>parents to monitor</strong>. Three interfaces, three value propositions, one product.</p>
                 </div>
             </section>
 
-            <div class="h-px bg-slate-200 w-full mb-16"></div>
+            <div class="divider"></div>
 
-            <!-- Product Decisions -->
-            <section id="decisions" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Product Decisions</h2>
+            <section id="decisions">
+                <h2>Product Decisions</h2>
 
                 <h3>7-15 Minute Sessions</h3>
-                <p>
-                    <strong>Rationale:</strong> microlearning principles + student journey mapping. Research showed that sessions longer than 15 minutes are abandoned.
-                </p>
-                <p>
-                    <strong>Trade-off:</strong> longer sessions could generate more learning per session, but the dropout rate would be far too high. I chose frequency over depth — spaced repetition works better with short, consistent repetition.
-                </p>
+                <p><strong>Rationale:</strong> microlearning principles + student journey mapping. Research showed that sessions longer than 15 minutes are abandoned.</p>
+                <p><strong>Trade-off:</strong> longer sessions could generate more learning per session, but the dropout rate would be far too high. I chose frequency over depth — spaced repetition works better with short, consistent repetition.</p>
 
                 <h3>Assist, Not Replace the Teacher</h3>
-                <p>
-                    <strong>Rationale:</strong> teacher research revealed that fear of replacement is a real adoption barrier.
-                </p>
-                <p>
-                    <strong>Trade-off:</strong> limits product autonomy (can't function 100% without the teacher), but ensures adoption through the most important channel. The teacher is the one who recommends the product to students — if they don't adopt, the product never reaches the end user.
-                </p>
+                <p><strong>Rationale:</strong> teacher research revealed that fear of replacement is a real adoption barrier.</p>
+                <p><strong>Trade-off:</strong> limits product autonomy (can't function 100% without the teacher), but ensures adoption through the most important channel. The teacher is the one who recommends the product to students — if they don't adopt, the product never reaches the end user.</p>
 
                 <h3>Three Distinct Value Propositions</h3>
-                <div class="space-y-4 not-prose mb-8">
-                    <div class="flex items-start bg-slate-50 p-5 rounded-xl border border-slate-100">
-                        <div class="bg-white text-indigo-600 p-3 rounded-lg mr-4 shadow-sm border border-slate-100"><i class="fa-solid fa-gamepad text-lg"></i></div>
-                        <div>
-                            <strong class="block text-slate-900 mb-1">Student</strong>
-                            <span class="text-slate-600 text-sm">Frictionless content retention — short sessions that fit into their routine.</span>
-                        </div>
+                <div class="value-props">
+                    <div class="value-prop">
+                        <strong>Student</strong>
+                        <span>Frictionless content retention — short sessions that fit into their routine.</span>
                     </div>
-                    <div class="flex items-start bg-slate-50 p-5 rounded-xl border border-slate-100">
-                        <div class="bg-white text-violet-600 p-3 rounded-lg mr-4 shadow-sm border border-slate-100"><i class="fa-solid fa-chalkboard-user text-lg"></i></div>
-                        <div>
-                            <strong class="block text-slate-900 mb-1">Teacher</strong>
-                            <span class="text-slate-600 text-sm">Time saved on grading + data on where students make errors.</span>
-                        </div>
+                    <div class="value-prop">
+                        <strong>Teacher</strong>
+                        <span>Time saved on grading + data on where students make errors.</span>
                     </div>
-                    <div class="flex items-start bg-slate-50 p-5 rounded-xl border border-slate-100">
-                        <div class="bg-white text-emerald-600 p-3 rounded-lg mr-4 shadow-sm border border-slate-100"><i class="fa-solid fa-users text-lg"></i></div>
-                        <div>
-                            <strong class="block text-slate-900 mb-1">Parents</strong>
-                            <span class="text-slate-600 text-sm">Oversight and visibility into their children's studying outside of school.</span>
-                        </div>
+                    <div class="value-prop">
+                        <strong>Parents</strong>
+                        <span>Oversight and visibility into their children's studying outside of school.</span>
                     </div>
                 </div>
 
                 <h3>Gamification for Engagement</h3>
-                <p>
-                    Progression mechanics and immediate feedback designed to keep students engaged in short sessions. The goal isn't to create addiction — it's to lower the barrier to entry and maintain consistency over time.
-                </p>
+                <p>Progression mechanics and immediate feedback designed to keep students engaged in short sessions. The goal isn't to create addiction — it's to lower the barrier to entry and maintain consistency over time.</p>
             </section>
 
-            <div class="h-px bg-slate-200 w-full mb-16"></div>
+            <div class="divider"></div>
 
-            <!-- Iteration 1 -->
-            <section id="iteration1" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Iteration 1: Web MVP</h2>
-                <p>
-                    <strong>Tool:</strong> Lovable (no-code builder)<br>
-                    <strong>What was built:</strong> Web platform with sign-up, spaced review sessions, internal feedback system, and basic progress dashboard.<br>
-                    <strong>Available at:</strong> <a href="https://questopia.com.br" target="_blank">questopia.com.br</a>
-                </p>
+            <section id="iteration1">
+                <h2>Iteration 1: Web MVP</h2>
+                <p><strong>Tool:</strong> Lovable (no-code builder)<br>
+                <strong>What was built:</strong> Web platform with sign-up, spaced review sessions, internal feedback system, and basic progress dashboard.<br>
+                <strong>Available at:</strong> <a href="https://questopia.com.br" target="_blank">questopia.com.br</a></p>
 
                 <h3>Results</h3>
                 <ul>
@@ -232,38 +220,29 @@
                 </ul>
 
                 <h3>Diagnosis</h3>
-                <div class="bg-amber-50 p-6 rounded-xl border border-amber-100 not-prose mb-4">
-                    <p class="text-amber-900 leading-relaxed m-0">
-                        <strong>The main adoption barrier wasn't content — it was the channel.</strong> Accessing a website, creating an account, logging in, and navigating to a review session is too much friction for K-8 students. The product might be good, but if the delivery channel creates friction, the user never gets to experience it.
-                    </p>
+                <div class="callout-warning callout">
+                    <p><strong>The main adoption barrier wasn't content — it was the channel.</strong> Accessing a website, creating an account, logging in, and navigating to a review session is too much friction for K-8 students. The product might be good, but if the delivery channel creates friction, the user never gets to experience it.</p>
                 </div>
             </section>
 
-            <div class="h-px bg-slate-200 w-full mb-16"></div>
+            <div class="divider"></div>
 
-            <!-- Iteration 2 -->
-            <section id="iteration2" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Iteration 2: WhatsApp Pivot</h2>
+            <section id="iteration2">
+                <h2>Iteration 2: WhatsApp Pivot</h2>
 
                 <h3>Hypothesis</h3>
-                <p>
-                    WhatsApp removes the main adoption barriers: no download needed, no login needed, no sign-up needed. The student is already on the channel — the review question comes to them, not the other way around.
-                </p>
+                <p>WhatsApp removes the main adoption barriers: no download needed, no login needed, no sign-up needed. The student is already on the channel — the review question comes to them, not the other way around.</p>
 
                 <h3>Approach</h3>
-                <p>
-                    Manual testing before automation. Sending questions manually via WhatsApp to validate demand before investing time building a bot. If the hypothesis holds, I'll automate with self-hosted n8n.
-                </p>
+                <p>Manual testing before automation. Sending questions manually via WhatsApp to validate demand before investing time building a bot. If the hypothesis holds, I'll automate with self-hosted n8n.</p>
 
                 <h3>Test Design</h3>
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 not-prose mb-6">
-                    <ul class="text-sm text-slate-700 space-y-2 m-0 list-none p-0">
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Recruit 10-15 students through partner teachers</li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Send 1 review question per day via WhatsApp</li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Track: who responded, when they responded, correct or incorrect</li>
-                        <li class="flex items-start"><i class="fa-solid fa-circle text-green-400 mt-1.5 mr-2 text-[6px]"></i>Planned duration: 2-3 weeks</li>
-                    </ul>
-                </div>
+                <ul class="metrics-list">
+                    <li>Recruit 10-15 students through partner teachers</li>
+                    <li>Send 1 review question per day via WhatsApp</li>
+                    <li>Track: who responded, when they responded, correct or incorrect</li>
+                    <li>Planned duration: 2-3 weeks</li>
+                </ul>
 
                 <h3>Defined Metrics</h3>
                 <ul>
@@ -273,43 +252,38 @@
                 </ul>
 
                 <h3>Regulatory Context</h3>
-                <p>
-                    Brazil's CADE issued a preventive measure (January 2026) suspending Meta's restrictions against third-party AIs on WhatsApp. A specialized educational bot carries low regulatory risk — but the manual-first approach completely eliminates this dependency.
-                </p>
-
+                <p>Brazil's CADE issued a preventive measure (January 2026) suspending Meta's restrictions against third-party AIs on WhatsApp. A specialized educational bot carries low regulatory risk — but the manual-first approach completely eliminates this dependency.</p>
                 <p><strong>Status:</strong> preparing to execute the test.</p>
             </section>
 
-            <div class="h-px bg-slate-200 w-full mb-16"></div>
+            <div class="divider"></div>
 
-            <!-- Learnings -->
-            <section id="learnings" class="mb-16 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Learnings</h2>
-                <div class="space-y-6 not-prose">
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <strong class="block text-slate-900 mb-2">1. Channel matters more than content during adoption</strong>
-                        <p class="text-sm text-slate-600 m-0 leading-relaxed">The web MVP had adequate content, but the delivery channel created too much friction. Before iterating on the product, I needed to iterate on the channel.</p>
+            <section id="learnings">
+                <h2>Learnings</h2>
+                <div class="learning-cards">
+                    <div class="learning-card">
+                        <strong>1. Channel matters more than content during adoption</strong>
+                        <p>The web MVP had adequate content, but the delivery channel created too much friction. Before iterating on the product, I needed to iterate on the channel.</p>
                     </div>
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <strong class="block text-slate-900 mb-2">2. Testing with few users isn't validation</strong>
-                        <p class="text-sm text-slate-600 m-0 leading-relaxed">Testing with 4 users and no feedback received doesn't generate actionable data. For the next iteration, I defined clear success metrics before starting the test.</p>
+                    <div class="learning-card">
+                        <strong>2. Testing with few users isn't validation</strong>
+                        <p>Testing with 4 users and no feedback received doesn't generate actionable data. For the next iteration, I defined clear success metrics before starting the test.</p>
                     </div>
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <strong class="block text-slate-900 mb-2">3. The teacher is the adoption channel, not the student</strong>
-                        <p class="text-sm text-slate-600 m-0 leading-relaxed">To reach K-8 students, I need to convince the teacher first. The product needs to deliver value to them before it reaches the student.</p>
+                    <div class="learning-card">
+                        <strong>3. The teacher is the adoption channel, not the student</strong>
+                        <p>To reach K-8 students, I need to convince the teacher first. The product needs to deliver value to them before it reaches the student.</p>
                     </div>
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <strong class="block text-slate-900 mb-2">4. Manual testing before automation</strong>
-                        <p class="text-sm text-slate-600 m-0 leading-relaxed">Building a bot before knowing if demand exists is waste. Sending messages manually costs time, but generates real behavioral data.</p>
+                    <div class="learning-card">
+                        <strong>4. Manual testing before automation</strong>
+                        <p>Building a bot before knowing if demand exists is waste. Sending messages manually costs time, but generates real behavioral data.</p>
                     </div>
                 </div>
             </section>
 
-            <div class="h-px bg-slate-200 w-full mb-16"></div>
+            <div class="divider"></div>
 
-            <!-- Next Steps -->
-            <section id="next" class="mb-12 scroll-mt-28">
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Next Steps</h2>
+            <section id="next">
+                <h2>Next Steps</h2>
                 <ul>
                     <li>Execute WhatsApp test with 10-15 students</li>
                     <li>Analyze response rate, D1/D7 retention, and error patterns</li>
@@ -319,24 +293,15 @@
                 </ul>
             </section>
 
-            <!-- Navigation -->
-            <div class="border-t border-slate-200 pt-10 mt-16 flex justify-between items-center">
-                <a href="index-en.html" class="text-slate-500 font-medium hover:text-slate-900 transition flex items-center">
-                    <i class="fa-solid fa-arrow-left mr-2"></i> Home
-                </a>
-                <a href="https://questopia.com.br" target="_blank" class="text-violet-600 font-bold hover:text-violet-800 transition flex items-center">
-                    questopia.com.br <i class="fa-solid fa-external-link ml-2 text-xs"></i>
-                </a>
+            <div class="case-nav">
+                <a href="index-en.html">← Home</a>
+                <a href="https://questopia.com.br" target="_blank">questopia.com.br →</a>
             </div>
-
         </article>
-    </main>
+    </div>
 
-    <footer class="bg-white border-t border-slate-200 py-12 mt-12">
-        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm">
-            <p>&copy; 2026 Pedro Cardeal.</p>
-        </div>
+    <footer class="footer container">
+        <p class="footer-copy">© 2026 Pedro Cardeal</p>
     </footer>
-
 </body>
 </html>
