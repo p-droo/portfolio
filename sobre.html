@@ -4,36 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre | Pedro Cardeal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> <!-- Se você separar o CSS depois -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --petroleum: #2C3E50;
-      --cobalt: #004E89;
-      --offwhite: #F7F5F2;
-      --ochre: #C9A66B;
-      --sepia: #756C5C;
+      --color-bg: #F4EDE4;
+      --color-text: #2E2A27;
+      --color-text-secondary: #5C5650;
+      --color-primary: #1E3246;
+      --color-accent: #C47B3B;
+      --color-detail: #7D3C3A;
+      --color-border: #E4D8C6;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--offwhite);
-      color: var(--petroleum);
+      font-family: 'Source Sans 3', -apple-system, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
       padding: 2rem;
-      line-height: 1.6;
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.7;
     }
 
     h1, h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--cobalt);
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--color-primary);
+    }
+
+    h2 {
+      margin-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.5rem;
     }
 
     a {
-      color: var(--sepia);
+      color: var(--color-accent);
       text-decoration: none;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
+    li {
+      color: var(--color-text-secondary);
+      margin-bottom: 0.3rem;
+    }
+
     .voltar {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--color-detail);
       margin-bottom: 2rem;
       display: inline-block;
     }
