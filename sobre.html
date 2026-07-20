@@ -4,30 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre | Pedro Cardeal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --color-bg: #F4EDE4;
-      --color-text: #2E2A27;
-      --color-text-secondary: #5C5650;
-      --color-primary: #1E3246;
-      --color-accent: #C47B3B;
-      --color-detail: #7D3C3A;
-      --color-border: #E4D8C6;
-    }
-
+    /* Layout específico da página Sobre */
     body {
-      font-family: 'Source Sans 3', -apple-system, sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-text);
       padding: 2rem;
-      max-width: 780px;
+      max-width: var(--max-width);
       margin: 0 auto;
-      line-height: 1.7;
     }
 
     h1, h2 {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: var(--font-display);
       color: var(--color-primary);
     }
 
@@ -38,7 +28,7 @@
     }
 
     a {
-      color: var(--color-accent);
+      color: var(--color-accent-text);
       text-decoration: none;
     }
 
@@ -52,7 +42,7 @@
     }
 
     .voltar {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.85rem;
       color: var(--color-detail);
       margin-bottom: 2rem;
@@ -65,7 +55,7 @@
   <a href="index.html" class="voltar">&larr; Voltar para a Home</a>
 
   <h1>Sobre Pedro Cardeal</h1>
-  <p>Sou Analista de Produto Educacional com foco em design de experiências de aprendizagem e desenvolvimento de soluções digitais acessíveis, criativas e baseadas em dados.</p>
+  <p>Sou Designer Instrucional e Learning Experience Designer, com 15 anos transformando conhecimento complexo em experiências de aprendizagem que funcionam — do diagnóstico à produção de e-learning, em português, inglês e espanhol.</p>
 
   <h2>Habilidades Técnicas</h2>
   <ul>
