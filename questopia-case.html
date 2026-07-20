@@ -6,92 +6,14 @@
     <title>Questopia — Case Completo | Pedro Cardeal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg: #FAFAF8;
-            --color-surface: #FFFFFF;
-            --color-text: #1A1A1A;
-            --color-text-secondary: #5A5A5A;
-            --color-text-muted: #8A8A8A;
-            --color-accent: #1A5276;
-            --color-accent-light: #D6EAF8;
-            --color-accent-hover: #154360;
-            --color-border: #E8E8E4;
-            --color-tag-bg: #F0F0EC;
-            --color-highlight-bg: #F7F3E8;
-            --color-highlight-border: #E8DFC8;
-            --color-highlight-text: #5A4A2A;
-            --font-display: 'Source Serif 4', Georgia, serif;
-            --font-body: 'DM Sans', -apple-system, sans-serif;
-            --max-width: 780px;
-            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 3rem; --space-xl: 5rem;
-        }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav a { font-size: 0.85rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s; }
-        .nav a:hover { color: var(--color-accent); }
-        .nav-lang { display: flex; gap: 0.75rem; align-items: center; }
-        .nav-lang span { color: var(--color-border); }
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
-        .case-header { padding-top: calc(var(--space-xl) + 3rem); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
-        .case-header .status { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-sm); padding: 0.3rem 0.7rem; background: var(--color-accent-light); border-radius: 4px; }
-        .case-header h1 { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; line-height: 1.15; margin-bottom: var(--space-xs); }
-        .case-header .subtitle { font-family: var(--font-display); font-size: 1.2rem; color: var(--color-text-secondary); margin-bottom: var(--space-md); line-height: 1.5; }
-        .case-meta { display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-muted); flex-wrap: wrap; }
-        .case-meta strong { color: var(--color-text-secondary); font-weight: 600; }
-        .case-body { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; padding: var(--space-lg) 0; }
-        .sidebar { position: sticky; top: 5rem; align-self: start; }
-        .sidebar p { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-xs); }
-        .sidebar a { display: block; font-size: 0.82rem; color: var(--color-text-secondary); text-decoration: none; padding: 0.35rem 0; border-left: 2px solid transparent; padding-left: 0.75rem; transition: all 0.2s; }
-        .sidebar a:hover { color: var(--color-accent); border-left-color: var(--color-accent); }
-        .content section { margin-bottom: var(--space-lg); }
-        .content h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: var(--space-sm); color: var(--color-text); }
-        .content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-top: var(--space-md); margin-bottom: 0.5rem; color: var(--color-accent); }
-        .content p { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: var(--space-sm); }
-        .content p strong { color: var(--color-text); }
-        .content ul { padding-left: 1.2rem; margin-bottom: var(--space-sm); }
-        .content li { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.75; margin-bottom: 0.4rem; }
-        .content li strong { color: var(--color-text); }
-        .content a { color: var(--color-accent); }
-        .callout { background: var(--color-accent-light); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; margin-bottom: var(--space-sm); }
-        .callout p { color: var(--color-accent); font-size: 1rem; line-height: 1.7; margin-bottom: 0; }
-        .callout-warning { background: var(--color-highlight-bg); border-color: var(--color-highlight-border); }
-        .callout-warning p { color: var(--color-highlight-text); }
-        .insight-box { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; margin-bottom: var(--space-sm); }
-        .insight-box p { margin-bottom: 0; }
-        .value-props { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: var(--space-sm); }
-        .value-prop { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; }
-        .value-prop strong { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; color: var(--color-accent); }
-        .value-prop span { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
-        .learning-cards { display: flex; flex-direction: column; gap: 0.75rem; }
-        .learning-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; }
-        .learning-card strong { display: block; font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--color-text); }
-        .learning-card p { font-size: 0.85rem; margin-bottom: 0; }
-        .metrics-list { list-style: none; padding-left: 0; }
-        .metrics-list li { padding-left: 0; }
-        .divider { height: 1px; background: var(--color-border); margin: var(--space-lg) 0; }
-        .case-nav { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-lg); }
-        .case-nav a { font-size: 0.85rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
-        .case-nav a:hover { text-decoration: underline; }
-        .footer { padding: var(--space-lg) 0 var(--space-md); border-top: 1px solid var(--color-border); text-align: center; }
-        .footer-copy { font-size: 0.8rem; color: var(--color-text-muted); }
-        @media (max-width: 640px) {
-            .case-header h1 { font-size: 2rem; }
-            .case-body { grid-template-columns: 1fr; gap: 0; }
-            .sidebar { position: static; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-border); }
-            .container { padding: 0 1.25rem; }
-            .nav { padding: 0.75rem 1.25rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="nav">
         <a href="index.html">← Voltar ao Portfólio</a>
         <div class="nav-lang">
-            <a href="questopia-case.html" style="color: var(--color-accent); font-weight: 700;">PT</a>
+            <a href="questopia-case.html" class="lang-active">PT</a>
             <span>|</span>
             <a href="questopia-case-en.html">EN</a>
         </div>
@@ -100,11 +22,11 @@
     <header class="case-header container">
         <span class="status">MVP em iteração</span>
         <h1>Questopia</h1>
-        <p class="subtitle">Produto de revisão espaçada para Ensino Fundamental II</p>
+        <p class="subtitle">Plataforma de inglês (EFL) baseada em repetição espaçada, gamificação e IA</p>
         <div class="case-meta">
-            <span><strong>Papel:</strong> Fundador & PM (solo)</span>
-            <span><strong>Setor:</strong> EdTech (Fund. II)</span>
-            <span><strong>Status:</strong> Testando canal WhatsApp</span>
+            <span><strong>Papel:</strong> Fundador e Learning Designer</span>
+            <span><strong>Setor:</strong> EdTech (EFL)</span>
+            <span><strong>Status:</strong> Pivot de público</span>
         </div>
     </header>
 
@@ -114,9 +36,9 @@
             <a href="#contexto">Contexto</a>
             <a href="#tese">Minha Tese</a>
             <a href="#discovery">Discovery</a>
-            <a href="#decisoes">Decisões de Produto</a>
+            <a href="#decisoes">Decisões de Design</a>
             <a href="#iteracao1">Iteração 1: MVP Web</a>
-            <a href="#iteracao2">Iteração 2: WhatsApp</a>
+            <a href="#iteracao2">Iteração 2: Pivot de Público</a>
             <a href="#aprendizados">Aprendizados</a>
             <a href="#proximos">Próximos Passos</a>
         </aside>
@@ -124,9 +46,8 @@
         <article class="content">
             <section id="contexto">
                 <h2>Contexto</h2>
-                <p>O mercado de EdTech brasileiro tende a focar em dois extremos: alfabetização (crianças pequenas) e preparação para vestibular/ENEM (ensino médio). O Ensino Fundamental II — alunos de 10 a 14 anos — fica no "meio do caminho" e sofre com falta de inovação em produto.</p>
-                <p>Nessa faixa etária, a <strong>retenção de conteúdo</strong> é um problema real. Alunos aprendem um assunto, são avaliados uma vez e seguem adiante — sem revisão estruturada. Pesquisas em ciência cognitiva mostram que a revisão espaçada é um dos métodos mais eficazes para fixação de longo prazo, mas os produtos existentes (como Anki) exigem disciplina e autonomia que adolescentes de 10-14 anos simplesmente não têm.</p>
-                <p>Do lado dos professores, a situação é igualmente problemática: horas semanais gastas com correção de atividades recorrentes, pouco tempo para personalizar o ensino, e quase nenhum dado sobre padrões de erro dos alunos.</p>
+                <p>O ensino de inglês como língua estrangeira no Brasil esbarra num problema de retenção. O aluno estuda vocabulário e gramática, é avaliado uma vez e segue em frente — sem revisão estruturada. A ciência cognitiva aponta a repetição espaçada como um dos métodos mais eficazes para fixação de longo prazo, mas as ferramentas que existem, como o Anki, exigem uma disciplina que a maioria dos aprendizes não sustenta sozinha.</p>
+                <p>Do lado de quem ensina, a situação também é problemática: tempo gasto com revisão repetitiva, pouca visibilidade sobre os erros da turma e quase nenhum dado para personalizar o próximo passo do aluno.</p>
             </section>
 
             <div class="divider"></div>
@@ -134,9 +55,9 @@
             <section id="tese">
                 <h2>Minha Tese</h2>
                 <div class="callout">
-                    <p>Pessoas aprendem e retêm melhor quando a jornada é desenhada com intencionalidade. Revisão espaçada é um dos métodos mais comprovados pela ciência cognitiva — mas os produtos existentes exigem disciplina que alunos de 10-14 anos não têm.</p>
+                    <p>Pessoas aprendem e retêm melhor quando a jornada é desenhada com intencionalidade. A repetição espaçada é um dos métodos mais comprovados pela ciência cognitiva — mas os produtos que a aplicam exigem uma disciplina que a maioria dos aprendizes não sustenta sozinha.</p>
                 </div>
-                <p>Minha aposta: é possível entregar revisão espaçada eficaz se o produto for desenhado para caber na rotina do aluno (não o contrário), se for adotado pelo professor (e não imposto), e se gerar visibilidade para os pais.</p>
+                <p>Minha aposta: é possível entregar revisão espaçada eficaz se o produto for desenhado para caber nas brechas do dia do aprendiz (não o contrário) e se gerar valor para o professor, que é quem recomenda a ferramenta ao aluno.</p>
             </section>
 
             <div class="divider"></div>
@@ -144,116 +65,105 @@
             <section id="discovery">
                 <h2>Discovery</h2>
 
-                <h3>Pesquisa com Alunos</h3>
-                <p>Conduzi pesquisa qualitativa com alunos do Fundamental II para entender como organizam seu tempo, quais atividades competem pela atenção deles e qual seria a disposição para usar uma ferramenta de revisão.</p>
+                <h3>Pesquisa com Aprendizes</h3>
+                <p>Conduzi pesquisa qualitativa com aprendizes de inglês para entender como organizam o tempo de estudo, o que compete pela atenção deles e qual a disposição para usar uma ferramenta de revisão.</p>
                 <p><strong>Principais achados:</strong></p>
                 <ul>
-                    <li>Múltiplas atividades competem pelo tempo do aluno: escola, esporte, telas, descanso</li>
-                    <li>Qualquer solução com mais de ~15 minutos de sessão seria abandonada</li>
-                    <li>Resistência forte a qualquer coisa que pareça "mais tarefa de casa"</li>
-                    <li>O produto precisa caber nos espaços entre as atividades existentes, não criar um espaço novo</li>
+                    <li>Solução que compete com o tempo livre é abandonada — a revisão precisa caber nas brechas do dia</li>
+                    <li>Sessões longas são abandonadas; o atrito de entrada precisa ser o menor possível</li>
+                    <li>Motivação intrínseca (trabalho, viagem, certificação) sustenta o hábito de revisão muito mais do que obrigação externa</li>
                 </ul>
 
                 <h3>Pesquisa com Professores</h3>
-                <p>Pesquisei professores para mapear o fluxo de trabalho, entender as dores operacionais e identificar onde um produto poderia gerar valor real.</p>
+                <p>Pesquisei professores de inglês para mapear o fluxo de trabalho, entender as dores operacionais e identificar onde um produto poderia gerar valor real.</p>
                 <p><strong>Principais achados:</strong></p>
                 <ul>
-                    <li>Tempo significativo gasto com correção de atividades recorrentes</li>
-                    <li>Falta de dados sobre padrões de erro dos alunos — correção é feita, mas o dado se perde</li>
+                    <li>Tempo significativo gasto com revisão repetitiva</li>
+                    <li>Falta de dados sobre os padrões de erro da turma — a correção é feita, mas o dado se perde</li>
                     <li>Receio de ser substituído por tecnologia — qualquer produto que pareça ameaçar o papel do professor será rejeitado</li>
                 </ul>
-                <p><strong>Hipótese em validação:</strong> redução significativa do tempo semanal com correção. Validação em andamento via pesquisa quantitativa com 8-10 professores.</p>
+                <p><strong>Hipótese em validação:</strong> a ferramenta só entra na rotina se gerar valor para quem ensina (dados de erro, economia de tempo), porque é o professor que a recomenda ao aluno.</p>
 
                 <h3>Insight de Cruzamento</h3>
                 <div class="insight-box">
-                    <p>O produto precisa ser desenhado para o <strong>aluno usar</strong>, para o <strong>professor adotar</strong>, e para os <strong>pais monitorarem</strong>. Três interfaces, três propostas de valor, um produto.</p>
+                    <p>O produto precisa ser desenhado para o <strong>aluno usar</strong> e para o <strong>professor adotar</strong>. Duas interfaces, duas propostas de valor, um produto — e é o professor que abre a porta para o aluno.</p>
                 </div>
             </section>
 
             <div class="divider"></div>
 
             <section id="decisoes">
-                <h2>Decisões de Produto</h2>
+                <h2>Decisões de Design</h2>
 
-                <h3>Sessões de 7-15 minutos</h3>
-                <p><strong>Fundamentação:</strong> princípios de microlearning + mapeamento da jornada do aluno. A pesquisa mostrou que sessões acima de 15 minutos são abandonadas.</p>
-                <p><strong>Trade-off:</strong> sessões mais longas poderiam gerar mais aprendizado por sessão, mas a taxa de abandono seria muito alta. Preferi frequência a profundidade — revisão espaçada funciona melhor com repetição curta e constante.</p>
+                <h3>Sessões curtas de revisão</h3>
+                <p><strong>Fundamentação:</strong> princípios de microlearning e repetição espaçada. Sessões de 5 a 10 minutos que cabem na rotina sem competir com o resto.</p>
+                <p><strong>Trade-off:</strong> sessões mais longas poderiam gerar mais aprendizado por vez, mas a taxa de abandono seria alta. Preferi frequência a profundidade — a revisão espaçada funciona melhor com repetição curta e constante.</p>
 
-                <h3>Auxiliar, não substituir o professor</h3>
-                <p><strong>Fundamentação:</strong> pesquisa com professores revelou que o receio de substituição é uma barreira real de adoção.</p>
-                <p><strong>Trade-off:</strong> limita a autonomia do produto (não pode funcionar 100% sem o professor), mas garante adoção pelo canal mais importante. O professor é quem indica o produto aos alunos — se ele não adotar, o produto não chega ao usuário final.</p>
+                <h3>Apoiar o professor, não substituí-lo</h3>
+                <p><strong>Fundamentação:</strong> a pesquisa mostrou que o receio de substituição é uma barreira real de adoção.</p>
+                <p><strong>Trade-off:</strong> limita a autonomia do produto, mas garante adoção pelo canal mais importante. O professor é quem recomenda a ferramenta — se ele não adotar, o produto não chega ao aluno.</p>
 
-                <h3>Três propostas de valor distintas</h3>
+                <h3>Foco em EFL para falantes de português</h3>
+                <p><strong>Fundamentação:</strong> público com urgência real — trabalho, viagem, certificação — e sem as barreiras de compliance e consentimento parental do público infantil.</p>
+
+                <h3>Gamificação e IA</h3>
+                <p>Progressão e feedback imediato para o engajamento; IA para ajustar nível e conteúdo ao desempenho de cada aluno. O objetivo não é "viciar" — é reduzir a barreira de entrada e manter a consistência ao longo do tempo.</p>
+
                 <div class="value-props">
                     <div class="value-prop">
                         <strong>Aluno</strong>
-                        <span>Retenção de conteúdo sem fricção — sessões curtas que cabem na rotina.</span>
+                        <span>Retenção de vocabulário e estruturas sem fricção — sessões curtas que cabem na rotina.</span>
                     </div>
                     <div class="value-prop">
                         <strong>Professor</strong>
-                        <span>Economia de tempo com correção + dados sobre onde os alunos erram.</span>
-                    </div>
-                    <div class="value-prop">
-                        <strong>Pais</strong>
-                        <span>Controle e visibilidade sobre o estudo dos filhos fora da escola.</span>
+                        <span>Economia de tempo com revisão + dados sobre onde a turma erra.</span>
                     </div>
                 </div>
-
-                <h3>Gamificação para engajamento</h3>
-                <p>Mecânicas de progressão e feedback imediato desenhadas para manter o aluno engajado em sessões curtas. O objetivo não é "viciar" — é reduzir a barreira de entrada e manter a consistência ao longo do tempo.</p>
             </section>
 
             <div class="divider"></div>
 
             <section id="iteracao1">
-                <h2>Iteração 1: MVP Web</h2>
+                <h2>Iteração 1: MVP Web (público de 10 a 14 anos)</h2>
                 <p><strong>Ferramenta:</strong> Lovable (no-code builder)<br>
-                <strong>O que foi construído:</strong> Plataforma web com cadastro, sessões de revisão espaçada, sistema de feedback interno e painel básico de progresso.<br>
+                <strong>O que foi construído:</strong> plataforma web com cadastro, sessões de revisão espaçada, sistema de feedback interno e painel básico de progresso.<br>
                 <strong>Disponível em:</strong> <a href="https://questopia.com.br" target="_blank">questopia.com.br</a></p>
 
                 <h3>Resultados</h3>
                 <ul>
                     <li>Primeiros usuários testaram a plataforma</li>
-                    <li>Engajamento abaixo do esperado</li>
-                    <li>Sistema de feedback interno não recebeu mensagens</li>
-                    <li>Sazonalidade escolar (fim/início de ano letivo) impactou a janela de teste</li>
+                    <li>Baixa adesão: sem urgência clara, a revisão espaçada perdia para atividades mais atraentes</li>
+                    <li>Barreira de consentimento parental para a pesquisa acadêmica com menores</li>
                 </ul>
 
                 <h3>Diagnóstico</h3>
                 <div class="callout-warning callout">
-                    <p><strong>A barreira principal de adoção não era o conteúdo — era o canal.</strong> Acessar um site, criar conta, fazer login e navegar até uma sessão de revisão é fricção demais para alunos de Ensino Fundamental II. O produto pode ser bom, mas se o canal de entrega gera atrito, o usuário não chega a experimentar.</p>
+                    <p><strong>O problema não era o método — era o público.</strong> Adolescentes de 10 a 14 anos não têm urgência suficiente para sustentar um hábito de revisão, e a pesquisa com menores esbarra em compliance e consentimento parental. O core do produto funcionava; faltava um público com motivação própria para revisar.</p>
                 </div>
             </section>
 
             <div class="divider"></div>
 
             <section id="iteracao2">
-                <h2>Iteração 2: Pivô para WhatsApp</h2>
+                <h2>Iteração 2: Pivot de Público (fase atual)</h2>
 
-                <h3>Hipótese</h3>
-                <p>WhatsApp elimina as principais barreiras de adoção: não precisa de download, não precisa de login, não precisa de cadastro. O aluno já está no canal — a questão de revisão chega até ele, e não o contrário.</p>
+                <h3>Decisão</h3>
+                <p>A partir dos dados de adoção, redirecionei o foco para quem aprende inglês como língua estrangeira — adultos e jovens falantes de português brasileiro. O núcleo do produto (repetição espaçada com baixo atrito) continuou o mesmo; mudou o público.</p>
 
-                <h3>Abordagem</h3>
-                <p>Teste manual antes de automação. Envio manual de questões via WhatsApp para validar a demanda antes de investir tempo construindo um bot. Se a hipótese se confirmar, automatizo com n8n auto-hospedado.</p>
-
-                <h3>Design do teste</h3>
-                <ul class="metrics-list">
-                    <li>Recrutar 10-15 alunos via professores parceiros</li>
-                    <li>Enviar 1 questão de revisão por dia via WhatsApp</li>
-                    <li>Registrar: quem respondeu, quando respondeu, acerto ou erro</li>
-                    <li>Duração planejada: 2-3 semanas</li>
-                </ul>
-
-                <h3>Métricas definidas</h3>
+                <h3>Por que o novo público sustenta o hábito</h3>
                 <ul>
-                    <li><strong>Taxa de resposta:</strong> >50% nos primeiros 7 dias</li>
-                    <li><strong>Retenção D7:</strong> >30% dos alunos ainda respondendo após 7 dias</li>
-                    <li><strong>Erros por tópico:</strong> mapear os assuntos com maior taxa de erro</li>
+                    <li>Urgência real: mercado de trabalho, certificações e viagens dão motivo concreto para revisar</li>
+                    <li>Motivação intrínseca: o aprendiz decide estudar por conta própria, sem depender de obrigação escolar</li>
+                    <li>Sem barreiras de consentimento parental — a validação com usuários fica mais simples e rápida</li>
                 </ul>
 
-                <h3>Contexto regulatório</h3>
-                <p>O CADE emitiu medida preventiva (janeiro/2026) suspendendo restrições da Meta contra IAs de terceiros no WhatsApp. Um bot educacional especializado tem risco regulatório baixo — mas a abordagem manual inicial elimina completamente essa dependência.</p>
-                <p><strong>Status:</strong> em preparação para execução do teste.</p>
+                <h3>O que estou validando agora</h3>
+                <ul>
+                    <li><strong>Retenção do hábito:</strong> aprendizes voltando às sessões de revisão ao longo das semanas</li>
+                    <li><strong>Valor para o professor:</strong> economia de tempo e dados de erro que justifiquem a recomendação</li>
+                    <li><strong>Erros por tópico:</strong> mapear os assuntos com maior taxa de erro para personalizar a revisão</li>
+                </ul>
+                <p><strong>Status:</strong> MVP em iteração com o novo público.</p>
             </section>
 
             <div class="divider"></div>
@@ -262,20 +172,20 @@
                 <h2>Aprendizados</h2>
                 <div class="learning-cards">
                     <div class="learning-card">
-                        <strong>1. Canal importa mais que conteúdo na fase de adoção</strong>
-                        <p>O MVP web tinha conteúdo adequado, mas o canal de entrega gerava fricção demais. Antes de iterar no produto, precisei iterar no canal.</p>
+                        <strong>1. A urgência do público importa mais que o método</strong>
+                        <p>O método (repetição espaçada) estava certo; o público inicial não tinha urgência para sustentar o hábito. Antes de iterar no produto, precisei iterar no público.</p>
                     </div>
                     <div class="learning-card">
                         <strong>2. Validar com poucos usuários não é validar</strong>
-                        <p>Testes com 4 usuários sem feedback recebido não geram dados acionáveis. Para a próxima iteração, defini métricas claras de sucesso antes de começar o teste.</p>
+                        <p>Testes com poucos usuários e sem feedback recebido não geram dados acionáveis. Para a fase atual, defini métricas claras de sucesso antes de começar.</p>
                     </div>
                     <div class="learning-card">
-                        <strong>3. O professor é o canal de adoção, não o aluno</strong>
-                        <p>Para atingir alunos de Fundamental II, preciso convencer o professor primeiro. O produto precisa gerar valor para ele antes de chegar ao aluno.</p>
+                        <strong>3. O professor é o canal de adoção</strong>
+                        <p>Para chegar ao aluno, preciso primeiro gerar valor para quem ensina. O produto tem de economizar tempo e devolver dados de erro antes de ser recomendado.</p>
                     </div>
                     <div class="learning-card">
-                        <strong>4. Teste manual antes de automação</strong>
-                        <p>Construir um bot antes de saber se a demanda existe é desperdício. Enviar mensagens manualmente custa tempo, mas gera dados reais sobre comportamento.</p>
+                        <strong>4. Público certo destrava a pesquisa</strong>
+                        <p>Migrar para um público adulto e motivado removeu as barreiras de compliance e consentimento e acelerou o ciclo de validação com usuários reais.</p>
                     </div>
                 </div>
             </section>
@@ -285,10 +195,10 @@
             <section id="proximos">
                 <h2>Próximos Passos</h2>
                 <ul>
-                    <li>Executar o teste via WhatsApp com 10-15 alunos</li>
-                    <li>Analisar taxa de resposta, retenção D1/D7 e padrões de erro</li>
-                    <li>Se validado: automatizar com n8n auto-hospedado</li>
-                    <li>Conduzir pesquisa quantitativa com 8-10 professores para validar hipótese de economia de tempo</li>
+                    <li>Rodar a validação de retenção do hábito com o novo público de EFL</li>
+                    <li>Analisar retenção ao longo das semanas e padrões de erro por tópico</li>
+                    <li>Conduzir pesquisa com professores de inglês para validar a hipótese de economia de tempo</li>
+                    <li>Usar IA para ajustar nível e conteúdo ao desempenho individual do aprendiz</li>
                     <li>Iterar no formato da questão (texto, imagem, áudio) com base nos dados coletados</li>
                 </ul>
             </section>

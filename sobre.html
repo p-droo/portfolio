@@ -4,36 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre | Pedro Cardeal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> <!-- Se você separar o CSS depois -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --petroleum: #2C3E50;
-      --cobalt: #004E89;
-      --offwhite: #F7F5F2;
-      --ochre: #C9A66B;
-      --sepia: #756C5C;
-    }
-
+    /* Layout específico da página Sobre */
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--offwhite);
-      color: var(--petroleum);
       padding: 2rem;
-      line-height: 1.6;
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
 
     h1, h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--cobalt);
+      font-family: var(--font-display);
+      color: var(--color-primary);
+    }
+
+    h2 {
+      margin-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.5rem;
     }
 
     a {
-      color: var(--sepia);
+      color: var(--color-accent-text);
       text-decoration: none;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
+    li {
+      color: var(--color-text-secondary);
+      margin-bottom: 0.3rem;
+    }
+
     .voltar {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-detail);
       margin-bottom: 2rem;
       display: inline-block;
     }
@@ -44,7 +55,7 @@
   <a href="index.html" class="voltar">&larr; Voltar para a Home</a>
 
   <h1>Sobre Pedro Cardeal</h1>
-  <p>Sou Analista de Produto Educacional com foco em design de experiências de aprendizagem e desenvolvimento de soluções digitais acessíveis, criativas e baseadas em dados.</p>
+  <p>Sou Designer Instrucional e Learning Experience Designer, com 15 anos transformando conhecimento complexo em experiências de aprendizagem que funcionam — do diagnóstico à produção de e-learning, em português, inglês e espanhol.</p>
 
   <h2>Habilidades Técnicas</h2>
   <ul>

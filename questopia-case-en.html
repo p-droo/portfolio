@@ -6,86 +6,8 @@
     <title>Questopia — Full Case Study | Pedro Cardeal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg: #FAFAF8;
-            --color-surface: #FFFFFF;
-            --color-text: #1A1A1A;
-            --color-text-secondary: #5A5A5A;
-            --color-text-muted: #8A8A8A;
-            --color-accent: #1A5276;
-            --color-accent-light: #D6EAF8;
-            --color-accent-hover: #154360;
-            --color-border: #E8E8E4;
-            --color-tag-bg: #F0F0EC;
-            --color-highlight-bg: #F7F3E8;
-            --color-highlight-border: #E8DFC8;
-            --color-highlight-text: #5A4A2A;
-            --font-display: 'Source Serif 4', Georgia, serif;
-            --font-body: 'DM Sans', -apple-system, sans-serif;
-            --max-width: 780px;
-            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 3rem; --space-xl: 5rem;
-        }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav a { font-size: 0.85rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s; }
-        .nav a:hover { color: var(--color-accent); }
-        .nav-lang { display: flex; gap: 0.75rem; align-items: center; }
-        .nav-lang span { color: var(--color-border); }
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
-        .case-header { padding-top: calc(var(--space-xl) + 3rem); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
-        .case-header .status { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-sm); padding: 0.3rem 0.7rem; background: var(--color-accent-light); border-radius: 4px; }
-        .case-header h1 { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; line-height: 1.15; margin-bottom: var(--space-xs); }
-        .case-header .subtitle { font-family: var(--font-display); font-size: 1.2rem; color: var(--color-text-secondary); margin-bottom: var(--space-md); line-height: 1.5; }
-        .case-meta { display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-muted); flex-wrap: wrap; }
-        .case-meta strong { color: var(--color-text-secondary); font-weight: 600; }
-        .case-body { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; padding: var(--space-lg) 0; }
-        .sidebar { position: sticky; top: 5rem; align-self: start; }
-        .sidebar p { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-xs); }
-        .sidebar a { display: block; font-size: 0.82rem; color: var(--color-text-secondary); text-decoration: none; padding: 0.35rem 0; border-left: 2px solid transparent; padding-left: 0.75rem; transition: all 0.2s; }
-        .sidebar a:hover { color: var(--color-accent); border-left-color: var(--color-accent); }
-        .content section { margin-bottom: var(--space-lg); }
-        .content h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: var(--space-sm); color: var(--color-text); }
-        .content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-top: var(--space-md); margin-bottom: 0.5rem; color: var(--color-accent); }
-        .content p { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: var(--space-sm); }
-        .content p strong { color: var(--color-text); }
-        .content ul { padding-left: 1.2rem; margin-bottom: var(--space-sm); }
-        .content li { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.75; margin-bottom: 0.4rem; }
-        .content li strong { color: var(--color-text); }
-        .content a { color: var(--color-accent); }
-        .callout { background: var(--color-accent-light); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; margin-bottom: var(--space-sm); }
-        .callout p { color: var(--color-accent); font-size: 1rem; line-height: 1.7; margin-bottom: 0; }
-        .callout-warning { background: var(--color-highlight-bg); border-color: var(--color-highlight-border); }
-        .callout-warning p { color: var(--color-highlight-text); }
-        .insight-box { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; margin-bottom: var(--space-sm); }
-        .insight-box p { margin-bottom: 0; }
-        .value-props { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: var(--space-sm); }
-        .value-prop { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; }
-        .value-prop strong { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; color: var(--color-accent); }
-        .value-prop span { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
-        .learning-cards { display: flex; flex-direction: column; gap: 0.75rem; }
-        .learning-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; }
-        .learning-card strong { display: block; font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--color-text); }
-        .learning-card p { font-size: 0.85rem; margin-bottom: 0; }
-        .metrics-list { list-style: none; padding-left: 0; }
-        .metrics-list li { padding-left: 0; }
-        .divider { height: 1px; background: var(--color-border); margin: var(--space-lg) 0; }
-        .case-nav { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 0; border-top: 1px solid var(--color-border); margin-top: var(--space-lg); }
-        .case-nav a { font-size: 0.85rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
-        .case-nav a:hover { text-decoration: underline; }
-        .footer { padding: var(--space-lg) 0 var(--space-md); border-top: 1px solid var(--color-border); text-align: center; }
-        .footer-copy { font-size: 0.8rem; color: var(--color-text-muted); }
-        @media (max-width: 640px) {
-            .case-header h1 { font-size: 2rem; }
-            .case-body { grid-template-columns: 1fr; gap: 0; }
-            .sidebar { position: static; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-border); }
-            .container { padding: 0 1.25rem; }
-            .nav { padding: 0.75rem 1.25rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="nav">
@@ -93,50 +15,49 @@
         <div class="nav-lang">
             <a href="questopia-case.html">PT</a>
             <span>|</span>
-            <a href="questopia-case-en.html" style="color: var(--color-accent); font-weight: 700;">EN</a>
+            <a href="questopia-case-en.html" class="lang-active">EN</a>
         </div>
     </nav>
 
     <header class="case-header container">
         <span class="status">MVP in iteration</span>
         <h1>Questopia</h1>
-        <p class="subtitle">Spaced repetition product for K-8 education</p>
+        <p class="subtitle">An English-learning platform (EFL) built on spaced repetition, gamification, and AI</p>
         <div class="case-meta">
-            <span><strong>Role:</strong> Founder & PM (solo)</span>
-            <span><strong>Sector:</strong> EdTech (K-8)</span>
-            <span><strong>Status:</strong> Testing WhatsApp channel</span>
+            <span><strong>Role:</strong> Founder & Learning Designer</span>
+            <span><strong>Sector:</strong> EdTech (EFL)</span>
+            <span><strong>Status:</strong> Audience pivot</span>
         </div>
     </header>
 
     <div class="container case-body">
         <aside class="sidebar">
             <p>In This Case</p>
-            <a href="#context">Context</a>
-            <a href="#thesis">My Thesis</a>
+            <a href="#contexto">Context</a>
+            <a href="#tese">My Thesis</a>
             <a href="#discovery">Discovery</a>
-            <a href="#decisions">Product Decisions</a>
-            <a href="#iteration1">Iteration 1: Web MVP</a>
-            <a href="#iteration2">Iteration 2: WhatsApp</a>
-            <a href="#learnings">Learnings</a>
-            <a href="#next">Next Steps</a>
+            <a href="#decisoes">Design Decisions</a>
+            <a href="#iteracao1">Iteration 1: Web MVP</a>
+            <a href="#iteracao2">Iteration 2: Audience Pivot</a>
+            <a href="#aprendizados">Lessons</a>
+            <a href="#proximos">Next Steps</a>
         </aside>
 
         <article class="content">
-            <section id="context">
+            <section id="contexto">
                 <h2>Context</h2>
-                <p>Brazil's EdTech market tends to focus on two extremes: early literacy (young children) and college entrance exam prep (high school). Middle school — students aged 10 to 14 — sits in the "no man's land" and suffers from a lack of product innovation.</p>
-                <p>At this age, <strong>content retention</strong> is a real problem. Students learn a topic, are tested once, and move on — with no structured review. Cognitive science research shows that spaced repetition is one of the most effective methods for long-term retention, but existing products (like Anki) demand discipline and autonomy that 10-14 year olds simply don't have.</p>
-                <p>On the teacher side, the situation is equally problematic: hours spent weekly grading recurring assignments, little time for personalized teaching, and almost no data on student error patterns.</p>
+                <p>Teaching English as a foreign language in Brazil runs into a retention problem. A student studies vocabulary and grammar, gets tested once, and moves on — with no structured review. Cognitive science points to spaced repetition as one of the most effective methods for long-term retention, but the tools that exist, like Anki, demand a discipline most learners can't keep up on their own.</p>
+                <p>On the teaching side it's just as hard: time spent on repetitive review, little visibility into the class's mistakes, and almost no data to personalize a learner's next step.</p>
             </section>
 
             <div class="divider"></div>
 
-            <section id="thesis">
+            <section id="tese">
                 <h2>My Thesis</h2>
                 <div class="callout">
-                    <p>People learn and retain better when the journey is designed with intentionality. Spaced repetition is one of the most proven methods in cognitive science — but existing products demand discipline that 10-14 year olds don't have.</p>
+                    <p>People learn and retain better when the journey is designed with intent. Spaced repetition is one of the most proven methods in cognitive science — but the products that apply it demand a discipline most learners can't keep up on their own.</p>
                 </div>
-                <p>My bet: it's possible to deliver effective spaced repetition if the product is designed to fit into the student's routine (not the other way around), if it's adopted by the teacher (not imposed), and if it provides visibility for parents.</p>
+                <p>My bet: you can deliver effective spaced review if the product is designed to fit into the gaps in a learner's day (not the other way around) and if it creates value for the teacher, who is the one who recommends the tool to students.</p>
             </section>
 
             <div class="divider"></div>
@@ -144,152 +65,141 @@
             <section id="discovery">
                 <h2>Discovery</h2>
 
-                <h3>Research with Students</h3>
-                <p>I conducted qualitative research with middle school students to understand how they organize their time, which activities compete for their attention, and how willing they'd be to use a review tool.</p>
+                <h3>Research with Learners</h3>
+                <p>I ran qualitative research with English learners to understand how they organize study time, what competes for their attention, and how willing they are to use a review tool.</p>
                 <p><strong>Key findings:</strong></p>
                 <ul>
-                    <li>Multiple activities compete for the student's time: school, sports, screens, rest</li>
-                    <li>Any solution requiring more than ~15 minutes per session would be abandoned</li>
-                    <li>Strong resistance to anything that feels like "more homework"</li>
-                    <li>The product needs to fit into gaps between existing activities, not create a new time slot</li>
+                    <li>Anything that competes with free time gets dropped — review has to fit into the gaps in the day</li>
+                    <li>Long sessions get abandoned; the barrier to entry has to be as low as possible</li>
+                    <li>Intrinsic motivation (work, travel, certification) sustains the review habit far more than external obligation</li>
                 </ul>
 
                 <h3>Research with Teachers</h3>
-                <p>I researched teachers to map their workflow, understand operational pain points, and identify where a product could deliver real value.</p>
+                <p>I researched English teachers to map their workflow, understand their operational pain points, and find where a product could create real value.</p>
                 <p><strong>Key findings:</strong></p>
                 <ul>
-                    <li>Significant time spent grading recurring assignments</li>
-                    <li>No data on student error patterns — grading happens, but the data is lost</li>
-                    <li>Fear of being replaced by technology — any product that appears to threaten the teacher's role will be rejected</li>
+                    <li>Significant time spent on repetitive review</li>
+                    <li>No data on the class's error patterns — grading happens, but the data is lost</li>
+                    <li>Fear of being replaced by technology — any product that seems to threaten the teacher's role gets rejected</li>
                 </ul>
-                <p><strong>Hypothesis being validated:</strong> significant reduction in weekly grading time. Validation in progress via quantitative survey with 8-10 teachers.</p>
+                <p><strong>Hypothesis under validation:</strong> the tool only enters the routine if it creates value for whoever teaches (error data, saved time), because the teacher is the one who recommends it to students.</p>
 
                 <h3>Cross-cutting Insight</h3>
                 <div class="insight-box">
-                    <p>The product needs to be designed for the <strong>student to use</strong>, for the <strong>teacher to adopt</strong>, and for <strong>parents to monitor</strong>. Three interfaces, three value propositions, one product.</p>
+                    <p>The product has to be designed for the <strong>student to use</strong> and for the <strong>teacher to adopt</strong>. Two interfaces, two value propositions, one product — and it's the teacher who opens the door to the student.</p>
                 </div>
             </section>
 
             <div class="divider"></div>
 
-            <section id="decisions">
-                <h2>Product Decisions</h2>
+            <section id="decisoes">
+                <h2>Design Decisions</h2>
 
-                <h3>7-15 Minute Sessions</h3>
-                <p><strong>Rationale:</strong> microlearning principles + student journey mapping. Research showed that sessions longer than 15 minutes are abandoned.</p>
-                <p><strong>Trade-off:</strong> longer sessions could generate more learning per session, but the dropout rate would be far too high. I chose frequency over depth — spaced repetition works better with short, consistent repetition.</p>
+                <h3>Short review sessions</h3>
+                <p><strong>Rationale:</strong> microlearning and spaced-repetition principles. Five-to-ten-minute sessions that fit the routine instead of competing with it.</p>
+                <p><strong>Trade-off:</strong> longer sessions could produce more learning per sitting, but the drop-off rate would be high. I chose frequency over depth — spaced repetition works best with short, constant repetition.</p>
 
-                <h3>Assist, Not Replace the Teacher</h3>
-                <p><strong>Rationale:</strong> teacher research revealed that fear of replacement is a real adoption barrier.</p>
-                <p><strong>Trade-off:</strong> limits product autonomy (can't function 100% without the teacher), but ensures adoption through the most important channel. The teacher is the one who recommends the product to students — if they don't adopt, the product never reaches the end user.</p>
+                <h3>Support the teacher, don't replace them</h3>
+                <p><strong>Rationale:</strong> research showed that fear of replacement is a real barrier to adoption.</p>
+                <p><strong>Trade-off:</strong> it limits the product's autonomy, but it secures adoption through the most important channel. The teacher is the one who recommends the tool — if they don't adopt it, the product never reaches the student.</p>
 
-                <h3>Three Distinct Value Propositions</h3>
+                <h3>Focus on EFL for Portuguese speakers</h3>
+                <p><strong>Rationale:</strong> an audience with real urgency — work, travel, certification — and none of the compliance or parental-consent barriers of a younger audience.</p>
+
+                <h3>Gamification and AI</h3>
+                <p>Progression and instant feedback for engagement; AI to tune level and content to each learner's performance. The goal isn't to "hook" anyone — it's to lower the barrier to entry and keep consistency over time.</p>
+
                 <div class="value-props">
                     <div class="value-prop">
                         <strong>Student</strong>
-                        <span>Frictionless content retention — short sessions that fit into their routine.</span>
+                        <span>Frictionless retention of vocabulary and structures — short sessions that fit the routine.</span>
                     </div>
                     <div class="value-prop">
                         <strong>Teacher</strong>
-                        <span>Time saved on grading + data on where students make errors.</span>
-                    </div>
-                    <div class="value-prop">
-                        <strong>Parents</strong>
-                        <span>Oversight and visibility into their children's studying outside of school.</span>
+                        <span>Time saved on review plus data on where the class gets it wrong.</span>
                     </div>
                 </div>
-
-                <h3>Gamification for Engagement</h3>
-                <p>Progression mechanics and immediate feedback designed to keep students engaged in short sessions. The goal isn't to create addiction — it's to lower the barrier to entry and maintain consistency over time.</p>
             </section>
 
             <div class="divider"></div>
 
-            <section id="iteration1">
-                <h2>Iteration 1: Web MVP</h2>
+            <section id="iteracao1">
+                <h2>Iteration 1: Web MVP (ages 10–14)</h2>
                 <p><strong>Tool:</strong> Lovable (no-code builder)<br>
-                <strong>What was built:</strong> Web platform with sign-up, spaced review sessions, internal feedback system, and basic progress dashboard.<br>
-                <strong>Available at:</strong> <a href="https://questopia.com.br" target="_blank">questopia.com.br</a></p>
+                <strong>What was built:</strong> a web platform with sign-up, spaced-repetition sessions, an internal feedback system, and a basic progress dashboard.<br>
+                <strong>Live at:</strong> <a href="https://questopia.com.br" target="_blank">questopia.com.br</a></p>
 
                 <h3>Results</h3>
                 <ul>
-                    <li>First users tested the platform</li>
-                    <li>Engagement below expectations</li>
-                    <li>Internal feedback system received no messages</li>
-                    <li>School seasonality (end/start of school year) impacted the testing window</li>
+                    <li>First users tried the platform</li>
+                    <li>Low adoption: without clear urgency, spaced review lost out to more appealing activities</li>
+                    <li>Parental-consent barrier for academic research with minors</li>
                 </ul>
 
                 <h3>Diagnosis</h3>
                 <div class="callout-warning callout">
-                    <p><strong>The main adoption barrier wasn't content — it was the channel.</strong> Accessing a website, creating an account, logging in, and navigating to a review session is too much friction for K-8 students. The product might be good, but if the delivery channel creates friction, the user never gets to experience it.</p>
+                    <p><strong>The problem wasn't the method — it was the audience.</strong> Teens aged 10–14 don't have enough urgency to sustain a review habit, and research with minors runs into compliance and parental consent. The core of the product worked; what was missing was an audience with its own motivation to review.</p>
                 </div>
             </section>
 
             <div class="divider"></div>
 
-            <section id="iteration2">
-                <h2>Iteration 2: WhatsApp Pivot</h2>
+            <section id="iteracao2">
+                <h2>Iteration 2: Audience Pivot (current phase)</h2>
 
-                <h3>Hypothesis</h3>
-                <p>WhatsApp removes the main adoption barriers: no download needed, no login needed, no sign-up needed. The student is already on the channel — the review question comes to them, not the other way around.</p>
+                <h3>Decision</h3>
+                <p>Guided by adoption data, I shifted the focus toward people learning English as a foreign language — Portuguese-speaking adults and teens. The core of the product (spaced repetition with low friction) stayed the same; the audience changed.</p>
 
-                <h3>Approach</h3>
-                <p>Manual testing before automation. Sending questions manually via WhatsApp to validate demand before investing time building a bot. If the hypothesis holds, I'll automate with self-hosted n8n.</p>
-
-                <h3>Test Design</h3>
-                <ul class="metrics-list">
-                    <li>Recruit 10-15 students through partner teachers</li>
-                    <li>Send 1 review question per day via WhatsApp</li>
-                    <li>Track: who responded, when they responded, correct or incorrect</li>
-                    <li>Planned duration: 2-3 weeks</li>
-                </ul>
-
-                <h3>Defined Metrics</h3>
+                <h3>Why the new audience sustains the habit</h3>
                 <ul>
-                    <li><strong>Response rate:</strong> >50% in the first 7 days</li>
-                    <li><strong>D7 retention:</strong> >30% of students still responding after 7 days</li>
-                    <li><strong>Errors by topic:</strong> mapping subjects with the highest error rate</li>
+                    <li>Real urgency: work, certifications, and travel give a concrete reason to review</li>
+                    <li>Intrinsic motivation: the learner chooses to study on their own, without relying on school obligation</li>
+                    <li>No parental-consent barriers — validating with users becomes simpler and faster</li>
                 </ul>
 
-                <h3>Regulatory Context</h3>
-                <p>Brazil's CADE issued a preventive measure (January 2026) suspending Meta's restrictions against third-party AIs on WhatsApp. A specialized educational bot carries low regulatory risk — but the manual-first approach completely eliminates this dependency.</p>
-                <p><strong>Status:</strong> preparing to execute the test.</p>
+                <h3>What I'm validating now</h3>
+                <ul>
+                    <li><strong>Habit retention:</strong> learners returning to review sessions week over week</li>
+                    <li><strong>Value for the teacher:</strong> time saved and error data that justify the recommendation</li>
+                    <li><strong>Errors by topic:</strong> mapping the highest-error topics to personalize review</li>
+                </ul>
+                <p><strong>Status:</strong> MVP in iteration with the new audience.</p>
             </section>
 
             <div class="divider"></div>
 
-            <section id="learnings">
-                <h2>Learnings</h2>
+            <section id="aprendizados">
+                <h2>Lessons</h2>
                 <div class="learning-cards">
                     <div class="learning-card">
-                        <strong>1. Channel matters more than content during adoption</strong>
-                        <p>The web MVP had adequate content, but the delivery channel created too much friction. Before iterating on the product, I needed to iterate on the channel.</p>
+                        <strong>1. The audience's urgency matters more than the method</strong>
+                        <p>The method (spaced repetition) was right; the initial audience lacked the urgency to sustain the habit. Before iterating on the product, I had to iterate on the audience.</p>
                     </div>
                     <div class="learning-card">
-                        <strong>2. Testing with few users isn't validation</strong>
-                        <p>Testing with 4 users and no feedback received doesn't generate actionable data. For the next iteration, I defined clear success metrics before starting the test.</p>
+                        <strong>2. Validating with few users isn't validating</strong>
+                        <p>Tests with a handful of users and no feedback received don't produce actionable data. For the current phase, I defined clear success metrics before starting.</p>
                     </div>
                     <div class="learning-card">
-                        <strong>3. The teacher is the adoption channel, not the student</strong>
-                        <p>To reach K-8 students, I need to convince the teacher first. The product needs to deliver value to them before it reaches the student.</p>
+                        <strong>3. The teacher is the adoption channel</strong>
+                        <p>To reach the student, I first have to create value for whoever teaches. The product has to save time and return error data before it gets recommended.</p>
                     </div>
                     <div class="learning-card">
-                        <strong>4. Manual testing before automation</strong>
-                        <p>Building a bot before knowing if demand exists is waste. Sending messages manually costs time, but generates real behavioral data.</p>
+                        <strong>4. The right audience unlocks the research</strong>
+                        <p>Moving to a motivated adult audience removed the compliance and consent barriers and accelerated the validation cycle with real users.</p>
                     </div>
                 </div>
             </section>
 
             <div class="divider"></div>
 
-            <section id="next">
+            <section id="proximos">
                 <h2>Next Steps</h2>
                 <ul>
-                    <li>Execute WhatsApp test with 10-15 students</li>
-                    <li>Analyze response rate, D1/D7 retention, and error patterns</li>
-                    <li>If validated: automate with self-hosted n8n</li>
-                    <li>Conduct quantitative survey with 8-10 teachers to validate time savings hypothesis</li>
-                    <li>Iterate on question format (text, image, audio) based on collected data</li>
+                    <li>Run the habit-retention validation with the new EFL audience</li>
+                    <li>Analyze retention week over week and error patterns by topic</li>
+                    <li>Research English teachers to validate the time-saving hypothesis</li>
+                    <li>Use AI to tune level and content to each learner's performance</li>
+                    <li>Iterate on question format (text, image, audio) based on the data collected</li>
                 </ul>
             </section>
 

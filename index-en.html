@@ -3,286 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Cardeal | Learning Strategist</title>
-    <meta name="description" content="Learning Strategist with 15 years turning complexity into learning that works — from diagnosis to digital products, in Portuguese, English, Spanish, and German.">
+    <title>Pedro Cardeal | Instructional Designer & Learning Experience Designer</title>
+    <meta name="description" content="Instructional Designer with 15 years turning complex knowledge into learning that works — from diagnosis to produced e-learning. Portuguese, English, and Spanish.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg: #FAFAF8;
-            --color-surface: #FFFFFF;
-            --color-text: #1A1A1A;
-            --color-text-secondary: #5A5A5A;
-            --color-text-muted: #8A8A8A;
-            --color-accent: #1A5276;
-            --color-accent-light: #D6EAF8;
-            --color-accent-hover: #154360;
-            --color-border: #E8E8E4;
-            --color-tag-bg: #F0F0EC;
-            --font-display: 'Source Serif 4', Georgia, serif;
-            --font-body: 'DM Sans', -apple-system, sans-serif;
-            --max-width: 780px;
-            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 3rem; --space-xl: 5rem;
-        }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--color-text); text-decoration: none; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s; letter-spacing: 0.02em; }
-        .nav-links a:hover { color: var(--color-accent); }
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
-        .hero { padding-top: calc(var(--space-xl) + 3rem); padding-bottom: var(--space-lg); }
-        .hero-label { display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-sm); padding: 0.35rem 0.75rem; background: var(--color-accent-light); border-radius: 4px; }
-        .hero h1 { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; line-height: 1.15; color: var(--color-text); margin-bottom: var(--space-xs); }
-        .hero-subtitle { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-accent); font-weight: 600; margin-bottom: var(--space-md); line-height: 1.4; }
-        .hero-intro { font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.8; max-width: 640px; }
-        .hero-intro strong { color: var(--color-text); font-weight: 600; }
-        .hero-links { margin-top: var(--space-md); display: flex; gap: 1rem; flex-wrap: wrap; }
-        .hero-links a { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 600; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; transition: all 0.2s; }
-        .btn-primary { background: var(--color-accent); color: #fff; }
-        .btn-primary:hover { background: var(--color-accent-hover); }
-        .btn-outline { border: 1.5px solid var(--color-border); color: var(--color-text-secondary); }
-        .btn-outline:hover { border-color: var(--color-accent); color: var(--color-accent); }
-        .section { padding: var(--space-lg) 0; border-top: 1px solid var(--color-border); }
-        .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-xs); }
-        .section h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: var(--space-md); color: var(--color-text); }
-        .method-text { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; }
-        .method-text strong { color: var(--color-text); }
-        .case-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: var(--space-md); margin-bottom: var(--space-md); }
-        .case-card h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .case-card .case-subtitle { font-size: 0.95rem; color: var(--color-text-secondary); margin-bottom: var(--space-sm); font-style: italic; }
-        .case-meta { display: flex; gap: 1.5rem; margin-bottom: var(--space-sm); font-size: 0.85rem; color: var(--color-text-muted); flex-wrap: wrap; }
-        .case-meta strong { color: var(--color-text-secondary); font-weight: 600; }
-        .case-section { margin-bottom: var(--space-md); }
-        .case-section h4 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-accent); }
-        .case-section p, .case-section li { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.75; }
-        .case-section ul { padding-left: 1.2rem; margin-top: 0.4rem; }
-        .case-section li { margin-bottom: 0.3rem; }
-        .case-section li strong { color: var(--color-text); }
-        .stakeholder-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.75rem; }
-        .stakeholder-item { background: var(--color-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--color-border); }
-        .stakeholder-item h5 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--color-accent); }
-        .stakeholder-item p { font-size: 0.82rem; line-height: 1.5; }
-        .decision-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.75rem; }
-        .decision-item { padding: 1rem; background: var(--color-bg); border-radius: 8px; border: 1px solid var(--color-border); }
-        .decision-item h5 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .decision-item p { font-size: 0.85rem; line-height: 1.6; }
-        .iteration-block { border-left: 3px solid var(--color-accent-light); padding-left: 1.2rem; margin-top: 0.75rem; margin-bottom: 1rem; }
-        .iteration-block h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .iteration-block p { font-size: 0.9rem; line-height: 1.7; color: var(--color-text-secondary); }
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--space-sm); }
-        .tag { font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.7rem; background: var(--color-tag-bg); color: var(--color-text-secondary); border-radius: 4px; letter-spacing: 0.02em; }
-        .exp-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: var(--space-md); margin-bottom: var(--space-sm); }
-        .exp-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.15rem; }
-        .exp-card .exp-context { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-xs); }
-        .exp-card p { font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.7; }
-        .exp-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent); margin-bottom: 0.4rem; }
-        .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .mini-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; }
-        .mini-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.15rem; }
-        .mini-card .mini-context { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 0.5rem; }
-        .mini-card p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
-        .footer { padding: var(--space-lg) 0 var(--space-md); border-top: 1px solid var(--color-border); text-align: center; }
-        .footer-cta { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: var(--space-sm); line-height: 1.6; }
-        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: var(--space-md); }
-        .footer-links a { font-size: 0.85rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
-        .footer-links a:hover { text-decoration: underline; }
-        .footer-copy { font-size: 0.8rem; color: var(--color-text-muted); }
-        .service-item { padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
-        .service-item:last-of-type { border-bottom: none; }
-        .service-item h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--color-accent); letter-spacing: 0.01em; }
-        .service-item p { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.75; }
-        .services-note { font-size: 0.9rem; color: var(--color-text-muted); margin-top: var(--space-sm); line-height: 1.7; }
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 2rem; }
-            .hero-subtitle { font-size: 1.05rem; }
-            .stakeholder-grid, .decision-grid, .mini-grid { grid-template-columns: 1fr; }
-            .container { padding: 0 1.25rem; }
-            .nav { padding: 0.75rem 1.25rem; }
-            .nav-links { gap: 0.8rem; }
-            .nav-links a { font-size: 0.78rem; }
-        }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in { opacity: 0; animation: fadeUp 0.6s ease-out forwards; }
-        .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="nav">
-        <a class="nav-brand" href="#">Pedro Cardeal</a>
+        <a class="nav-brand" href="#">[Pedro Cardeal]</a>
         <div class="nav-links">
             <a href="#method">Approach</a>
             <a href="#services">Services</a>
             <a href="#questopia">EdTech Platform</a>
             <a href="#cases">Projects</a>
             <a href="#contact">Contact</a>
-            <span style="color: var(--color-border); margin: 0 0.2rem;">|</span>
+            <span class="nav-sep">|</span>
             <a href="index.html">PT</a>
-            <a href="index-en.html" style="color: var(--color-accent); font-weight: 700;">EN</a>
+            <a href="index-en.html" class="lang-active">EN</a>
         </div>
     </nav>
 
     <header class="hero container">
-        <div class="fade-in"><span class="hero-label">Learning Strategist</span></div>
+        <div class="fade-in"><span class="hero-label">Instructional Designer · Learning Experience Designer</span></div>
         <h1 class="fade-in delay-1">Pedro Cardeal</h1>
-        <p class="hero-subtitle fade-in delay-2">Corporate Education · LX Design · EdTech · Consulting</p>
-        <p class="hero-intro fade-in delay-3">You have the knowledge. The problem is it doesn't land.</p>
-        <p class="hero-intro fade-in delay-3" style="margin-top: 0.75rem;">It could be a product users can't navigate on their own. A training program nobody completes. An onboarding that should be simple but turned into a manual. A sophisticated service clients love — when someone explains it properly.</p>
-        <p class="hero-intro fade-in delay-3" style="margin-top: 0.75rem;">That's where I come in. 15 years turning complexity into something real people can understand, retain, and use. From the classroom to digital products, from Recife to Chile's Ministry of Education — in Portuguese, English, Spanish, and German.</p>
+        <p class="hero-subtitle fade-in delay-2">Instructional Design · Corporate Learning · Learning Experience · EdTech</p>
+        <p class="hero-intro fade-in delay-3"><strong>You have the knowledge. The problem is that it never reaches the people who need it.</strong></p>
+        <p class="hero-intro fade-in delay-3" style="margin-top: 0.75rem;">A training nobody finishes. A manual nobody opens. A product users only get once someone explains it beside them. The content is usually right — what's missing is design.</p>
+        <p class="hero-intro fade-in delay-3" style="margin-top: 0.75rem;">That's where I come in. For 15 years I've turned complex material into learning experiences people can actually understand, retain, and apply. I started in the classroom and moved into digital products; from Recife to Chile's Ministry of Education, in Portuguese, English, and Spanish.</p>
         <div class="hero-links fade-in delay-3">
-            <a href="#questopia" class="btn-primary">View EdTech Platform →</a>
+            <a href="#cases" class="btn-primary">See projects →</a>
             <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank" class="btn-outline">LinkedIn</a>
         </div>
     </header>
 
     <section class="section container" id="method">
         <span class="section-label">Approach</span>
-        <h2>How I Work</h2>
-        <p class="method-text">My work always starts with <strong>diagnosis</strong>: understanding the context, mapping who's learning, and identifying where knowledge breaks down — in the content, the language, the journey, or the experience.</p>
-        <p class="method-text" style="margin-top: 0.75rem;">From there, I design solutions oriented around outcomes. In 15 years building learning experiences, I learned that impact lives at the intersection of <strong>pedagogical rigor</strong> and <strong>product thinking</strong>. The same techniques that work for teaching — reducing cognitive load, creating feedback loops, designing progressive journeys — work for engaging and retaining users in digital products.</p>
+        <h2>How I work</h2>
+        <p class="method-text">Every project starts with <strong>diagnosis</strong>: understanding the context, mapping who's going to learn, and finding where knowledge gets stuck — in the content, the language, the sequence, or the way it's used.</p>
+        <p class="method-text" style="margin-top: 0.75rem;">With that in hand, I design and produce the solution: learning objectives, script, storyboard, and the final material, whether that's a course, a learning path, or an e-learning module. Then I refine it against real use.</p>
+        <p class="method-text" style="margin-top: 0.75rem;">Fifteen years of designing learning taught me that the result lives where <strong>pedagogical rigor</strong> meets <strong>product thinking</strong>. The techniques that get someone to learn — lowering cognitive load, giving feedback at the right moment, building a progression that keeps motivation alive — are the same ones that keep a user engaged in a digital product.</p>
     </section>
 
     <section class="section container" id="services">
         <span class="section-label">Services</span>
-        <h2>What I offer</h2>
+        <h2>What I do</h2>
 
         <div class="service-item">
-            <h3>[ Diagnostic Consulting ]</h3>
-            <p>I identify where knowledge breaks down: in the content, the journey, the language, or the user experience. I deliver an actionable diagnosis with prioritized recommendations.</p>
+            <h3>[ Instructional Design of Courses ]</h3>
+            <p>Courses, learning paths, and training programs, from the learning objective through to assessment. You get the script, storyboard, and experience architecture ready for production.</p>
+        </div>
+
+        <div class="service-item">
+            <h3>[ E-learning Production ]</h3>
+            <p>Self-paced modules and microlearning built in Articulate Rise and SCORM, ready to run on your LMS.</p>
         </div>
 
         <div class="service-item">
             <h3>[ Content Adaptation ]</h3>
-            <p>I transform technical documentation, methodologies, and processes into materials the end user can follow without support. Available in Portuguese, English, Spanish, and German.</p>
+            <p>Technical documentation, methodologies, and processes become material a learner can follow on their own, without support. I work in Portuguese, English, and Spanish.</p>
         </div>
 
         <div class="service-item">
-            <h3>[ Onboarding Design ]</h3>
-            <p>I structure the activation journey so users reach the value of a product without needing help. Less support. More adoption.</p>
+            <h3>[ Diagnosis & Onboarding ]</h3>
+            <p>I map where knowledge stalls and design the activation journey, so users reach value without needing help. Less support, more adoption.</p>
         </div>
 
-        <div class="service-item">
-            <h3>[ Educational Artifact Creation ]</h3>
-            <p>Instructional scripts, learning paths, microlearning, interactive guides, and training materials — from concept to delivery.</p>
-        </div>
-
-        <p class="services-note"><em>Also open to full-time positions at companies with a strong educational or product component.</em></p>
+        <p class="services-note"><em>Available for remote Instructional Design and Learning Experience roles — full-time, contract, or international.</em></p>
     </section>
 
     <section class="section container" id="questopia">
-        <span class="section-label">Own EdTech Platform</span>
+        <span class="section-label">My Own EdTech Platform</span>
         <div class="case-card">
             <h3>Questopia</h3>
-            <p class="case-subtitle">EFL teaching platform based on spaced repetition, gamification, and AI</p>
+            <p class="case-subtitle">An English-learning platform (EFL) built on spaced repetition, gamification, and AI</p>
             <div class="case-meta">
                 <span><strong>Status:</strong> MVP in iteration</span>
                 <span><strong>Role:</strong> Founder & Learning Designer</span>
-                <span><strong>Research:</strong> A research-grounded project in Design</span>
+                <span><strong>Nature:</strong> a research-grounded project in Design</span>
             </div>
             <div class="case-section">
-                <h4>The Educational Challenge</h4>
-                <p>Teaching English as a foreign language in Brazil faces a structural retention problem. Students study vocabulary and grammar, are assessed periodically, and move on — without structured review. Cognitive science shows that spaced repetition is one of the most effective methods for long-term retention, but existing tools (like Anki) require discipline and autonomy that most learners cannot sustain on their own.</p>
+                <h4>The educational challenge</h4>
+                <p>Teaching English as a foreign language in Brazil runs into a retention problem. A student studies vocabulary and grammar, gets tested once, and moves on — with no structured review. Cognitive science points to spaced repetition as one of the most effective methods for long-term retention, but the tools that exist, like Anki, demand a discipline most learners can't keep up on their own.</p>
+            </div>
+            <div class="case-section">
+                <h4>Two sides of the problem</h4>
                 <div class="stakeholder-grid">
                     <div class="stakeholder-item">
-                        <h5>EFL Student</h5>
-                        <p>Low vocabulary and structure retention. Multiple activities competing for study time. Abandons solutions requiring significant setup effort or autonomous discipline.</p>
+                        <h5>EFL learner</h5>
+                        <p>Retains little vocabulary and few structures; has several activities competing for study time; drops anything that needs setup or solo discipline.</p>
                     </div>
                     <div class="stakeholder-item">
-                        <h5>Teacher / Language School</h5>
-                        <p>Time spent on recurring review activities. No data on student error patterns. Needs tools that complement (not replace) their pedagogical practice.</p>
+                        <h5>Teacher / language school</h5>
+                        <p>Spends time on repetitive review; has no data on the class's mistakes; needs something that complements the lesson rather than replacing it.</p>
                     </div>
                 </div>
             </div>
             <div class="case-section">
-                <h4>Diagnosis and Research</h4>
-                <ul>
-                    <li>Qualitative research with English students to map study routines, barriers, and openness to review tools</li>
-                    <li><strong>Key insight:</strong> solutions that compete with free time get abandoned — review must fit into gaps between existing activities, with minimal entry friction</li>
-                    <li>Interviews with English teachers about workflow and operational pain points</li>
-                    <li><strong>Key insight:</strong> the tool must generate value for the teacher (error data, time savings) for them to adopt and recommend it to students</li>
-                </ul>
+                <h4>What shaped the design</h4>
+                <p>Talking to learners surfaced a pattern: anything that competes with free time gets dropped. Review has to fit into the gaps in the day, with the lowest possible barrier to entry.</p>
+                <p style="margin-top: 0.5rem;">Talking to teachers surfaced something else: the tool only sticks if it creates value for whoever teaches — error data, saved time. The teacher is the one who recommends it to students.</p>
             </div>
             <div class="case-section">
-                <h4>Educational Design Decisions</h4>
+                <h4>Design decisions</h4>
                 <div class="decision-grid">
                     <div class="decision-item">
                         <h5>Short review sessions</h5>
-                        <p>Based on microlearning and spaced repetition principles. 5–10 minute sessions that fit into the routine without competing with other activities.</p>
+                        <p>Five to ten minutes, grounded in microlearning and spaced repetition, so they fit the routine instead of competing with it.</p>
                     </div>
                     <div class="decision-item">
-                        <h5>Assist the teacher, not replace them</h5>
-                        <p>A decision driven by research. The teacher is the adoption channel — if they perceive a threat to their role, they won't recommend it.</p>
+                        <h5>Support the teacher, don't replace them</h5>
+                        <p>They're the adoption channel; if they feel their role is threatened, they won't recommend it.</p>
                     </div>
                     <div class="decision-item">
                         <h5>Focus on EFL for Portuguese speakers</h5>
-                        <p>Strategic pivot: an audience with genuine urgency (job market, travel, certifications), without compliance barriers or parental mediation.</p>
+                        <p>An audience with real urgency — work, travel, certification — and none of the compliance or parental-consent barriers of a younger audience.</p>
                     </div>
                     <div class="decision-item">
-                        <h5>Gamification + AI for personalization</h5>
-                        <p>Progression mechanics and immediate feedback for engagement. AI to adapt level and content to each learner's individual performance.</p>
+                        <h5>Gamification and AI</h5>
+                        <p>Progression and instant feedback for engagement; AI to tune level and content to each learner's performance.</p>
                     </div>
                 </div>
             </div>
             <div class="case-section">
                 <h4>Iterations</h4>
                 <div class="iteration-block">
-                    <h5>Iteration 1 — Web MVP (Middle School)</h5>
-                    <p>First functional prototype at <a href="https://questopia.com.br" target="_blank" style="color: var(--color-accent);">questopia.com.br</a>, aimed at students ages 10–14. Initial tests revealed low adoption: the audience didn't have sufficient urgency to maintain engagement — spaced review competed with more appealing activities without a clear motivator. The audience also presented compliance and parental consent barriers for academic research.</p>
+                    <h5>Iteration 1 — Web MVP (ages 10–14)</h5>
+                    <p>The first working prototype at <a href="https://questopia.com.br" target="_blank">questopia.com.br</a>. Testing showed low adoption: without clear urgency, spaced review lost out to more appealing activities. On top of that came the parental-consent barrier for academic research.</p>
                 </div>
                 <div class="iteration-block">
-                    <h5>Iteration 2 — Segment Pivot (current phase)</h5>
-                    <p>Based on adoption data, I redirected focus to English as a Foreign Language learners — Brazilian Portuguese speakers. The new audience has genuine urgency (job market, certifications, travel) and intrinsic motivation to maintain review habits. The core product — spaced repetition with low entry friction — remained the same; what changed was the segment.</p>
+                    <h5>Iteration 2 — Audience pivot (current phase)</h5>
+                    <p>Guided by adoption data, I shifted toward people learning English as a foreign language — Portuguese-speaking adults and teens, with real urgency and their own motivation to review. The core of the product, spaced repetition with low friction, stayed the same; the audience changed.</p>
                 </div>
             </div>
             <div class="tags">
                 <span class="tag">EdTech</span>
-                <span class="tag">EFL / English Teaching</span>
-                <span class="tag">Spaced Repetition</span>
+                <span class="tag">English teaching (EFL)</span>
+                <span class="tag">Spaced repetition</span>
                 <span class="tag">Gamification</span>
-                <span class="tag">AI in Education</span>
+                <span class="tag">AI in education</span>
                 <span class="tag">Instructional Design</span>
-                <span class="tag">Academic Research</span>
+                <span class="tag">Design research</span>
+            </div>
+            <div class="case-nav">
+                <a href="questopia-case-en.html">Read the full case study →</a>
             </div>
         </div>
     </section>
 
     <section class="section container" id="cases">
         <span class="section-label">Reference Projects</span>
-        <h2>Experience in Corporate and Digital Education</h2>
+        <h2>Experience in Corporate and Digital Learning</h2>
         <div class="exp-card">
-            <div class="exp-label">Large-Scale eLearning Operations</div>
+            <div class="exp-label">Large-Scale Distance Learning</div>
             <h3>Teacher Training — Ministry of Education of Chile</h3>
-            <p class="exp-context">International project · Partnership with Kyclos · 2017</p>
-            <p><strong>Challenge:</strong> Teachers in Chile needed to adopt a new teaching methodology, but traditional training didn't scale and generated low retention.</p>
-            <p style="margin-top: 0.5rem;"><strong>Solution:</strong> Designed a training program applying instructional design and active learning principles — structured sessions, support materials, and post-training follow-up. Methodology personalization for the local cultural context, stakeholder management, and performance indicator tracking.</p>
-            <p style="margin-top: 0.5rem;"><strong>Result:</strong> The first groups reached 250–300 teacher-facilitators, with design for large-scale replication. The program demonstrated that educational solutions work when experience design reduces the gap between learning and applying.</p>
+            <p class="exp-context">International project · In partnership with Kyklos · 2017</p>
+            <p><strong>Challenge:</strong> Teachers in Chile had to adopt a new methodology, but traditional training didn't scale and retention was low.</p>
+            <p style="margin-top: 0.5rem;"><strong>Solution:</strong> I designed a program grounded in instructional design and active learning — structured sessions, support materials, and follow-up after the training. I adapted the methodologies to the local cultural context, coordinated multiple stakeholders, and tracked performance indicators.</p>
+            <p style="margin-top: 0.5rem;"><strong>Result:</strong> The first groups reached 250 to 300 teacher-facilitators, with a design built to replicate at scale. It confirmed something simple: training works when the design shortens the distance between learning and doing.</p>
             <div class="tags">
-                <span class="tag">Large-Scale Training</span>
+                <span class="tag">Training at scale</span>
                 <span class="tag">Instructional Design</span>
-                <span class="tag">Stakeholder Management</span>
-                <span class="tag">International Project</span>
+                <span class="tag">Stakeholder management</span>
+                <span class="tag">International project</span>
             </div>
         </div>
         <div class="exp-card">
-            <div class="exp-label">Social Impact Educational Program</div>
-            <h3>Pro Criança — Educational Program Design</h3>
-            <p class="exp-context">Social impact · 100+ students · 2019</p>
-            <p><strong>Challenge:</strong> An existing educational program with low engagement and learning outcomes below expectations. It lacked a structured journey guiding participants from first contact to practical application.</p>
-            <p style="margin-top: 0.5rem;"><strong>Solution:</strong> Redesigned the educational journey focused on key value moments — clear onboarding, gradual progression, and continuous feedback. Applied learning psychology to reduce cognitive load and increase retention, with a curriculum focused on learner autonomy.</p>
-            <p style="margin-top: 0.5rem;"><strong>Result:</strong> Significant increase in engagement and completion, impacting 100+ students. The same principles of good educational design — reducing friction, creating early value, supporting the journey — apply to formal, corporate, and digital education.</p>
+            <div class="exp-label">Social-Impact Educational Program</div>
+            <h3>Pró-Criança — Educational program design</h3>
+            <p class="exp-context">Social impact · around 100 children · 2019</p>
+            <p><strong>Challenge:</strong> A program that already existed but ran on low engagement, with outcomes below what was expected. It lacked a journey to carry participants from first contact to practice.</p>
+            <p style="margin-top: 0.5rem;"><strong>Solution:</strong> I redesigned the journey around the moments that matter — a clear welcome at the start, gradual progression, and steady feedback. I applied learning psychology to lower cognitive load and hold retention, with a curriculum built around learner autonomy.</p>
+            <p style="margin-top: 0.5rem;"><strong>Result:</strong> Engagement and completion rose noticeably, reaching around 100 children. The principles of good educational design — remove friction, create value early, stay with the journey — hold just as well in a school, in a company, and online.</p>
             <div class="tags">
-                <span class="tag">Educational Design</span>
-                <span class="tag">Learning Psychology</span>
-                <span class="tag">Learner Journey</span>
+                <span class="tag">Educational design</span>
+                <span class="tag">Learning psychology</span>
+                <span class="tag">Learner journey</span>
             </div>
         </div>
     </section>
 
     <footer class="footer container" id="contact">
-        <p class="footer-cta">Open to consulting projects, collaborations, and full-time positions at companies with a strong educational or product component.</p>
+        <p class="footer-cta">Available for remote Instructional Design and Learning Experience roles, plus consulting projects and collaborations.</p>
         <div class="footer-links">
             <a href="mailto:pedro@pedrocardeal.com">pedro@pedrocardeal.com</a>
             <a href="https://www.linkedin.com/in/pedrocardeal" target="_blank">LinkedIn</a>
